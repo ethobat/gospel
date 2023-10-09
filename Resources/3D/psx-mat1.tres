@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://d34aq7t14e5gn"]
+
+[ext_resource type="Shader" path="res://Shaders/psx-mat1.gdshader" id="1_swu7x"]
+[ext_resource type="Texture2D" uid="uid://duy27loe211yj" path="res://Resources/3D/tileset_texture-atlas.png" id="2_5jm2w"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_swu7x")
+shader_parameter/jitter = 0.0
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo = ExtResource("2_5jm2w")

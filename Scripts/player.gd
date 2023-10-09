@@ -1,17 +1,13 @@
-extends Character
+extends Node
 class_name Player
 
 var freelook = false
 
 @export var SENSITIVITY: float = 0.003
 
-@onready var head = $Head
-@onready var camera = $Head/Camera3D
-
-@onready var raycast_forward = $RaycastForward
-@onready var raycast_back = $RaycastBack
-@onready var raycast_left = $RaycastLeft
-@onready var raycast_right = $RaycastRight
+@onready var chr = $Character
+@onready var head = $Character/Head
+@onready var camera = $Character/Head/Camera3D
 
 func _unhandled_input(event):
 	if freelook and event is InputEventMouseMotion:
@@ -24,18 +20,18 @@ func _physics_process(delta):
 		begin_freelook()
 	elif freelook and not Input.is_action_pressed("freelook"):
 		end_freelook()
-	if Input.is_action_pressed("move_forward") and not raycast_forward.is_colliding():
-		try_grid_move(Vector3.FORWARD)
-	elif Input.is_action_pressed("move_back") and not raycast_back.is_colliding():
-		try_grid_move(Vector3.BACK)
-	elif Input.is_action_pressed("strafe_left") and not raycast_left.is_colliding():
-		try_grid_move(Vector3.LEFT)
-	elif Input.is_action_pressed("strafe_right") and not raycast_right.is_colliding():
-		try_grid_move(Vector3.RIGHT)
+	if Input.is_action_pressed("move_forward") and not chr.raycast_forward.is_colliding():
+		chr.try_grid_move(Vector3.FORWARD)
+	elif Input.is_action_pressed("move_back") and not chr.raycast_back.is_colliding():
+		chr.try_grid_move(Vector3.BACK)
+	elif Input.is_action_pressed("strafe_left") and not chr.raycast_left.is_colliding():
+		chr.try_grid_move(Vector3.LEFT)
+	elif Input.is_action_pressed("strafe_right") and not chr.raycast_right.is_colliding():
+		chr.try_grid_move(Vector3.RIGHT)
 	elif Input.is_action_pressed("turn_left"):
-		try_grid_turn(false)
+		chr.try_grid_turn(false)
 	elif Input.is_action_pressed("turn_right"):
-		try_grid_turn(true)
+		chr.try_grid_turn(true)
 
 func begin_freelook():
 	freelook = true
@@ -44,5 +40,5 @@ func begin_freelook():
 func end_freelook():
 	freelook = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	head.global_rotation.y = rotation.y
+	head.global_rotation.y = chr.rotation.y
 	camera.rotation.x = 0

@@ -2,7 +2,12 @@ extends Node3D
 class_name Character
 
 var moving = false
-	
+
+@onready var raycast_forward = $RaycastForward
+@onready var raycast_back = $RaycastBack
+@onready var raycast_left = $RaycastLeft
+@onready var raycast_right = $RaycastRight
+
 func get_move_speed():
 	return 0.4
 	

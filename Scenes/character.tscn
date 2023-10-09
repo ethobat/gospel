@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://17uiya8ydlis"]
+
+[ext_resource type="Script" path="res://Scripts/character.gd" id="1_tr28u"]
+
+[node name="Character" type="Node3D"]
+script = ExtResource("1_tr28u")
+
+[node name="RaycastForward" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 0, -1)
+
+[node name="RaycastBack" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 0, 1)
+
+[node name="RaycastLeft" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 1, 0)
+
+[node name="RaycastRight" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
