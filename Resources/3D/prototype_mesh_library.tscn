@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8yw7sna3hms6"]
+
+[ext_resource type="PackedScene" uid="uid://dkdrah1i1l8mq" path="res://Resources/3D/prototype-mesh-library.blend" id="1_q0s4i"]
+
+[node name="prototype-mesh-library" instance=ExtResource("1_q0s4i")]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://dugli6jyw2uir"]
+
+[ext_resource type="Texture2D" uid="uid://cwp7ivhpwmknn" path="res://Resources/Environment/sky-storm.tres" id="1_b3vjd"]
+[ext_resource type="PackedScene" uid="uid://t5pwx7tjtwnp" path="res://Scenes/player.tscn" id="1_y0vmy"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_idwe6"]
+panorama = ExtResource("1_b3vjd")
+
+[sub_resource type="Sky" id="Sky_bvirw"]
+sky_material = SubResource("PanoramaSkyMaterial_idwe6")
+
+[sub_resource type="Environment" id="Environment_kogn3"]
+background_mode = 2
+sky = SubResource("Sky_bvirw")
+sky_rotation = Vector3(0.954695, -0.45204, -0.45204)
+fog_light_color = Color(0.160784, 0.219608, 0.337255, 1)
+fog_sky_affect = 0.176
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4kmsr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_el34f"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_4c613"]
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kogn3")
+
+[node name="cylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -2.5)
+mesh = SubResource("CylinderMesh_4kmsr")
+
+[node name="cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -2.5)
+mesh = SubResource("BoxMesh_el34f")
+
+[node name="cube2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5)
+mesh = SubResource("TorusMesh_4c613")
+
+[node name="Player" parent="." instance=ExtResource("1_y0vmy")]
