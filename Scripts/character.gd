@@ -31,3 +31,25 @@ func try_grid_turn(direction):
 
 func on_finished_moving():
 	moving = false
+
+func move_forward():
+	if not raycast_forward.is_colliding():
+		try_grid_move(Vector3.FORWARD)
+	
+func move_back():
+	if not raycast_back.is_colliding():
+		try_grid_move(Vector3.BACK)
+	
+func strafe_left():
+	if not raycast_left.is_colliding():
+		try_grid_move(Vector3.LEFT)
+	
+func strafe_right():
+	if not raycast_right.is_colliding():
+		try_grid_move(Vector3.RIGHT)
+	
+func turn_left():
+	try_grid_turn(false)
+	
+func turn_right():
+	try_grid_turn(true)

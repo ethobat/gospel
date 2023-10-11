@@ -20,18 +20,18 @@ func _physics_process(delta):
 		begin_freelook()
 	elif freelook and not Input.is_action_pressed("freelook"):
 		end_freelook()
-	if Input.is_action_pressed("move_forward") and not chr.raycast_forward.is_colliding():
-		chr.try_grid_move(Vector3.FORWARD)
-	elif Input.is_action_pressed("move_back") and not chr.raycast_back.is_colliding():
-		chr.try_grid_move(Vector3.BACK)
-	elif Input.is_action_pressed("strafe_left") and not chr.raycast_left.is_colliding():
-		chr.try_grid_move(Vector3.LEFT)
-	elif Input.is_action_pressed("strafe_right") and not chr.raycast_right.is_colliding():
-		chr.try_grid_move(Vector3.RIGHT)
+	if Input.is_action_pressed("move_forward"):
+		chr.move_forward()
+	elif Input.is_action_pressed("move_back"):
+		chr.move_back()
+	elif Input.is_action_pressed("strafe_left"):
+		chr.strafe_left()
+	elif Input.is_action_pressed("strafe_right"):
+		chr.strafe_right()
 	elif Input.is_action_pressed("turn_left"):
-		chr.try_grid_turn(false)
+		chr.turn_left()
 	elif Input.is_action_pressed("turn_right"):
-		chr.try_grid_turn(true)
+		chr.turn_right()
 
 func begin_freelook():
 	freelook = true

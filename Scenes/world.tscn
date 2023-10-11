@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dugli6jyw2uir"]
+[gd_scene load_steps=11 format=3 uid="uid://dugli6jyw2uir"]
 
 [ext_resource type="Texture2D" uid="uid://cwp7ivhpwmknn" path="res://Resources/Environment/sky-storm.tres" id="1_b3vjd"]
-[ext_resource type="PackedScene" uid="uid://t5pwx7tjtwnp" path="res://Scenes/player.tscn" id="1_y0vmy"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="2_ig7a4"]
 [ext_resource type="MeshLibrary" uid="uid://uyufxbitkds" path="res://Resources/3D/tileset.tres" id="3_knede"]
+[ext_resource type="PackedScene" uid="uid://17uiya8ydlis" path="res://Scenes/character.tscn" id="3_si3gf"]
 [ext_resource type="Shader" path="res://Shaders/psx-post-proc.gdshader" id="4_800jq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xa8r0"]
@@ -20,6 +21,9 @@ sky_material = SubResource("ProceduralSkyMaterial_xa8r0")
 [sub_resource type="Environment" id="Environment_kogn3"]
 background_mode = 2
 sky = SubResource("Sky_bvirw")
+ambient_light_source = 2
+ambient_light_color = Color(0.835294, 0.729412, 0.572549, 1)
+ambient_light_energy = 0.13
 fog_light_color = Color(0.160784, 0.219608, 0.337255, 1)
 fog_sky_affect = 0.176
 
@@ -40,8 +44,20 @@ size = Vector2(2, 2)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kogn3")
 
-[node name="Player" parent="." instance=ExtResource("1_y0vmy")]
+[node name="Player" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+script = ExtResource("2_ig7a4")
+
+[node name="Character" parent="Player" instance=ExtResource("3_si3gf")]
+
+[node name="Head" type="Node3D" parent="Player/Character"]
+
+[node name="Camera3D" type="Camera3D" parent="Player/Character/Head"]
+current = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Player/Character"]
+light_color = Color(0.835294, 0.729412, 0.572549, 1)
+omni_range = 6.0
 
 [node name="GridMapFloor" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, 0.5)
@@ -70,3 +86,131 @@ mesh = SubResource("QuadMesh_abnyb")
 [node name="EditorSun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.88271, 0)
 editor_only = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.71875
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/UI/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.388235, 0.388235, 0.388235, 1)
+
+[node name="MovementKeys" type="Control" parent="CanvasLayer/UI/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 260.0
+offset_top = 21.0
+offset_right = -269.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/UI/ReferenceRect/MovementKeys"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.301961, 0.301961, 0.301961, 1)
+
+[node name="Forward" type="Button" parent="CanvasLayer/UI/ReferenceRect/MovementKeys"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.5
+offset_right = 8.5
+offset_bottom = 31.0
+grow_horizontal = 2
+focus_mode = 0
+text = "^"
+
+[node name="Back" type="Button" parent="CanvasLayer/UI/ReferenceRect/MovementKeys"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.5
+offset_top = -31.0
+offset_right = 8.5
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+text = "v"
+
+[node name="StrafeLeft" type="Button" parent="CanvasLayer/UI/ReferenceRect/MovementKeys"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 18.0
+grow_vertical = 0
+focus_mode = 0
+text = "<"
+
+[node name="StrafeRight" type="Button" parent="CanvasLayer/UI/ReferenceRect/MovementKeys"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+text = ">"
+
+[node name="TurnLeft" type="Button" parent="CanvasLayer/UI/ReferenceRect/MovementKeys"]
+layout_mode = 1
+offset_right = 21.0
+offset_bottom = 31.0
+focus_mode = 0
+text = "Q"
+
+[node name="TurnRIght" type="Button" parent="CanvasLayer/UI/ReferenceRect/MovementKeys"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -17.0
+offset_bottom = 31.0
+grow_horizontal = 0
+focus_mode = 0
+text = "E"
+
+[connection signal="button_down" from="CanvasLayer/UI/ReferenceRect/MovementKeys/Forward" to="Player/Character" method="move_forward"]
+[connection signal="button_down" from="CanvasLayer/UI/ReferenceRect/MovementKeys/Back" to="Player/Character" method="move_back"]
+[connection signal="button_down" from="CanvasLayer/UI/ReferenceRect/MovementKeys/StrafeLeft" to="Player/Character" method="strafe_left"]
+[connection signal="button_down" from="CanvasLayer/UI/ReferenceRect/MovementKeys/StrafeRight" to="Player/Character" method="strafe_right"]
+[connection signal="button_down" from="CanvasLayer/UI/ReferenceRect/MovementKeys/TurnLeft" to="Player/Character" method="turn_left"]
+[connection signal="button_down" from="CanvasLayer/UI/ReferenceRect/MovementKeys/TurnRIght" to="Player/Character" method="turn_right"]
