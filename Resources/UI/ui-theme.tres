@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://sdhii0frmp72"]
+
+[ext_resource type="StyleBox" uid="uid://d2xb2s41rp605" path="res://Resources/UI/stylebox-normal.tres" id="1_0sedj"]
+[ext_resource type="FontFile" uid="uid://pj3m3udo3lh0" path="res://Resources/Fonts/Constantia Font.ttf" id="1_8xnb4"]
+[ext_resource type="StyleBox" uid="uid://bjaem7ligp5ad" path="res://Resources/UI/stylebox-pressed.tres" id="2_t485t"]
+[ext_resource type="StyleBox" uid="uid://cuyrtel21wjr1" path="res://Resources/UI/stylebox-hover.tres" id="2_to62p"]
+
+[resource]
+Button/fonts/font = ExtResource("1_8xnb4")
+Button/styles/disabled = ExtResource("1_0sedj")
+Button/styles/focus = ExtResource("1_0sedj")
+Button/styles/hover = ExtResource("2_to62p")
+Button/styles/normal = ExtResource("1_0sedj")
+Button/styles/pressed = ExtResource("2_t485t")
+Label/fonts/font = ExtResource("1_8xnb4")
+LineEdit/fonts/font = ExtResource("1_8xnb4")
+ProgressBar/fonts/font = ExtResource("1_8xnb4")
+TabBar/fonts/font = ExtResource("1_8xnb4")
+TextEdit/fonts/font = ExtResource("1_8xnb4")
+Tree/fonts/font = ExtResource("1_8xnb4")
+Tree/fonts/title_button_font = ExtResource("1_8xnb4")

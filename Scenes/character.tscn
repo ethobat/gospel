@@ -1,21 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://17uiya8ydlis"]
+[gd_scene load_steps=3 format=3 uid="uid://17uiya8ydlis"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_tr28u"]
+[ext_resource type="PackedScene" uid="uid://2l52wsg8csom" path="res://Scenes/block_collider.tscn" id="2_gb6ml"]
 
 [node name="Character" type="Node3D"]
 script = ExtResource("1_tr28u")
 
-[node name="RaycastForward" type="RayCast3D" parent="."]
+[node name="BlockCollider" parent="." instance=ExtResource("2_gb6ml")]
+collision_layer = 2
+
+[node name="RaycastForward" type="RayCast3D" parent="BlockCollider"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 target_position = Vector3(0, 0, -1)
+collision_mask = 3
 
-[node name="RaycastBack" type="RayCast3D" parent="."]
+[node name="RaycastBack" type="RayCast3D" parent="BlockCollider"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 target_position = Vector3(0, 0, 1)
+collision_mask = 3
 
-[node name="RaycastLeft" type="RayCast3D" parent="."]
+[node name="RaycastLeft" type="RayCast3D" parent="BlockCollider"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 target_position = Vector3(0, 1, 0)
+collision_mask = 3
 
-[node name="RaycastRight" type="RayCast3D" parent="."]
+[node name="RaycastRight" type="RayCast3D" parent="BlockCollider"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+collision_mask = 3

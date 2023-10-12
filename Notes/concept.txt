@@ -24,7 +24,7 @@ Stats:
 	Replenishment - Rate at which the body generates blood.
 Sub-stats; these modify other stats but don't do anything by themselves:
 	Consciousness - Provided by the brain. Has a great effect on Art, a slight effect on Locomotion, and an inverse effect on Discipline, i.e. low Consciousness corresponds to high pain tolerance. If Consciousness drops below a certain value, the player falls unconscious.
-	Respiration - Ability to breathe. Determines maximum stamina and stamina recovery rate. Caps Consciousness, e.g. if Respiration is at 90%, Consciousness cannot exceed this value.
+	Respiration - Ability to breathe. Determines maximum stamina and stamina recovery rate. Caps Consciousness, e.g. if Respiration is at 90%, Consciousness cannot exceed 90%.
 	Circulation - Rate of blood circulation. Caps Consciousness.
 
 Each attack has an attack power and trauma category. The attack power determines how much damage is done to the target, and how costly the attack is to block. Trauma category determines the type of injury that is inflicted when the attack lands.
@@ -40,4 +40,4 @@ Each attack has an attack power and trauma category. The attack power determines
 - Penetrative attacks:
 	- limited bleeding effect
 	- can pierce the flesh to damage internal organs
-	- normally ineffective against armor, but can bypass it altogether with a high manipulation stat
+	- normally ineffective against armor, but can bypass it altogether with a high Art stat
