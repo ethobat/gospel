@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://caqmj7ubl53vo"]
+
+[ext_resource type="LabelSettings" path="res://Resources/UI/ui_label_settings.tres" id="1_oqpmn"]
+[ext_resource type="Script" path="res://Scripts/UI/attack_button.gd" id="1_vy2ll"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eb5mr"]
+font_size = 8
+font_color = Color(0.721569, 0.611765, 0, 1)
+shadow_size = 2
+shadow_color = Color(0.2, 0.168627, 0, 1)
+
+[node name="AttackButton" type="Panel"]
+custom_minimum_size = Vector2(100, 30)
+anchors_preset = -1
+anchor_left = 0.326625
+anchor_top = 0.452333
+anchor_right = 0.482812
+anchor_bottom = 0.514583
+offset_left = -0.0400238
+offset_top = -0.12001
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_vy2ll")
+stat_name = null
+metadata/_edit_use_anchors_ = true
+
+[node name="BodyPartLabel" type="Label" parent="."]
+layout_mode = 1
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 62.0
+offset_bottom = 15.0
+text = "left hand"
+label_settings = SubResource("LabelSettings_eb5mr")
+vertical_alignment = 1
+
+[node name="AttackNameLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -7.0
+offset_right = 69.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "punch"
+label_settings = ExtResource("1_oqpmn")
+vertical_alignment = 1

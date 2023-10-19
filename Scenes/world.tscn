@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dugli6jyw2uir"]
+[gd_scene load_steps=24 format=3 uid="uid://dugli6jyw2uir"]
 
 [ext_resource type="Texture2D" uid="uid://cwp7ivhpwmknn" path="res://Resources/Environment/sky-storm.tres" id="1_b3vjd"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_ig7a4"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ckwp47pjdqm5x" path="res://Resources/Images/strafe-left.png" id="10_lk5b8"]
 [ext_resource type="Texture2D" uid="uid://bua7dir6yc0cj" path="res://Resources/Images/move-back.png" id="11_hesof"]
 [ext_resource type="Texture2D" uid="uid://dn2oo7cpylawb" path="res://Resources/Images/strafe-right.png" id="12_c6xwg"]
+[ext_resource type="PackedScene" uid="uid://caqmj7ubl53vo" path="res://Scenes/UI/attack_button.tscn" id="14_6idwe"]
 [ext_resource type="Script" path="res://Scripts/time_indicator.gd" id="14_ljnok"]
 [ext_resource type="Texture2D" uid="uid://cple7n22c8xr7" path="res://Resources/Images/debug_play.png" id="15_bd8n5"]
 [ext_resource type="Texture2D" uid="uid://dsv7y4lbfwa2k" path="res://Resources/Images/debug_pause.png" id="16_qls30"]
@@ -93,7 +94,6 @@ data = {
 
 [node name="PostProcessingQuad" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-visible = false
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_abnyb")
 
@@ -225,6 +225,53 @@ text = "
 icon = ExtResource("12_c6xwg")
 icon_alignment = 1
 
+[node name="AttackButtons" type="GridContainer" parent="CanvasLayer/UI/BottomBar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -47.5
+offset_right = -8.0
+offset_bottom = 48.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="AttackButton" parent="CanvasLayer/UI/BottomBar/AttackButtons" instance=ExtResource("14_6idwe")]
+layout_mode = 2
+
+[node name="AttackButton2" parent="CanvasLayer/UI/BottomBar/AttackButtons" instance=ExtResource("14_6idwe")]
+layout_mode = 2
+
+[node name="BodyPartLabel" parent="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton2" index="0"]
+text = "right hand"
+
+[node name="AttackNameLabel" parent="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton2" index="1"]
+text = "slash"
+
+[node name="AttackButton3" parent="CanvasLayer/UI/BottomBar/AttackButtons" instance=ExtResource("14_6idwe")]
+layout_mode = 2
+
+[node name="BodyPartLabel" parent="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton3" index="0"]
+text = "jaw"
+
+[node name="AttackNameLabel" parent="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton3" index="1"]
+text = "bite"
+
+[node name="AttackButton4" parent="CanvasLayer/UI/BottomBar/AttackButtons" instance=ExtResource("14_6idwe")]
+layout_mode = 2
+
+[node name="BodyPartLabel" parent="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton4" index="0"]
+text = "left elbow"
+
+[node name="AttackNameLabel" parent="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton4" index="1"]
+text = "thrust"
+
 [node name="TimeIndicator" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 0
 offset_right = 22.0
@@ -261,3 +308,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/StrafeLeft" to="Player/Character" method="strafe_left"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveBack" to="Player/Character" method="move_back"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/StrafeRight" to="Player/Character" method="strafe_right"]
+
+[editable path="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton"]
+[editable path="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton2"]
+[editable path="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton3"]
+[editable path="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton4"]

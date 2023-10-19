@@ -3,12 +3,12 @@ extends Panel
 @export var entity: Entity
 @export var stat_name: String
 
-@onready var stat_name_display: Label = $StatNameDisplay
-@onready var value_display: Label = $ValueDisplay
+@onready var stat_name_label: Label = $StatNameLabel
+@onready var value_label: Label = $ValueLabel
 
 func _ready():
-	stat_name_display.text = stat_name
-	#update_value_display()
+	stat_name_label.text = stat_name
+	#update_value_label()
 	
-func update_value_display():
-	value_display.text = entity.get_stat(stat_name)
+func update_value_label():
+	value_label.text = entity.get_stat(stat_name)
