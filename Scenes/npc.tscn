@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://17uiya8ydlis" path="res://Scenes/character.tscn" id="1_1ov64"]
 [ext_resource type="Script" path="res://Scripts/npc.gd" id="1_b0f7e"]
-[ext_resource type="ArrayMesh" uid="uid://ciwh6q0oox5c0" path="res://Resources/3D/suzanne.tres" id="2_ceurc"]
+[ext_resource type="ArrayMesh" uid="uid://ciwh6q0oox5c0" path="res://Resources/3D/suzanne.tres" id="3_hvwl1"]
 
 [node name="NPC" type="Node3D"]
 script = ExtResource("1_b0f7e")
@@ -11,4 +11,4 @@ script = ExtResource("1_b0f7e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 0, 0)
-mesh = ExtResource("2_ceurc")
+mesh = ExtResource("3_hvwl1")

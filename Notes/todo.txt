@@ -2,8 +2,8 @@
 PHASE 1
 ---
 Goal: Create a prototype that demonstrates the dungeon-crawler controls and semi-turn-based combat system.
-- WASD/QE movement.
-- Tilemap-based level geometry.
+- WASD/QE movement. - DONE
+- Tilemap-based level geometry. - DONE
 - Enemy AI: navigation and attacks.
 - Attack time system.
 - Stamina & blocking system. (? - need to do some design work here!)

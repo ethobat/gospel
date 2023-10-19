@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://17uiya8ydlis" path="res://Scenes/character.tscn" id="3_si3gf"]
 [ext_resource type="Shader" path="res://Shaders/psx-post-proc.gdshader" id="4_800jq"]
 [ext_resource type="Theme" uid="uid://sdhii0frmp72" path="res://Resources/UI/ui-theme.tres" id="6_3qdy5"]
+[ext_resource type="PackedScene" uid="uid://dbs2iv0th37u8" path="res://Scenes/UI/stat_readout.tscn" id="7_a0bsf"]
 [ext_resource type="Texture2D" uid="uid://w6k05nt7hwb8" path="res://Resources/Images/turn-left.png" id="7_ojyva"]
-[ext_resource type="Texture2D" uid="uid://bv6mm6iixhysh" path="res://Resources/Images/ui-concrete.jpg" id="7_tm1dp"]
 [ext_resource type="Texture2D" uid="uid://d0ssgt8yvakh5" path="res://Resources/Images/move-forward.png" id="8_i7wbc"]
 [ext_resource type="Texture2D" uid="uid://w3vjw7gsupl8" path="res://Resources/Images/turn-right.png" id="9_jqtdh"]
 [ext_resource type="Texture2D" uid="uid://ckwp47pjdqm5x" path="res://Resources/Images/strafe-left.png" id="10_lk5b8"]
@@ -93,6 +93,7 @@ data = {
 
 [node name="PostProcessingQuad" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_abnyb")
 
@@ -103,7 +104,6 @@ editor_only = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -112,43 +112,80 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("6_3qdy5")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/UI"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -104.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("7_tm1dp")
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
+[node name="DebugUI" type="Node" parent="CanvasLayer/UI"]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI"]
+[node name="BottomBar" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.791667
+anchor_top = 0.78125
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="MovementKeys" type="GridContainer" parent="CanvasLayer/UI/HBoxContainer"]
+[node name="StatDisplay" type="Panel" parent="CanvasLayer/UI/BottomBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 218.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/BottomBar/StatDisplay"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -148.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="StatReadoutMuscle" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" instance=ExtResource("7_a0bsf")]
 layout_mode = 2
+stat_name = "muscle"
+
+[node name="StatReadoutArt" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" instance=ExtResource("7_a0bsf")]
+layout_mode = 2
+stat_name = "art"
+
+[node name="StatReadoutLocomotion" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" instance=ExtResource("7_a0bsf")]
+layout_mode = 2
+stat_name = "locomotion"
+
+[node name="StatReadoutReplenishment" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" instance=ExtResource("7_a0bsf")]
+layout_mode = 2
+stat_name = "replenishment"
+
+[node name="MovementButtons" type="GridContainer" parent="CanvasLayer/UI/BottomBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = -48.0
+offset_right = 88.5
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
 columns = 3
 
-[node name="TurnLeft" type="Button" parent="CanvasLayer/UI/HBoxContainer/MovementKeys"]
+[node name="TurnLeft" type="Button" parent="CanvasLayer/UI/BottomBar/MovementButtons"]
 layout_mode = 2
 focus_mode = 0
 text = "
 "
 icon = ExtResource("7_ojyva")
-icon_alignment = 1
 
-[node name="MoveForward" type="Button" parent="CanvasLayer/UI/HBoxContainer/MovementKeys"]
+[node name="MoveForward" type="Button" parent="CanvasLayer/UI/BottomBar/MovementButtons"]
 layout_mode = 2
 focus_mode = 0
 text = "
@@ -156,7 +193,7 @@ text = "
 icon = ExtResource("8_i7wbc")
 icon_alignment = 1
 
-[node name="TurnRight" type="Button" parent="CanvasLayer/UI/HBoxContainer/MovementKeys"]
+[node name="TurnRight" type="Button" parent="CanvasLayer/UI/BottomBar/MovementButtons"]
 layout_mode = 2
 focus_mode = 0
 text = "
@@ -164,7 +201,7 @@ text = "
 icon = ExtResource("9_jqtdh")
 icon_alignment = 1
 
-[node name="StrafeLeft" type="Button" parent="CanvasLayer/UI/HBoxContainer/MovementKeys"]
+[node name="StrafeLeft" type="Button" parent="CanvasLayer/UI/BottomBar/MovementButtons"]
 layout_mode = 2
 focus_mode = 0
 text = "
@@ -172,7 +209,7 @@ text = "
 icon = ExtResource("10_lk5b8")
 icon_alignment = 1
 
-[node name="MoveBack" type="Button" parent="CanvasLayer/UI/HBoxContainer/MovementKeys"]
+[node name="MoveBack" type="Button" parent="CanvasLayer/UI/BottomBar/MovementButtons"]
 layout_mode = 2
 focus_mode = 0
 text = "
@@ -180,7 +217,7 @@ text = "
 icon = ExtResource("11_hesof")
 icon_alignment = 1
 
-[node name="StrafeRight" type="Button" parent="CanvasLayer/UI/HBoxContainer/MovementKeys"]
+[node name="StrafeRight" type="Button" parent="CanvasLayer/UI/BottomBar/MovementButtons"]
 layout_mode = 2
 focus_mode = 0
 text = "
@@ -188,22 +225,13 @@ text = "
 icon = ExtResource("12_c6xwg")
 icon_alignment = 1
 
-[node name="DebugUI" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("6_3qdy5")
-
-[node name="TimeIndicator" type="Control" parent="CanvasLayer/DebugUI"]
-anchors_preset = 0
-offset_right = 26.0
-offset_bottom = 23.0
+[node name="TimeIndicator" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 21.0
 script = ExtResource("14_ljnok")
 
-[node name="Play" type="TextureRect" parent="CanvasLayer/DebugUI/TimeIndicator"]
+[node name="Play" type="TextureRect" parent="CanvasLayer/UI/TimeIndicator"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -214,7 +242,7 @@ grow_vertical = 2
 texture = ExtResource("15_bd8n5")
 expand_mode = 1
 
-[node name="Pause" type="TextureRect" parent="CanvasLayer/DebugUI/TimeIndicator"]
+[node name="Pause" type="TextureRect" parent="CanvasLayer/UI/TimeIndicator"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -227,9 +255,9 @@ expand_mode = 1
 [node name="NPC" parent="." instance=ExtResource("17_6jt1s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
-[connection signal="button_down" from="CanvasLayer/UI/HBoxContainer/MovementKeys/TurnLeft" to="Player/Character" method="turn_left"]
-[connection signal="button_down" from="CanvasLayer/UI/HBoxContainer/MovementKeys/MoveForward" to="Player/Character" method="move_forward"]
-[connection signal="button_down" from="CanvasLayer/UI/HBoxContainer/MovementKeys/TurnRight" to="Player/Character" method="turn_right"]
-[connection signal="button_down" from="CanvasLayer/UI/HBoxContainer/MovementKeys/StrafeLeft" to="Player/Character" method="strafe_left"]
-[connection signal="button_down" from="CanvasLayer/UI/HBoxContainer/MovementKeys/MoveBack" to="Player/Character" method="move_back"]
-[connection signal="button_down" from="CanvasLayer/UI/HBoxContainer/MovementKeys/StrafeRight" to="Player/Character" method="strafe_right"]
+[connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/TurnLeft" to="Player/Character" method="turn_left"]
+[connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveForward" to="Player/Character" method="move_forward"]
+[connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/TurnRight" to="Player/Character" method="turn_right"]
+[connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/StrafeLeft" to="Player/Character" method="strafe_left"]
+[connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveBack" to="Player/Character" method="move_back"]
+[connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/StrafeRight" to="Player/Character" method="strafe_right"]

@@ -1,6 +1,8 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://d2xb2s41rp605"]
 
-[ext_resource type="Texture2D" uid="uid://bv6mm6iixhysh" path="res://Resources/Images/ui-concrete.jpg" id="1_82xvi"]
+[ext_resource type="Texture2D" uid="uid://bff8wxs4pryox" path="res://Resources/Images/ui-concrete-fg.png" id="1_42fvq"]
 
 [resource]
-texture = ExtResource("1_82xvi")
+texture = ExtResource("1_42fvq")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
