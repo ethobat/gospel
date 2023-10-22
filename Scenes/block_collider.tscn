@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://2l52wsg8csom"]
+[gd_scene load_steps=3 format=3 uid="uid://2l52wsg8csom"]
+
+[ext_resource type="PackedScene" uid="uid://dbya32l6uinwl" path="res://Resources/3D/box_collider_wireframe.glb" id="1_rwh4q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uferm"]
 
@@ -8,3 +10,6 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_uferm")
+
+[node name="box_collider_wireframe" parent="." instance=ExtResource("1_rwh4q")]
+visible = false

@@ -13,6 +13,7 @@ var progress = 0.0
 
 var is_player = false
 
+@onready var block_collider = $BlockCollider
 @onready var raycast_forward = $BlockCollider/RaycastForward
 @onready var raycast_back = $BlockCollider/RaycastBack
 @onready var raycast_left = $BlockCollider/RaycastLeft
@@ -31,6 +32,7 @@ func _time_process(delta):
 			position = move_destination
 			moving = false
 			if is_player: TimeSystem.stop_playing()
+			else: print("NPC stopped moving")
 		else:
 			position = lerp(move_original_position, move_destination, terp(progress))
 	elif turning:
@@ -53,10 +55,8 @@ func try_grid_move(movement):
 	progress = 0.0
 	moving = true
 	move_original_position = position
-	move_destination = position + transform.basis*movement
-	#var tween = create_tween().set_trans(Tween.TRANS_QUAD)
-	#tween.tween_property(self, "transform", transform.translated(transform.basis*movement), get_move_speed())
-	#tween.finished.connect(on_finished_moving)
+	move_destination = position + transform.basis * movement
+	block_collider.global_position += block_collider.transform.basis * movement
 	if is_player: TimeSystem.begin_playing()
 
 # direction: false to turn left, true to turn right
@@ -64,11 +64,10 @@ func try_grid_turn(direction):
 	if moving or turning: return
 	progress = 0.0
 	turning = true
+	var delta = PI/2 * (-1 if direction else 1)
 	turn_original_angle = rotation.y
-	turn_destination = rotation.y + PI/2 * (-1 if direction else 1)
-	#var tween = create_tween().set_trans(Tween.TRANS_QUAD)
-	#tween.tween_property(self, "transform:basis", transform.basis.rotated(Vector3.UP, PI/2*(-1 if direction else 1)), get_turn_speed())
-	#tween.finished.connect(on_finished_moving)
+	turn_destination = rotation.y + delta
+	block_collider.global_rotation.y = global_rotation.y + delta
 	if is_player: TimeSystem.begin_playing()
 
 func move_forward():

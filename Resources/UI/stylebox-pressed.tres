@@ -4,4 +4,6 @@
 
 [resource]
 texture = ExtResource("1_wmyrp")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 modulate_color = Color(0.647059, 0.647059, 0.647059, 1)

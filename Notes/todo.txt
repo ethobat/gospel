@@ -8,7 +8,7 @@ Goal: Create a prototype that demonstrates the dungeon-crawler controls and semi
 - Attack time system.
 - Stamina & blocking system. (? - need to do some design work here!)
 - Simple HP system for enemies.
-- Model of small level, showcasing art style.
+- Model of small level, showcasing art style. - DONE
 ---
 PHASE 2
 ---

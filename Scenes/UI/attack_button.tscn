@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://caqmj7ubl53vo"]
 
-[ext_resource type="LabelSettings" path="res://Resources/UI/ui_label_settings.tres" id="1_oqpmn"]
+[ext_resource type="LabelSettings" uid="uid://cge873cq51eaj" path="res://Resources/UI/ui_label_settings.tres" id="1_oqpmn"]
 [ext_resource type="Script" path="res://Scripts/UI/attack_button.gd" id="1_vy2ll"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_eb5mr"]
@@ -9,7 +9,7 @@ font_color = Color(0.721569, 0.611765, 0, 1)
 shadow_size = 2
 shadow_color = Color(0.2, 0.168627, 0, 1)
 
-[node name="AttackButton" type="Panel"]
+[node name="AttackButton" type="Button"]
 custom_minimum_size = Vector2(100, 30)
 anchors_preset = -1
 anchor_left = 0.326625
@@ -21,8 +21,8 @@ offset_top = -0.12001
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+focus_mode = 0
 script = ExtResource("1_vy2ll")
-stat_name = null
 metadata/_edit_use_anchors_ = true
 
 [node name="BodyPartLabel" type="Label" parent="."]

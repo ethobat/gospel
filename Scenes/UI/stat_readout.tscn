@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dbs2iv0th37u8"]
 
 [ext_resource type="Script" path="res://Scripts/UI/stat_readout.gd" id="1_8href"]
-[ext_resource type="LabelSettings" path="res://Resources/UI/ui_label_settings.tres" id="2_gs7iq"]
+[ext_resource type="LabelSettings" uid="uid://cge873cq51eaj" path="res://Resources/UI/ui_label_settings.tres" id="2_gs7iq"]
 
 [node name="StatReadout" type="Panel"]
 custom_minimum_size = Vector2(120, 20)

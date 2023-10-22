@@ -1,28 +1,23 @@
-[gd_scene load_steps=29 format=3 uid="uid://dugli6jyw2uir"]
+[gd_scene load_steps=24 format=3 uid="uid://dugli6jyw2uir"]
 
 [ext_resource type="Texture2D" uid="uid://cwp7ivhpwmknn" path="res://Resources/Environment/sky-storm.tres" id="1_b3vjd"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_ig7a4"]
 [ext_resource type="MeshLibrary" uid="uid://uyufxbitkds" path="res://Resources/3D/tileset.tres" id="3_knede"]
 [ext_resource type="PackedScene" uid="uid://17uiya8ydlis" path="res://Scenes/character.tscn" id="3_si3gf"]
-[ext_resource type="Script" path="res://Scripts/entity.gd" id="4_7cv6c"]
 [ext_resource type="Shader" path="res://Shaders/psx-post-proc.gdshader" id="4_800jq"]
-[ext_resource type="Resource" uid="uid://83dnlswf31bf" path="res://Resources/Anatomy/human_anatomy.tres" id="5_btkep"]
 [ext_resource type="Theme" uid="uid://sdhii0frmp72" path="res://Resources/UI/ui-theme.tres" id="6_3qdy5"]
 [ext_resource type="PackedScene" uid="uid://dbs2iv0th37u8" path="res://Scenes/UI/stat_readout.tscn" id="7_a0bsf"]
 [ext_resource type="Texture2D" uid="uid://w6k05nt7hwb8" path="res://Resources/Images/turn-left.png" id="7_ojyva"]
 [ext_resource type="Texture2D" uid="uid://d0ssgt8yvakh5" path="res://Resources/Images/move-forward.png" id="8_i7wbc"]
 [ext_resource type="Texture2D" uid="uid://w3vjw7gsupl8" path="res://Resources/Images/turn-right.png" id="9_jqtdh"]
-[ext_resource type="Script" path="res://Scripts/UI.gd" id="10_fgak3"]
 [ext_resource type="Texture2D" uid="uid://ckwp47pjdqm5x" path="res://Resources/Images/strafe-left.png" id="10_lk5b8"]
 [ext_resource type="Texture2D" uid="uid://bua7dir6yc0cj" path="res://Resources/Images/move-back.png" id="11_hesof"]
 [ext_resource type="Texture2D" uid="uid://dn2oo7cpylawb" path="res://Resources/Images/strafe-right.png" id="12_c6xwg"]
-[ext_resource type="Script" path="res://Scripts/UI/attack_button_window.gd" id="14_gqcls"]
+[ext_resource type="PackedScene" uid="uid://caqmj7ubl53vo" path="res://Scenes/UI/attack_button.tscn" id="14_6idwe"]
 [ext_resource type="Script" path="res://Scripts/time_indicator.gd" id="14_ljnok"]
 [ext_resource type="Texture2D" uid="uid://cple7n22c8xr7" path="res://Resources/Images/debug_play.png" id="15_bd8n5"]
 [ext_resource type="Texture2D" uid="uid://dsv7y4lbfwa2k" path="res://Resources/Images/debug_pause.png" id="16_qls30"]
 [ext_resource type="PackedScene" uid="uid://b77e0svbcxf7m" path="res://Scenes/npc.tscn" id="17_6jt1s"]
-[ext_resource type="PackedScene" uid="uid://caimjr83jijg5" path="res://Scenes/UI/anatomy_window.tscn" id="22_qy187"]
-[ext_resource type="PackedScene" uid="uid://c5luiwlod2ksb" path="res://Scenes/UI/inventory_window.tscn" id="23_t84s3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xa8r0"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -32,7 +27,6 @@ sky_cover = ExtResource("1_b3vjd")
 ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0, 0, 0, 1)
 sun_angle_max = 0.0
-use_debanding = false
 
 [sub_resource type="Sky" id="Sky_bvirw"]
 sky_material = SubResource("ProceduralSkyMaterial_xa8r0")
@@ -41,8 +35,8 @@ sky_material = SubResource("ProceduralSkyMaterial_xa8r0")
 background_mode = 2
 sky = SubResource("Sky_bvirw")
 ambient_light_source = 2
-ambient_light_color = Color(1, 0.913725, 0.780392, 1)
-ambient_light_energy = 0.1
+ambient_light_color = Color(0.835294, 0.729412, 0.572549, 1)
+ambient_light_energy = 0.13
 fog_light_color = Color(0.160784, 0.219608, 0.337255, 1)
 fog_sky_affect = 0.176
 
@@ -71,7 +65,6 @@ script = ExtResource("2_ig7a4")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Head" type="Node3D" parent="Player/Character"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player/Character/Head"]
 current = true
@@ -80,15 +73,8 @@ current = true
 light_color = Color(0.835294, 0.729412, 0.572549, 1)
 omni_range = 6.0
 
-[node name="Entity" type="Node" parent="Player"]
-script = ExtResource("4_7cv6c")
-anatomy = ExtResource("5_btkep")
-
-[node name="NPC" parent="." instance=ExtResource("17_6jt1s")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 0, 4)
-
 [node name="GridMapFloor" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, 0.5)
 mesh_library = ExtResource("3_knede")
 cell_size = Vector3(1, 1, 1)
 collision_layer = 0
@@ -98,7 +84,7 @@ data = {
 }
 
 [node name="GridMapWall" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, 0.5)
 mesh_library = ExtResource("3_knede")
 cell_size = Vector3(1, 1, 1)
 collision_mask = 0
@@ -125,7 +111,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("6_3qdy5")
-script = ExtResource("10_fgak3")
+
+[node name="DebugUI" type="Node" parent="CanvasLayer/UI"]
 
 [node name="BottomBar" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 1
@@ -158,24 +145,20 @@ offset_left = -148.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="StatReadoutMuscle" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" node_paths=PackedStringArray("entity") instance=ExtResource("7_a0bsf")]
+[node name="StatReadoutMuscle" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" instance=ExtResource("7_a0bsf")]
 layout_mode = 2
-entity = NodePath("../../../../../../Player/Entity")
 stat_name = "muscle"
 
-[node name="StatReadoutArt" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" node_paths=PackedStringArray("entity") instance=ExtResource("7_a0bsf")]
+[node name="StatReadoutArt" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" instance=ExtResource("7_a0bsf")]
 layout_mode = 2
-entity = NodePath("../../../../../../Player/Entity")
 stat_name = "art"
 
-[node name="StatReadoutLocomotion" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" node_paths=PackedStringArray("entity") instance=ExtResource("7_a0bsf")]
+[node name="StatReadoutLocomotion" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" instance=ExtResource("7_a0bsf")]
 layout_mode = 2
-entity = NodePath("../../../../../../Player/Entity")
 stat_name = "locomotion"
 
-[node name="StatReadoutReplenishment" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" node_paths=PackedStringArray("entity") instance=ExtResource("7_a0bsf")]
+[node name="StatReadoutReplenishment" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" instance=ExtResource("7_a0bsf")]
 layout_mode = 2
-entity = NodePath("../../../../../../Player/Entity")
 stat_name = "replenishment"
 
 [node name="MovementButtons" type="GridContainer" parent="CanvasLayer/UI/BottomBar"]
@@ -242,7 +225,7 @@ text = "
 icon = ExtResource("12_c6xwg")
 icon_alignment = 1
 
-[node name="AttackButtonWindow" type="GridContainer" parent="CanvasLayer/UI/BottomBar" node_paths=PackedStringArray("player")]
+[node name="AttackButtons" type="GridContainer" parent="CanvasLayer/UI/BottomBar"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -258,8 +241,36 @@ grow_vertical = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 2
-script = ExtResource("14_gqcls")
-player = NodePath("../../../../Player/Entity")
+
+[node name="AttackButton" parent="CanvasLayer/UI/BottomBar/AttackButtons" instance=ExtResource("14_6idwe")]
+layout_mode = 2
+
+[node name="AttackButton2" parent="CanvasLayer/UI/BottomBar/AttackButtons" instance=ExtResource("14_6idwe")]
+layout_mode = 2
+
+[node name="BodyPartLabel" parent="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton2" index="0"]
+text = "right hand"
+
+[node name="AttackNameLabel" parent="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton2" index="1"]
+text = "slash"
+
+[node name="AttackButton3" parent="CanvasLayer/UI/BottomBar/AttackButtons" instance=ExtResource("14_6idwe")]
+layout_mode = 2
+
+[node name="BodyPartLabel" parent="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton3" index="0"]
+text = "jaw"
+
+[node name="AttackNameLabel" parent="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton3" index="1"]
+text = "bite"
+
+[node name="AttackButton4" parent="CanvasLayer/UI/BottomBar/AttackButtons" instance=ExtResource("14_6idwe")]
+layout_mode = 2
+
+[node name="BodyPartLabel" parent="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton4" index="0"]
+text = "left elbow"
+
+[node name="AttackNameLabel" parent="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton4" index="1"]
+text = "thrust"
 
 [node name="TimeIndicator" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 0
@@ -288,9 +299,8 @@ grow_vertical = 2
 texture = ExtResource("16_qls30")
 expand_mode = 1
 
-[node name="AnatomyWindow" parent="CanvasLayer/UI" instance=ExtResource("22_qy187")]
-
-[node name="InventoryWindow" parent="CanvasLayer/UI" instance=ExtResource("23_t84s3")]
+[node name="NPC" parent="." instance=ExtResource("17_6jt1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/TurnLeft" to="Player/Character" method="turn_left"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveForward" to="Player/Character" method="move_forward"]
@@ -298,3 +308,8 @@ expand_mode = 1
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/StrafeLeft" to="Player/Character" method="strafe_left"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveBack" to="Player/Character" method="move_back"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/StrafeRight" to="Player/Character" method="strafe_right"]
+
+[editable path="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton"]
+[editable path="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton2"]
+[editable path="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton3"]
+[editable path="CanvasLayer/UI/BottomBar/AttackButtons/AttackButton4"]

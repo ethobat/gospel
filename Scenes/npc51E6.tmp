@@ -9,7 +9,7 @@ script = ExtResource("1_b0f7e")
 
 [node name="Character" parent="." instance=ExtResource("1_1ov64")]
 
-[node name="Suzanne" type="MeshInstance3D" parent="Character"]
-transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 0.5, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 0, 0)
 mesh = ExtResource("3_hvwl1")
 skeleton = NodePath("../..")
