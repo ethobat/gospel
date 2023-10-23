@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dugli6jyw2uir"]
+[gd_scene load_steps=27 format=3 uid="uid://dugli6jyw2uir"]
 
 [ext_resource type="Texture2D" uid="uid://cwp7ivhpwmknn" path="res://Resources/Environment/sky-storm.tres" id="1_b3vjd"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_ig7a4"]
@@ -21,8 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://cple7n22c8xr7" path="res://Resources/Images/debug_play.png" id="15_bd8n5"]
 [ext_resource type="Texture2D" uid="uid://dsv7y4lbfwa2k" path="res://Resources/Images/debug_pause.png" id="16_qls30"]
 [ext_resource type="PackedScene" uid="uid://b77e0svbcxf7m" path="res://Scenes/npc.tscn" id="17_6jt1s"]
-[ext_resource type="PackedScene" uid="uid://caimjr83jijg5" path="res://Scenes/UI/anatomy_window.tscn" id="22_qy187"]
-[ext_resource type="PackedScene" uid="uid://c5luiwlod2ksb" path="res://Scenes/UI/inventory_window.tscn" id="23_t84s3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xa8r0"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -117,7 +115,7 @@ editor_only = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" type="Control" parent="CanvasLayer"]
+[node name="UI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("entity")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -126,6 +124,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("6_3qdy5")
 script = ExtResource("10_fgak3")
+entity = NodePath("../../Player/Entity")
 
 [node name="BottomBar" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 1
@@ -288,9 +287,21 @@ grow_vertical = 2
 texture = ExtResource("16_qls30")
 expand_mode = 1
 
-[node name="AnatomyWindow" parent="CanvasLayer/UI" instance=ExtResource("22_qy187")]
+[node name="AnatomyWindow" type="Window" parent="CanvasLayer/UI"]
+title = "ANATOMY"
+position = Vector2i(315, 91)
+size = Vector2i(300, 300)
+popup_window = true
 
-[node name="InventoryWindow" parent="CanvasLayer/UI" instance=ExtResource("23_t84s3")]
+[node name="Tree" type="Tree" parent="CanvasLayer/UI/AnatomyWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+column_titles_visible = true
+hide_root = true
 
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/TurnLeft" to="Player/Character" method="turn_left"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveForward" to="Player/Character" method="move_forward"]

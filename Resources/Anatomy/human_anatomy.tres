@@ -1,43 +1,93 @@
-[gd_resource type="Resource" script_class="Anatomy" load_steps=9 format=3 uid="uid://83dnlswf31bf"]
+[gd_resource type="Resource" script_class="Anatomy" load_steps=16 format=3 uid="uid://83dnlswf31bf"]
 
 [ext_resource type="Script" path="res://Scripts/anatomy.gd" id="1_7d42o"]
+
+[sub_resource type="Resource" id="Resource_hpqw8"]
+script = ExtResource("1_7d42o")
+name = "brain"
+hp = 4.0
+children = Array[ExtResource("1_7d42o")]([])
 
 [sub_resource type="Resource" id="Resource_x8dq4"]
 script = ExtResource("1_7d42o")
 name = "head"
-children = null
+hp = 6.0
+children = Array[ExtResource("1_7d42o")]([SubResource("Resource_hpqw8")])
+
+[sub_resource type="Resource" id="Resource_kohos"]
+script = ExtResource("1_7d42o")
+name = "left lung"
+hp = 5.0
+children = Array[ExtResource("1_7d42o")]([])
+
+[sub_resource type="Resource" id="Resource_18ss2"]
+script = ExtResource("1_7d42o")
+name = "right lung"
+hp = 5.0
+children = Array[ExtResource("1_7d42o")]([])
+
+[sub_resource type="Resource" id="Resource_0vg4s"]
+script = ExtResource("1_7d42o")
+name = "heart"
+hp = 2.0
+children = Array[ExtResource("1_7d42o")]([])
 
 [sub_resource type="Resource" id="Resource_j22er"]
 script = ExtResource("1_7d42o")
 name = "thorax"
-children = null
+hp = 0.0
+children = Array[ExtResource("1_7d42o")]([SubResource("Resource_kohos"), SubResource("Resource_18ss2"), SubResource("Resource_0vg4s")])
+
+[sub_resource type="Resource" id="Resource_t2mvp"]
+script = ExtResource("1_7d42o")
+name = "stomach"
+hp = 5.0
+children = Array[ExtResource("1_7d42o")]([])
+
+[sub_resource type="Resource" id="Resource_ane1c"]
+script = ExtResource("1_7d42o")
+name = "small intestine"
+hp = 6.0
+children = Array[ExtResource("1_7d42o")]([])
+
+[sub_resource type="Resource" id="Resource_qb7r8"]
+script = ExtResource("1_7d42o")
+name = "large intestine"
+hp = 6.0
+children = Array[ExtResource("1_7d42o")]([])
 
 [sub_resource type="Resource" id="Resource_1kfde"]
 script = ExtResource("1_7d42o")
 name = "abdomen"
-children = null
+hp = 0.0
+children = Array[ExtResource("1_7d42o")]([SubResource("Resource_t2mvp"), SubResource("Resource_ane1c"), SubResource("Resource_qb7r8")])
 
 [sub_resource type="Resource" id="Resource_xwuvo"]
 script = ExtResource("1_7d42o")
 name = "left leg"
+hp = 0.0
 children = null
 
 [sub_resource type="Resource" id="Resource_bp7yd"]
 script = ExtResource("1_7d42o")
 name = "right leg"
+hp = 0.0
 children = null
 
 [sub_resource type="Resource" id="Resource_qnkvh"]
 script = ExtResource("1_7d42o")
 name = "left arm"
+hp = 0.0
 children = null
 
 [sub_resource type="Resource" id="Resource_oka0u"]
 script = ExtResource("1_7d42o")
 name = "right arm"
+hp = 0.0
 children = null
 
 [resource]
 script = ExtResource("1_7d42o")
 name = "body"
-children = Array[Resource]([SubResource("Resource_x8dq4"), SubResource("Resource_j22er"), SubResource("Resource_1kfde"), SubResource("Resource_xwuvo"), SubResource("Resource_bp7yd"), SubResource("Resource_qnkvh"), SubResource("Resource_oka0u")])
+hp = 0.0
+children = Array[ExtResource("1_7d42o")]([SubResource("Resource_x8dq4"), SubResource("Resource_j22er"), SubResource("Resource_1kfde"), SubResource("Resource_xwuvo"), SubResource("Resource_bp7yd"), SubResource("Resource_qnkvh"), SubResource("Resource_oka0u")])
