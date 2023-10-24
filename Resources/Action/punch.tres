@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://c0t1f7tcc4mdo"]
+
+[ext_resource type="Script" path="res://Scripts/attack.gd" id="1_erqee"]
+
+[resource]
+script = ExtResource("1_erqee")
+name = "punch"
+trauma_category = 0
+base_damage = 1.0
