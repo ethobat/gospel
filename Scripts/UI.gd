@@ -1,6 +1,6 @@
 extends Control
 
-@export var entity: Entity
+@export var player: Character
 
 @onready var anatomy_window = $AnatomyWindow
 @onready var inventory_window = $InventoryWindow
@@ -12,10 +12,11 @@ func _physics_process(delta):
 		toggle_ui()
 
 func _ready():
-	var anatomy: Anatomy = entity.anatomy
+	var player_anatomy: Anatomy = player.entity.anatomy
 	tree.set_column_title(0, "body part")
 	tree.set_column_title(1, "hp")
-	populate_anatomy_tree(tree, null, anatomy)
+	populate_anatomy_tree(tree, null, player_anatomy)
+	toggle_ui()
 		
 func populate_anatomy_tree(tree, parent_tree_item, anatomy):
 	var tree_item = tree.create_item(parent_tree_item, 0)

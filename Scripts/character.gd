@@ -1,6 +1,8 @@
 extends Node3D
 class_name Character
 
+@export var entity: Entity
+
 var moving = false
 var move_original_position:Vector3
 var move_destination:Vector3
@@ -21,18 +23,19 @@ var is_player = false
 
 func _ready():
 	TimeSystem.register_user(self)
-
+	entity.character = self
+	
 func terp(x):
 	return 3*pow(x, 2)-2*pow(x,3)
 
 func _time_process(delta):
+	entity._time_process(delta)
 	if moving:
 		progress += delta * get_move_speed()
 		if progress > 1.0:
 			position = move_destination
 			moving = false
 			if is_player: TimeSystem.stop_playing()
-			else: print("NPC stopped moving")
 		else:
 			position = lerp(move_original_position, move_destination, terp(progress))
 	elif turning:
@@ -44,11 +47,17 @@ func _time_process(delta):
 		else:
 			rotation.y = lerp(turn_original_angle, turn_destination, terp(progress))
 
+func get_facing_character():
+	if raycast_forward.is_colliding():
+		var obj = raycast_forward.get_collider().get_parent()
+		if obj is Character:
+			return obj
+
 func get_move_speed():
-	return 2.0
+	return entity.get_locomotion() * 2.0
 
 func get_turn_speed():
-	return 3.0
+	return entity.get_locomotion() * 3.0
 	
 func try_grid_move(movement):
 	if moving or turning: return

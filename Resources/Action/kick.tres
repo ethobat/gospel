@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://bebsrwyy4g6kx"]
+
+[ext_resource type="Script" path="res://Scripts/attack.gd" id="1_uo8jp"]
+
+[resource]
+script = ExtResource("1_uo8jp")
+name = "kick"
+trauma_category = 0
+base_damage = 1.3
+windup_time = 0.5

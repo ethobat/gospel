@@ -7,7 +7,7 @@ var waiting = false
 
 @export var SENSITIVITY: float = 0.003
 
-@onready var chr = $Character
+@onready var chr: Character = $Character
 @onready var head = $Character/Head
 @onready var camera = $Character/Head/Camera3D
 
@@ -21,6 +21,8 @@ func _input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-89.9), deg_to_rad(89.9))
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("dbg_test"):
+		print(str(chr.get_facing_character()))
 	if waiting:
 		if Input.is_action_just_released("wait") and TimeSystem.playing:
 			TimeSystem.stop_playing()
@@ -35,18 +37,19 @@ func _physics_process(delta):
 			begin_freelook()
 		elif freelook and not Input.is_action_pressed("freelook"):
 			end_freelook()
-		if Input.is_action_pressed("move_forward"):
-			chr.move_forward()
-		elif Input.is_action_pressed("move_back"):
-			chr.move_back()
-		elif Input.is_action_pressed("strafe_left"):
-			chr.strafe_left()
-		elif Input.is_action_pressed("strafe_right"):
-			chr.strafe_right()
-		elif Input.is_action_pressed("turn_left"):
-			chr.turn_left()
-		elif Input.is_action_pressed("turn_right"):
-			chr.turn_right()
+		if not TimeSystem.playing:
+			if Input.is_action_pressed("move_forward"):
+				chr.move_forward()
+			elif Input.is_action_pressed("move_back"):
+				chr.move_back()
+			elif Input.is_action_pressed("strafe_left"):
+				chr.strafe_left()
+			elif Input.is_action_pressed("strafe_right"):
+				chr.strafe_right()
+			elif Input.is_action_pressed("turn_left"):
+				chr.turn_left()
+			elif Input.is_action_pressed("turn_right"):
+				chr.turn_right()
 
 func begin_freelook():
 	freelook = true
