@@ -1,6 +1,6 @@
 extends GridContainer
 
-@export var player: Character
+@export var player_chr: Character
 
 func _ready():
 	make_attack_buttons()
@@ -9,7 +9,7 @@ func make_attack_buttons():
 	var scene = load("res://Scenes/UI/attack_button.tscn")
 	for node in get_children():
 		node.queue_free()
-	for anatomy in player.entity.anatomy.all():
+	for anatomy in player_chr.anatomy.all():
 		for action in anatomy.actions:
 			make_attack_button(scene, anatomy.name, action.name)
 	#make_attack_button(scene, "left hand", "punch")
@@ -25,4 +25,4 @@ func make_attack_button(scene, body_part_name, action_name):
 
 func on_attack_button_press(body_part_name: String, action_name: String):
 	if not TimeSystem.playing:
-		player.entity.perform_action_windup(body_part_name, action_name)
+		player_chr.perform_action_windup(body_part_name, action_name)

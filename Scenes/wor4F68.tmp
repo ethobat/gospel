@@ -1,11 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://dugli6jyw2uir"]
+[gd_scene load_steps=25 format=3 uid="uid://dugli6jyw2uir"]
 
 [ext_resource type="Texture2D" uid="uid://cwp7ivhpwmknn" path="res://Resources/Environment/sky-storm.tres" id="1_b3vjd"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_ig7a4"]
 [ext_resource type="MeshLibrary" uid="uid://uyufxbitkds" path="res://Resources/3D/tileset.tres" id="3_knede"]
 [ext_resource type="PackedScene" uid="uid://17uiya8ydlis" path="res://Scenes/character.tscn" id="3_si3gf"]
 [ext_resource type="Shader" path="res://Shaders/psx-post-proc.gdshader" id="4_800jq"]
-[ext_resource type="Resource" uid="uid://83dnlswf31bf" path="res://Resources/Anatomy/human_anatomy.tres" id="4_qqk3q"]
 [ext_resource type="Theme" uid="uid://sdhii0frmp72" path="res://Resources/UI/ui-theme.tres" id="6_3qdy5"]
 [ext_resource type="PackedScene" uid="uid://dbs2iv0th37u8" path="res://Scenes/UI/stat_readout.tscn" id="7_a0bsf"]
 [ext_resource type="Texture2D" uid="uid://w6k05nt7hwb8" path="res://Resources/Images/turn-left.png" id="7_ojyva"]
@@ -66,8 +65,6 @@ script = ExtResource("2_ig7a4")
 
 [node name="Character" parent="Player" instance=ExtResource("3_si3gf")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
-character_name = "player"
-anatomy = ExtResource("4_qqk3q")
 
 [node name="Head" type="Node3D" parent="Player/Character"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -235,7 +232,7 @@ text = "
 icon = ExtResource("12_c6xwg")
 icon_alignment = 1
 
-[node name="AttackButtonWindow" type="GridContainer" parent="CanvasLayer/UI/BottomBar" node_paths=PackedStringArray("player_chr")]
+[node name="AttackButtonWindow" type="GridContainer" parent="CanvasLayer/UI/BottomBar" node_paths=PackedStringArray("player")]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -252,7 +249,7 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 2
 script = ExtResource("14_gqcls")
-player_chr = NodePath("../../../../Player/Character")
+player = NodePath("../../../../Player/Character")
 
 [node name="TimeIndicator" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 0
@@ -308,3 +305,5 @@ popup_window = true
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/StrafeLeft" to="Player/Character" method="strafe_left"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveBack" to="Player/Character" method="move_back"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/StrafeRight" to="Player/Character" method="strafe_right"]
+
+[editable path="NPC"]

@@ -5,134 +5,172 @@
 [ext_resource type="Resource" uid="uid://bebsrwyy4g6kx" path="res://Resources/Action/kick.tres" id="2_vapja"]
 
 [sub_resource type="Resource" id="Resource_cu8qx"]
+resource_name = "left hand"
 script = ExtResource("1_7d42o")
 name = "left hand"
 hp = 2.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("2_8f1ry")])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_qnkvh"]
+resource_name = "left arm"
 script = ExtResource("1_7d42o")
 name = "left arm"
 hp = 0.0
 children = Array[ExtResource("1_7d42o")]([SubResource("Resource_cu8qx")])
 actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_7tah3"]
+resource_name = "right hand"
 script = ExtResource("1_7d42o")
 name = "right hand"
 hp = 2.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("2_8f1ry")])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_oka0u"]
+resource_name = "right arm"
 script = ExtResource("1_7d42o")
 name = "right arm"
 hp = 0.0
 children = Array[ExtResource("1_7d42o")]([SubResource("Resource_7tah3")])
 actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_b6erd"]
+resource_name = "left foot"
 script = ExtResource("1_7d42o")
 name = "left foot"
 hp = 4.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("2_vapja")])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_xwuvo"]
+resource_name = "left leg"
 script = ExtResource("1_7d42o")
 name = "left leg"
 hp = 7.0
 children = Array[ExtResource("1_7d42o")]([SubResource("Resource_b6erd")])
 actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_v07st"]
+resource_name = "right foot"
 script = ExtResource("1_7d42o")
 name = "right foot"
 hp = 4.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("2_vapja")])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_bp7yd"]
+resource_name = "right leg"
 script = ExtResource("1_7d42o")
 name = "right leg"
 hp = 7.0
 children = Array[ExtResource("1_7d42o")]([SubResource("Resource_v07st")])
 actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_hpqw8"]
+resource_name = "brain"
 script = ExtResource("1_7d42o")
 name = "brain"
 hp = 4.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_x8dq4"]
+resource_name = "head"
 script = ExtResource("1_7d42o")
 name = "head"
 hp = 6.0
 children = Array[ExtResource("1_7d42o")]([SubResource("Resource_hpqw8")])
 actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_kohos"]
+resource_name = "left lung"
 script = ExtResource("1_7d42o")
 name = "left lung"
 hp = 5.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_18ss2"]
+resource_name = "right lung"
 script = ExtResource("1_7d42o")
 name = "right lung"
 hp = 5.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_0vg4s"]
+resource_name = "heart"
 script = ExtResource("1_7d42o")
 name = "heart"
 hp = 2.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_j22er"]
+resource_name = "thorax"
 script = ExtResource("1_7d42o")
 name = "thorax"
 hp = 0.0
 children = Array[ExtResource("1_7d42o")]([SubResource("Resource_kohos"), SubResource("Resource_18ss2"), SubResource("Resource_0vg4s")])
 actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_t2mvp"]
+resource_name = "stomach"
 script = ExtResource("1_7d42o")
 name = "stomach"
 hp = 5.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_ane1c"]
+resource_name = "small intestine"
 script = ExtResource("1_7d42o")
 name = "small intestine"
 hp = 6.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_qb7r8"]
+resource_name = "large intestine"
 script = ExtResource("1_7d42o")
 name = "large intestine"
 hp = 6.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_1kfde"]
+resource_name = "abdomen"
 script = ExtResource("1_7d42o")
 name = "abdomen"
 hp = 0.0
 children = Array[ExtResource("1_7d42o")]([SubResource("Resource_t2mvp"), SubResource("Resource_ane1c"), SubResource("Resource_qb7r8")])
 actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_7d42o")
 name = "body"
 hp = 0.0
 children = Array[ExtResource("1_7d42o")]([SubResource("Resource_qnkvh"), SubResource("Resource_oka0u"), SubResource("Resource_xwuvo"), SubResource("Resource_bp7yd"), SubResource("Resource_x8dq4"), SubResource("Resource_j22er"), SubResource("Resource_1kfde")])
 actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])

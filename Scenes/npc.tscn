@@ -1,25 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://b77e0svbcxf7m"]
+[gd_scene load_steps=5 format=3 uid="uid://b77e0svbcxf7m"]
 
 [ext_resource type="PackedScene" uid="uid://17uiya8ydlis" path="res://Scenes/character.tscn" id="1_1ov64"]
 [ext_resource type="Script" path="res://Scripts/npc.gd" id="1_b0f7e"]
-[ext_resource type="Resource" uid="uid://83dnlswf31bf" path="res://Resources/Anatomy/human_anatomy.tres" id="3_exfib"]
+[ext_resource type="Resource" uid="uid://83dnlswf31bf" path="res://Resources/Anatomy/human_anatomy.tres" id="3_3yubl"]
 [ext_resource type="ArrayMesh" uid="uid://ciwh6q0oox5c0" path="res://Resources/3D/suzanne.tres" id="3_hvwl1"]
-[ext_resource type="Script" path="res://Scripts/entity.gd" id="4_jbdl8"]
-
-[sub_resource type="Resource" id="Resource_igsct"]
-script = ExtResource("4_jbdl8")
-name = "test"
-anatomy = ExtResource("3_exfib")
-base_muscle = 1.0
-base_art = 1.0
-base_locomotion = 1.0
-base_replenishment = 1.0
 
 [node name="NPC" type="Node3D"]
 script = ExtResource("1_b0f7e")
 
 [node name="Character" parent="." instance=ExtResource("1_1ov64")]
-entity = SubResource("Resource_igsct")
+character_name = "suzanne"
+anatomy = ExtResource("3_3yubl")
 
 [node name="Suzanne" type="MeshInstance3D" parent="Character"]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 0.5, 0)

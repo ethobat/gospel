@@ -7,3 +7,4 @@ script = ExtResource("1_erqee")
 name = "punch"
 trauma_category = 0
 base_damage = 1.0
+windup_time = 0.3

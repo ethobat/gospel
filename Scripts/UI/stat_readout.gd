@@ -1,6 +1,6 @@
 extends Panel
 
-@export var entity: Entity
+@export var chr: Character
 @export var stat_name: String
 
 @onready var stat_name_label: Label = $StatNameLabel
@@ -11,4 +11,4 @@ func _ready():
 	#update_value_label()
 	
 func update_value_label():
-	value_label.text = entity.get_stat(stat_name)
+	value_label.text = chr.get_stat(stat_name)

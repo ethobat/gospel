@@ -1,7 +1,15 @@
 extends Node3D
 class_name Character
 
-@export var entity: Entity
+# copied from entity
+
+@export var character_name: String
+@export var anatomy: Anatomy
+
+var windup: bool = false
+var windup_action: Action
+var windup_source_part: Anatomy
+var windup_time: float
 
 var moving = false
 var move_original_position:Vector3
@@ -10,6 +18,8 @@ var move_destination:Vector3
 var turning = false
 var turn_original_angle
 var turn_destination
+
+###
 
 var progress = 0.0
 
@@ -23,13 +33,18 @@ var is_player = false
 
 func _ready():
 	TimeSystem.register_user(self)
-	entity.character = self
 	
 func terp(x):
 	return 3*pow(x, 2)-2*pow(x,3)
 
 func _time_process(delta):
-	entity._time_process(delta)
+	if windup:
+		windup_time -= delta
+		if windup_time <= 0:
+			windup = false
+			perform_action_immediate()
+			if is_player:
+				TimeSystem.stop_playing()
 	if moving:
 		progress += delta * get_move_speed()
 		if progress > 1.0:
@@ -54,10 +69,10 @@ func get_facing_character():
 			return obj
 
 func get_move_speed():
-	return entity.get_locomotion() * 2.0
+	return get_stat("locomotion") * 2.0
 
 func get_turn_speed():
-	return entity.get_locomotion() * 3.0
+	return get_stat("locomotion") * 3.0
 	
 func try_grid_move(movement):
 	if moving or turning: return
@@ -100,3 +115,27 @@ func turn_left():
 	
 func turn_right():
 	try_grid_turn(true)
+
+func perform_action_windup(body_part_name: String, action_name: String):
+	if windup:
+		return
+	windup = true
+	windup_source_part = anatomy.find(body_part_name)
+	windup_action = windup_source_part.get_action(action_name)
+	windup_time = windup_action.windup_time
+	var target = get_facing_character()
+	
+	print("Attempting " + action_name + " with " + body_part_name)
+	print("Muscle: " + str(windup_source_part.get_stat("muscle")))
+	if is_player:
+		TimeSystem.begin_playing()
+
+func perform_action_immediate():
+	var target = get_facing_character()
+	if target is Character:
+		windup_action.perform(self, windup_source_part, target)
+	else:
+		print("Miss")
+
+func get_stat(stat_name: String):
+	return anatomy.get_stat(stat_name)

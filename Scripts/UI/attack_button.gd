@@ -1,6 +1,6 @@
 extends Button
 
-@export var entity: Entity
+@export var character: Character
 @export var body_part_name: String
 @export var action_name: String
 

@@ -12,5 +12,7 @@ const BLUNT_FORCE = 0
 const CUTTING = 1
 const PENETRATIVE = 2
 
-func perform(attacker: Entity, source_anatomy: Anatomy, target: Entity):
-	print(attacker.name+" attacked "+target.name+" with "+source_anatomy.name+" "+name)
+func perform(attacker: Character, source_anatomy: Anatomy, target: Character):
+	print(attacker.character_name+" attacked "+target.character_name+" with "+source_anatomy.name+" "+name)
+	print(attacker.anatomy.find("heart").hp)
+	print(target.anatomy.find("heart").hp)

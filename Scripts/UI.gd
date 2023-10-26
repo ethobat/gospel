@@ -12,7 +12,7 @@ func _physics_process(delta):
 		toggle_ui()
 
 func _ready():
-	var player_anatomy: Anatomy = player.entity.anatomy
+	var player_anatomy: Anatomy = player.anatomy
 	tree.set_column_title(0, "body part")
 	tree.set_column_title(1, "hp")
 	populate_anatomy_tree(tree, null, player_anatomy)

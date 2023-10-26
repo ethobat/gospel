@@ -22,7 +22,8 @@ func _input(event):
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("dbg_test"):
-		print(str(chr.get_facing_character()))
+		chr.anatomy.find("heart").hp = 17
+		print(chr.anatomy.find("heart").hp)
 	if waiting:
 		if Input.is_action_just_released("wait") and TimeSystem.playing:
 			TimeSystem.stop_playing()

@@ -6,7 +6,7 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	TimeSystem.register_user(self)
-	#chr.turn_left()
+	chr.turn_left()
 	
 func _physics_process(delta):
 	#global_rotation.y += delta * 10
