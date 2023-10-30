@@ -3,21 +3,24 @@ class_name Character
 
 # copied from entity
 
-@export var character_name: String
-@export var anatomy: Anatomy
+@export var character_name : String
+@export var anatomy : Anatomy
 
-var windup: bool = false
-var windup_action: Action
-var windup_source_part: Anatomy
-var windup_time: float
+var windup : bool = false
+var windup_action : Action
+var windup_source_part : Anatomy
+var windup_time : float
 
 var moving = false
-var move_original_position:Vector3
-var move_destination:Vector3
+var move_original_position : Vector3
+var move_destination : Vector3
+var move_destination_global : Vector3
+var move_passed_midway_point : bool
+const MOVE_MIDWAY_POINT : float = 0.5
 
 var turning = false
-var turn_original_angle
-var turn_destination
+var turn_original_angle : float
+var turn_destination : float
 
 ###
 
@@ -47,7 +50,9 @@ func _time_process(delta):
 				TimeSystem.stop_playing()
 	if moving:
 		progress += delta * get_move_speed()
-		if progress > 1.0:
+		if not move_passed_midway_point and progress > MOVE_MIDWAY_POINT:
+			do_midway_raycast()
+		elif move_passed_midway_point and progress > 1.0:
 			position = move_destination
 			moving = false
 			if is_player: TimeSystem.stop_playing()
@@ -80,7 +85,8 @@ func try_grid_move(movement):
 	moving = true
 	move_original_position = position
 	move_destination = position + transform.basis * movement
-	block_collider.global_position += block_collider.transform.basis * movement
+	move_destination_global = block_collider.global_position + block_collider.transform.basis * movement
+	move_passed_midway_point = false
 	if is_player: TimeSystem.begin_playing()
 
 # direction: false to turn left, true to turn right
@@ -93,6 +99,14 @@ func try_grid_turn(direction):
 	turn_destination = rotation.y + delta
 	block_collider.global_rotation.y = global_rotation.y + delta
 	if is_player: TimeSystem.begin_playing()
+	
+func do_midway_raycast():
+	move_passed_midway_point = true
+	move_collider_to_destination()
+	print("Midway")
+	
+func move_collider_to_destination():
+	block_collider.global_position = move_destination_global
 
 func move_forward():
 	if not raycast_forward.is_colliding():
