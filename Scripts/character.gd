@@ -16,7 +16,9 @@ var move_original_position : Vector3
 var move_destination : Vector3
 var move_destination_global : Vector3
 var move_passed_midway_point : bool
-const MOVE_MIDWAY_POINT : float = 0.5
+var move_raycast : RayCast3D
+var move_reverse : bool
+const MOVE_MIDWAY_POINT : float = 0.4
 
 var turning = false
 var turn_original_angle : float
@@ -49,8 +51,12 @@ func _time_process(delta):
 			if is_player:
 				TimeSystem.stop_playing()
 	if moving:
-		progress += delta * get_move_speed()
-		if not move_passed_midway_point and progress > MOVE_MIDWAY_POINT:
+		progress += delta * get_move_speed() * (-1 if move_reverse else 1)
+		if progress <= 0.0:
+			position = move_original_position
+			moving = false
+			if is_player: TimeSystem.stop_playing()
+		elif not move_passed_midway_point and progress > MOVE_MIDWAY_POINT:
 			do_midway_raycast()
 		elif move_passed_midway_point and progress > 1.0:
 			position = move_destination
@@ -79,7 +85,15 @@ func get_move_speed():
 func get_turn_speed():
 	return get_stat("locomotion") * 3.0
 	
-func try_grid_move(movement):
+func try_grid_move(raycast : RayCast3D):
+	if raycast.is_colliding():
+		return
+	var movement
+	match raycast:
+		raycast_forward: movement = Vector3.FORWARD
+		raycast_back: movement = Vector3.BACK
+		raycast_left: movement = Vector3.LEFT
+		raycast_right: movement = Vector3.RIGHT
 	if moving or turning: return
 	progress = 0.0
 	moving = true
@@ -87,6 +101,8 @@ func try_grid_move(movement):
 	move_destination = position + transform.basis * movement
 	move_destination_global = block_collider.global_position + block_collider.transform.basis * movement
 	move_passed_midway_point = false
+	move_raycast = raycast
+	move_reverse = false
 	if is_player: TimeSystem.begin_playing()
 
 # direction: false to turn left, true to turn right
@@ -102,27 +118,25 @@ func try_grid_turn(direction):
 	
 func do_midway_raycast():
 	move_passed_midway_point = true
-	move_collider_to_destination()
-	print("Midway")
-	
+	if move_raycast.is_colliding():
+		move_reverse = true
+	else:
+		move_collider_to_destination()
+
 func move_collider_to_destination():
 	block_collider.global_position = move_destination_global
 
 func move_forward():
-	if not raycast_forward.is_colliding():
-		try_grid_move(Vector3.FORWARD)
+	try_grid_move(raycast_forward)
 	
 func move_back():
-	if not raycast_back.is_colliding():
-		try_grid_move(Vector3.BACK)
+	try_grid_move(raycast_back)
 	
 func strafe_left():
-	if not raycast_left.is_colliding():
-		try_grid_move(Vector3.LEFT)
+	try_grid_move(raycast_left)
 	
 func strafe_right():
-	if not raycast_right.is_colliding():
-		try_grid_move(Vector3.RIGHT)
+	try_grid_move(raycast_right)
 	
 func turn_left():
 	try_grid_turn(false)

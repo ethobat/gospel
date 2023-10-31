@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dugli6jyw2uir"]
+[gd_scene load_steps=50 format=3 uid="uid://dugli6jyw2uir"]
 
 [ext_resource type="Texture2D" uid="uid://cwp7ivhpwmknn" path="res://Resources/Environment/sky-storm.tres" id="1_b3vjd"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_ig7a4"]
@@ -7,10 +7,14 @@
 [ext_resource type="Shader" path="res://Shaders/psx-post-proc.gdshader" id="4_800jq"]
 [ext_resource type="Resource" uid="uid://83dnlswf31bf" path="res://Resources/Anatomy/human_anatomy.tres" id="4_qqk3q"]
 [ext_resource type="Theme" uid="uid://sdhii0frmp72" path="res://Resources/UI/ui-theme.tres" id="6_3qdy5"]
+[ext_resource type="Resource" uid="uid://c0t1f7tcc4mdo" path="res://Resources/Action/punch.tres" id="6_tgyw1"]
 [ext_resource type="PackedScene" uid="uid://dbs2iv0th37u8" path="res://Scenes/UI/stat_readout.tscn" id="7_a0bsf"]
 [ext_resource type="Texture2D" uid="uid://w6k05nt7hwb8" path="res://Resources/Images/turn-left.png" id="7_ojyva"]
+[ext_resource type="Script" path="res://Scripts/anatomy.gd" id="7_ydlfx"]
 [ext_resource type="Texture2D" uid="uid://d0ssgt8yvakh5" path="res://Resources/Images/move-forward.png" id="8_i7wbc"]
+[ext_resource type="Resource" uid="uid://bebsrwyy4g6kx" path="res://Resources/Action/kick.tres" id="8_qwmcg"]
 [ext_resource type="Texture2D" uid="uid://w3vjw7gsupl8" path="res://Resources/Images/turn-right.png" id="9_jqtdh"]
+[ext_resource type="Script" path="res://Scripts/stat_record.gd" id="9_qxg16"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="10_fgak3"]
 [ext_resource type="Texture2D" uid="uid://ckwp47pjdqm5x" path="res://Resources/Images/strafe-left.png" id="10_lk5b8"]
 [ext_resource type="Texture2D" uid="uid://bua7dir6yc0cj" path="res://Resources/Images/move-back.png" id="11_hesof"]
@@ -42,6 +46,182 @@ ambient_light_color = Color(1, 0.913725, 0.780392, 1)
 ambient_light_energy = 0.1
 fog_light_color = Color(0.160784, 0.219608, 0.337255, 1)
 fog_sky_affect = 0.176
+
+[sub_resource type="Resource" id="Resource_cu8qx"]
+resource_name = "left hand"
+script = ExtResource("7_ydlfx")
+name = "left hand"
+hp = 2.0
+children = Array[ExtResource("7_ydlfx")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("6_tgyw1")])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_qnkvh"]
+resource_name = "left arm"
+script = ExtResource("7_ydlfx")
+name = "left arm"
+hp = 0.0
+children = Array[ExtResource("7_ydlfx")]([SubResource("Resource_cu8qx")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_7tah3"]
+resource_name = "right hand"
+script = ExtResource("7_ydlfx")
+name = "right hand"
+hp = 2.0
+children = Array[ExtResource("7_ydlfx")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("6_tgyw1")])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_oka0u"]
+resource_name = "right arm"
+script = ExtResource("7_ydlfx")
+name = "right arm"
+hp = 0.0
+children = Array[ExtResource("7_ydlfx")]([SubResource("Resource_7tah3")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_b6erd"]
+resource_name = "left foot"
+script = ExtResource("7_ydlfx")
+name = "left foot"
+hp = 4.0
+children = Array[ExtResource("7_ydlfx")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("8_qwmcg")])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_xwuvo"]
+resource_name = "left leg"
+script = ExtResource("7_ydlfx")
+name = "left leg"
+hp = 7.0
+children = Array[ExtResource("7_ydlfx")]([SubResource("Resource_b6erd")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_v07st"]
+resource_name = "right foot"
+script = ExtResource("7_ydlfx")
+name = "right foot"
+hp = 4.0
+children = Array[ExtResource("7_ydlfx")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("8_qwmcg")])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_bp7yd"]
+resource_name = "right leg"
+script = ExtResource("7_ydlfx")
+name = "right leg"
+hp = 7.0
+children = Array[ExtResource("7_ydlfx")]([SubResource("Resource_v07st")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_hpqw8"]
+resource_name = "brain"
+script = ExtResource("7_ydlfx")
+name = "brain"
+hp = 4.0
+children = Array[ExtResource("7_ydlfx")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_x8dq4"]
+resource_name = "head"
+script = ExtResource("7_ydlfx")
+name = "head"
+hp = 6.0
+children = Array[ExtResource("7_ydlfx")]([SubResource("Resource_hpqw8")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_kohos"]
+resource_name = "left lung"
+script = ExtResource("7_ydlfx")
+name = "left lung"
+hp = 5.0
+children = Array[ExtResource("7_ydlfx")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_18ss2"]
+resource_name = "right lung"
+script = ExtResource("7_ydlfx")
+name = "right lung"
+hp = 5.0
+children = Array[ExtResource("7_ydlfx")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_0vg4s"]
+resource_name = "heart"
+script = ExtResource("7_ydlfx")
+name = "heart"
+hp = 2.0
+children = Array[ExtResource("7_ydlfx")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_j22er"]
+resource_name = "thorax"
+script = ExtResource("7_ydlfx")
+name = "thorax"
+hp = 0.0
+children = Array[ExtResource("7_ydlfx")]([SubResource("Resource_kohos"), SubResource("Resource_18ss2"), SubResource("Resource_0vg4s")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_t2mvp"]
+resource_name = "stomach"
+script = ExtResource("7_ydlfx")
+name = "stomach"
+hp = 5.0
+children = Array[ExtResource("7_ydlfx")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_ane1c"]
+resource_name = "small intestine"
+script = ExtResource("7_ydlfx")
+name = "small intestine"
+hp = 6.0
+children = Array[ExtResource("7_ydlfx")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_qb7r8"]
+resource_name = "large intestine"
+script = ExtResource("7_ydlfx")
+name = "large intestine"
+hp = 6.0
+children = Array[ExtResource("7_ydlfx")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_1kfde"]
+resource_name = "abdomen"
+script = ExtResource("7_ydlfx")
+name = "abdomen"
+hp = 0.0
+children = Array[ExtResource("7_ydlfx")]([SubResource("Resource_t2mvp"), SubResource("Resource_ane1c"), SubResource("Resource_qb7r8")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("9_qxg16")]([])
+
+[sub_resource type="Resource" id="Resource_j0edd"]
+script = ExtResource("9_qxg16")
+stat_name = "locomotion"
+value = 0.2
+
+[sub_resource type="Resource" id="Resource_h15mc"]
+resource_local_to_scene = true
+script = ExtResource("7_ydlfx")
+name = "body"
+hp = 0.0
+children = Array[ExtResource("7_ydlfx")]([SubResource("Resource_qnkvh"), SubResource("Resource_oka0u"), SubResource("Resource_xwuvo"), SubResource("Resource_bp7yd"), SubResource("Resource_x8dq4"), SubResource("Resource_j22er"), SubResource("Resource_1kfde")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("9_qxg16")]([SubResource("Resource_j0edd")])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_40yr8"]
 render_priority = 0
@@ -82,6 +262,9 @@ omni_range = 6.0
 
 [node name="NPC" parent="." instance=ExtResource("17_6jt1s")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 5)
+
+[node name="Character" parent="NPC" index="0"]
+anatomy = SubResource("Resource_h15mc")
 
 [node name="GridMapFloor" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 0.5)
@@ -308,3 +491,5 @@ popup_window = true
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/StrafeLeft" to="Player/Character" method="strafe_left"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveBack" to="Player/Character" method="move_back"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/StrafeRight" to="Player/Character" method="strafe_right"]
+
+[editable path="NPC"]
