@@ -1,19 +1,20 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://sdhii0frmp72"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://sdhii0frmp72"]
 
 [ext_resource type="StyleBox" uid="uid://d2xb2s41rp605" path="res://Resources/UI/stylebox-normal.tres" id="1_0sedj"]
 [ext_resource type="FontFile" uid="uid://pj3m3udo3lh0" path="res://Resources/Fonts/Constantia Font.ttf" id="1_8xnb4"]
 [ext_resource type="StyleBox" uid="uid://bjaem7ligp5ad" path="res://Resources/UI/stylebox-pressed.tres" id="2_t485t"]
 [ext_resource type="StyleBox" uid="uid://cuyrtel21wjr1" path="res://Resources/UI/stylebox-hover.tres" id="2_to62p"]
+[ext_resource type="FontFile" uid="uid://svf7icr0bimg" path="res://Resources/Fonts/mingliu.TTF" id="5_f7g4k"]
 [ext_resource type="StyleBox" uid="uid://dsgxgs7ogx53l" path="res://Resources/UI/stylebox-window.tres" id="5_gp1ds"]
 
 [resource]
-Button/fonts/font = ExtResource("1_8xnb4")
+Button/fonts/font = ExtResource("5_f7g4k")
 Button/styles/disabled = ExtResource("1_0sedj")
 Button/styles/focus = ExtResource("1_0sedj")
 Button/styles/hover = ExtResource("2_to62p")
 Button/styles/normal = ExtResource("1_0sedj")
 Button/styles/pressed = ExtResource("2_t485t")
-Label/fonts/font = ExtResource("1_8xnb4")
+Label/fonts/font = ExtResource("5_f7g4k")
 LineEdit/fonts/font = ExtResource("1_8xnb4")
 Panel/styles/panel = ExtResource("1_0sedj")
 ProgressBar/fonts/font = ExtResource("1_8xnb4")

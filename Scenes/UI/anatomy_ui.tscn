@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://csmtmlo238esy"]
+
+[node name="AnatomyUI" type="Tree"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+column_titles_visible = true
+hide_root = true

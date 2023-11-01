@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dugli6jyw2uir"]
+[gd_scene load_steps=55 format=3 uid="uid://dugli6jyw2uir"]
 
 [ext_resource type="Texture2D" uid="uid://cwp7ivhpwmknn" path="res://Resources/Environment/sky-storm.tres" id="1_b3vjd"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_ig7a4"]
@@ -22,8 +22,12 @@
 [ext_resource type="Script" path="res://Scripts/UI/attack_button_window.gd" id="14_gqcls"]
 [ext_resource type="Script" path="res://Scripts/time_indicator.gd" id="14_ljnok"]
 [ext_resource type="Texture2D" uid="uid://cple7n22c8xr7" path="res://Resources/Images/debug_play.png" id="15_bd8n5"]
+[ext_resource type="Script" path="res://Scripts/UI/prophet.gd" id="15_pnhfh"]
 [ext_resource type="Texture2D" uid="uid://dsv7y4lbfwa2k" path="res://Resources/Images/debug_pause.png" id="16_qls30"]
 [ext_resource type="PackedScene" uid="uid://b77e0svbcxf7m" path="res://Scenes/npc.tscn" id="17_6jt1s"]
+[ext_resource type="Texture2D" uid="uid://cnsjgdl8cbs7c" path="res://Resources/Images/the-prophet-speaks.png" id="25_ksxgx"]
+[ext_resource type="PackedScene" uid="uid://csmtmlo238esy" path="res://Scenes/UI/anatomy_ui.tscn" id="27_il7cl"]
+[ext_resource type="PackedScene" uid="uid://xdmxvp4evekt" path="res://Scenes/UI/inventory_ui.tscn" id="28_p4iil"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xa8r0"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -235,6 +239,12 @@ material = SubResource("ShaderMaterial_40yr8")
 flip_faces = true
 size = Vector2(2, 2)
 
+[sub_resource type="LabelSettings" id="LabelSettings_quo1r"]
+line_spacing = 1.0
+font_size = 12
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+
 [node name="World" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -306,6 +316,36 @@ grow_vertical = 2
 theme = ExtResource("6_3qdy5")
 script = ExtResource("10_fgak3")
 player = NodePath("../../Player/Character")
+
+[node name="Prophet" type="TextureRect" parent="CanvasLayer/UI"]
+layout_direction = 3
+layout_mode = 1
+offset_left = 35.0
+offset_top = 34.0
+offset_right = 186.0
+offset_bottom = 240.0
+texture = ExtResource("25_ksxgx")
+expand_mode = 1
+script = ExtResource("15_pnhfh")
+write_speed_mult = 20.0
+period_pause = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/Prophet"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi tristique senectus et netus et. Pharetra massa massa ultricies mi quis hendrerit dolor. Pharetra diam sit amet nisl suscipit adipiscing bibendum est."
+label_settings = SubResource("LabelSettings_quo1r")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="BottomBar" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 1
@@ -470,20 +510,14 @@ position = Vector2i(315, 91)
 size = Vector2i(300, 200)
 popup_window = true
 
-[node name="Tree" type="Tree" parent="CanvasLayer/UI/AnatomyWindow"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 2
-column_titles_visible = true
-hide_root = true
+[node name="AnatomyUI" parent="CanvasLayer/UI/AnatomyWindow" instance=ExtResource("27_il7cl")]
 
 [node name="InventoryWindow" type="Window" parent="CanvasLayer/UI"]
-title = "ANATOMY"
+title = "INVENTORY"
 position = Vector2i(42, 34)
 popup_window = true
+
+[node name="InventoryUI" parent="CanvasLayer/UI/InventoryWindow" instance=ExtResource("28_p4iil")]
 
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/TurnLeft" to="Player/Character" method="turn_left"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveForward" to="Player/Character" method="move_forward"]
