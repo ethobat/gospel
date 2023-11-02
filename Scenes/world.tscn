@@ -271,10 +271,13 @@ light_energy = 2.0
 omni_range = 6.0
 
 [node name="NPC" parent="." instance=ExtResource("17_6jt1s")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 5)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 0, 4)
 
 [node name="Character" parent="NPC" index="0"]
 anatomy = SubResource("Resource_h15mc")
+
+[node name="Suzanne" parent="NPC/Character" index="1"]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 0.5, 0)
 
 [node name="GridMapFloor" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 0.5)
@@ -327,8 +330,12 @@ offset_bottom = 240.0
 texture = ExtResource("25_ksxgx")
 expand_mode = 1
 script = ExtResource("15_pnhfh")
-write_speed_mult = 20.0
+fade_in_mult = 0.3
+write_in_mult = 30.0
 period_pause = 10.0
+hold_time = 5.0
+write_out_mult = 100.0
+fade_out_mult = 0.3
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/Prophet"]
 layout_mode = 1
