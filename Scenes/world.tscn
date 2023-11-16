@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dugli6jyw2uir"]
+[gd_scene load_steps=64 format=3 uid="uid://dugli6jyw2uir"]
 
 [ext_resource type="Texture2D" uid="uid://cwp7ivhpwmknn" path="res://Resources/Environment/sky-storm.tres" id="1_b3vjd"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_ig7a4"]
@@ -7,8 +7,11 @@
 [ext_resource type="Shader" path="res://Shaders/psx-post-proc.gdshader" id="4_800jq"]
 [ext_resource type="Resource" uid="uid://83dnlswf31bf" path="res://Resources/Anatomy/human_anatomy.tres" id="4_qqk3q"]
 [ext_resource type="Theme" uid="uid://sdhii0frmp72" path="res://Resources/UI/ui-theme.tres" id="6_3qdy5"]
+[ext_resource type="Script" path="res://Scripts/inventory.gd" id="6_3wi02"]
+[ext_resource type="Resource" uid="uid://ubi0r2cqqehd" path="res://Resources/Items/honey.tres" id="6_i7hk7"]
 [ext_resource type="Resource" uid="uid://c0t1f7tcc4mdo" path="res://Resources/Action/punch.tres" id="6_tgyw1"]
 [ext_resource type="PackedScene" uid="uid://dbs2iv0th37u8" path="res://Scenes/UI/stat_readout.tscn" id="7_a0bsf"]
+[ext_resource type="Script" path="res://Scripts/item_stack.gd" id="7_gkqte"]
 [ext_resource type="Texture2D" uid="uid://w6k05nt7hwb8" path="res://Resources/Images/turn-left.png" id="7_ojyva"]
 [ext_resource type="Script" path="res://Scripts/anatomy.gd" id="7_ydlfx"]
 [ext_resource type="Texture2D" uid="uid://d0ssgt8yvakh5" path="res://Resources/Images/move-forward.png" id="8_i7wbc"]
@@ -28,6 +31,9 @@
 [ext_resource type="Texture2D" uid="uid://cnsjgdl8cbs7c" path="res://Resources/Images/the-prophet-speaks.png" id="25_ksxgx"]
 [ext_resource type="PackedScene" uid="uid://csmtmlo238esy" path="res://Scenes/UI/anatomy_ui.tscn" id="27_il7cl"]
 [ext_resource type="PackedScene" uid="uid://xdmxvp4evekt" path="res://Scenes/UI/inventory_ui.tscn" id="28_p4iil"]
+[ext_resource type="PackedScene" uid="uid://d331lm654te07" path="res://Scenes/prophet_trigger.tscn" id="29_tiu5v"]
+[ext_resource type="PackedScene" uid="uid://datqf7a1201rr" path="res://Scenes/UI/item_slot.tscn" id="30_o4lnt"]
+[ext_resource type="Script" path="res://Scripts/cursor.gd" id="30_thfe1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xa8r0"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -47,9 +53,21 @@ background_mode = 2
 sky = SubResource("Sky_bvirw")
 ambient_light_source = 2
 ambient_light_color = Color(1, 0.913725, 0.780392, 1)
-ambient_light_energy = 0.1
+ambient_light_energy = 0.25
 fog_light_color = Color(0.160784, 0.219608, 0.337255, 1)
 fog_sky_affect = 0.176
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_342h3"]
+resource_local_to_scene = true
+
+[sub_resource type="Resource" id="Resource_g76yr"]
+script = ExtResource("7_gkqte")
+item = ExtResource("6_i7hk7")
+count = 4
+
+[sub_resource type="Resource" id="Resource_1oy76"]
+script = ExtResource("6_3wi02")
+items = Array[ExtResource("7_gkqte")]([SubResource("Resource_g76yr")])
 
 [sub_resource type="Resource" id="Resource_cu8qx"]
 resource_name = "left hand"
@@ -250,6 +268,12 @@ shadow_color = Color(0, 0, 0, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kogn3")
 
+[node name="ProphetTrigger" parent="." instance=ExtResource("29_tiu5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6)
+
+[node name="CollisionShape3D" parent="ProphetTrigger" index="0"]
+shape = SubResource("BoxShape3D_342h3")
+
 [node name="Player" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 script = ExtResource("2_ig7a4")
@@ -258,6 +282,10 @@ script = ExtResource("2_ig7a4")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 character_name = "player"
 anatomy = ExtResource("4_qqk3q")
+inventory = SubResource("Resource_1oy76")
+
+[node name="BlockCollider" parent="Player/Character" index="0"]
+collision_layer = 6
 
 [node name="Head" type="Node3D" parent="Player/Character"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -275,9 +303,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 0,
 
 [node name="Character" parent="NPC" index="0"]
 anatomy = SubResource("Resource_h15mc")
-
-[node name="Suzanne" parent="NPC/Character" index="1"]
-transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 0.5, 0)
 
 [node name="GridMapFloor" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 0.5)
@@ -526,6 +551,28 @@ popup_window = true
 
 [node name="InventoryUI" parent="CanvasLayer/UI/InventoryWindow" instance=ExtResource("28_p4iil")]
 
+[node name="Cursor" type="Control" parent="CanvasLayer/UI"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("30_thfe1")
+
+[node name="ItemSlot" parent="CanvasLayer/UI/Cursor" instance=ExtResource("30_o4lnt")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -45.0
+offset_top = -42.0
+offset_right = 5.0
+offset_bottom = 8.0
+grow_horizontal = 1
+grow_vertical = 1
+clickable = false
+
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/TurnLeft" to="Player/Character" method="turn_left"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveForward" to="Player/Character" method="move_forward"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/TurnRight" to="Player/Character" method="turn_right"]
@@ -533,4 +580,6 @@ popup_window = true
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveBack" to="Player/Character" method="move_back"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/StrafeRight" to="Player/Character" method="strafe_right"]
 
+[editable path="ProphetTrigger"]
+[editable path="Player/Character"]
 [editable path="NPC"]

@@ -22,6 +22,7 @@ TimeSystem="*res://Scripts/time_system.gd"
 [debug]
 
 gdscript/warnings/unused_parameter=0
+shapes/collision/shape_color=Color(0.776471, 0.145098, 1, 1)
 
 [display]
 

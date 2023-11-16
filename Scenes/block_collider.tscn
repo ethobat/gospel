@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dbya32l6uinwl" path="res://Resources/3D/box_collider_wireframe.glb" id="1_rwh4q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uferm"]
+size = Vector3(0.95, 0.95, 0.95)
 
 [node name="BlockCollider" type="StaticBody3D"]
 collision_mask = 0

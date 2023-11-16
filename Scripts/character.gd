@@ -3,26 +3,27 @@ class_name Character
 
 # copied from entity
 
-@export var character_name : String
-@export var anatomy : Anatomy
+@export var character_name: String
+@export var anatomy: Anatomy
+@export var inventory: Inventory
 
-var windup : bool = false
-var windup_action : Action
-var windup_source_part : Anatomy
-var windup_time : float
+var windup: bool = false
+var windup_action: Action
+var windup_source_part: Anatomy
+var windup_time: float
 
 var moving = false
-var move_original_position : Vector3
-var move_destination : Vector3
-var move_destination_global : Vector3
-var move_passed_midway_point : bool
-var move_raycast : RayCast3D
-var move_reverse : bool
-const MOVE_MIDWAY_POINT : float = 0.4
+var move_original_position: Vector3
+var move_destination: Vector3
+var move_destination_global: Vector3
+var move_passed_midway_point: bool
+var move_raycast: RayCast3D
+var move_reverse: bool
+const MOVE_MIDWAY_POINT: float = 0.4
 
 var turning = false
-var turn_original_angle : float
-var turn_destination : float
+var turn_original_angle: float
+var turn_destination: float
 
 ###
 

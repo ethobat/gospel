@@ -20,7 +20,8 @@ func _ready():
 	self.self_modulate.a = 0.0
 	label.visible_characters_behavior = TextServer.VC_CHARS_AFTER_SHAPING
 	phase = Phase.INVISIBLE
-	show_message("The ass saw the angel of the Lord. 4229 4231. Go to heaven and snatch a tooth from the mouth of God. 4241 4243. The perceived value of profanity is based on a fundamentally flawed rubric.")
+	label.visible_characters = 0
+	#show_message("The ass saw the angel of the LORD. 4229 4231. Go to heaven and snatch a tooth from the mouth of God. 4241 4243. The perceived value of profanity is based on a fundamentally flawed rubric.")
 
 func _process(delta):
 	if phase != Phase.INVISIBLE:

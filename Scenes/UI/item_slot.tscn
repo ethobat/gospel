@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://datqf7a1201rr"]
 
-[ext_resource type="Texture2D" uid="uid://cnsjgdl8cbs7c" path="res://Resources/Images/the-prophet-speaks.png" id="1_ef8yv"]
+[ext_resource type="Script" path="res://Scripts/UI/item_slot.gd" id="2_mlm73"]
 
-[node name="ItemSlot" type="TextureRect"]
+[node name="ItemSlot" type="Button"]
 custom_minimum_size = Vector2(50, 50)
 anchors_preset = 8
 anchor_left = 0.5
@@ -15,5 +15,12 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ef8yv")
-expand_mode = 1
+script = ExtResource("2_mlm73")
+
+[node name="ItemSprite" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
