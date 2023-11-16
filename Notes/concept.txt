@@ -3,7 +3,7 @@ Humors is a first-person dungeon crawler and biological trauma simulator.
 ---
 SETTING
 ---
-Long ago, the primitive Adamites lived under the watchful eye of their god in the Garden of Eden: a paradise where they languished for many aeons. The Adamites never wanted for anything, and never came to harm. Eden was a place of safety, and so the Adamites lacked many features of modern humanity; notably, they were headless. The ancient Adamites needed no eyes to hunt for predators or search for food; they had no mouths, as there was no need to eat. They had no voice to share their inner thoughts, as their spiritual needs were fulfilled through their innate connection to God. Their bodies were bulky and sluggish, and their hands had thousands of fingers, symbolizing their inherent divinity. They lived in Eden for an immeasurable amount of time, but God soon began to die, and the wildlife of Eden withered and rotted. The Adamites were expelled from the garden and underwent a series of drastic transformations at the hands of God's angels, which would prepare them for life without a god.
+Long ago, the primitive Adamites lived under the watchful eye of their god in the Garden of Eden: a paradise where they languished for many aeons. The Adamites never wanted for anything, and never came to harm. Eden was a place of safety, and so the Adamites lacked many features of modern humanity; notably, they were headless. The ancient Adamites needed no eyes to hunt for predators or search for food; they had no mouths, as there was no need to eat. They had no voice to share their inner thoughts, as their spiritual needs were fulfilled through their innate connection to God. Their bodies were bulky and sluggish, and their hands had thousands of fingers, symbolizing their inherent divinity. They lived in Eden for an immeasurable amount of time, but God soon began to die, and the trees of Eden withered and rotted. The Adamites were expelled from the garden and underwent a series of drastic transformations at the hands of God's angels, which would prepare them for life without a god.
 
 The parts of the world depicted in the game are dominated by an Abrahamic religion following this creation myth, which is described in an alternate version of the Book of Genesis known as the Gospel of Methuselah. It is named for the longest-lived descendant of the Adamites, who saw humanity as profane and lacking in divinity. He was disgusted by the need for sensory organs and reproduction, and wished to return to Eden; a popular sentiment in contemporary society.
 
@@ -22,9 +22,9 @@ GAMEPLAY
 ---
 Old-school first-person dungeon crawler gameplay.
 
-The game has a "semi-turn-based" combat system, where NPCs will not act until the player acts. Each attack has a windup time and a cooldown time. When the player chooses an attack to perform, time "resumes" for a duration equal to the attack's windup time, during which enemies may perform attacks of their own. Enemies have a UI element floating over them that indicates their "intent", i.e. the attack they plan to use next and its windup time. This allows the player to strategically select attacks that will complete before the enemy's, and then perform a guard, parry, or evade to protect themselves.
+The game has a "semi-turn-based" combat system, where NPCs will not act until the player acts. When the player chooses an attack to perform, time resumes for a duration equal to that attack's "windup time", during which enemies may perform attacks of their own. After the windup period the attack is performed. Enemies have a UI element floating over them that indicates their "intent", i.e. the remaining windup time of their current attack. This allows the player to strategically select attacks that will complete before the enemy's, allowing them to guard or evade the enemy's attack.
 
-Moving and turning also count as actions. However, moving causes the player to enter a vulnerable state, where attacks from enemies are guaranteed to hit.
+When the player is in a neutral position, i.e. not attacking or moving, any attacks from the player's front side will be automatically blocked at the cost of stamina. If an enemy attack lands while the player is attempting to move or attack, the player will sustian and injury.
 
 The game features a realistic injury system, where once an entity is attacked it sustains an injury to a specific body part, which may bleed, cause pain, or lower the effectiveness of the body part. Players may also catch diseases from dangerous environments, or sustain infections due to poorly-treated injuries.
 
@@ -66,3 +66,69 @@ The wetlands are filled with stagnant water and noxious air, making any injuries
 To the south is the fishing town of Visgalburg, where the player can find a pharmacy. NPC dialog directs the player south to Fisklane.
 
 Fisklane is a disorganized system of old plank bridges, jetties and moored fishing boats where Visgalburg's fishermen work.
+
+---
+CHARACTERS
+---
+
+Methuselah - Mythological figure, doesn't appear in-game. A descendant of the Adamites who was digusted with modern humanity. His teachings hold great influence in modern society.
+
+
+
+Gotten Bishop - Local religious leader in Gotten. Preaches an interpretation of Methuselah's teachings.
+Sermon, heard by the player when first entering the Gotten sanctuary - "'Ramiel saw the opportunity, and he formed of God's thunder a great spear, and he impaled the Adamites, and ran them through.' Their bodies were opened to the outside air and their lungs were filled with the noxious breath of Eden.' The angel Ramiel brought us torment! The thunder of God sent divine disease into our lungs so we could understand the deepest aspects of His creation."
+
+1 - "We are all weak before the might of God. Do you not understand? The LORD intended for us to live in primal fear. His creation means nothing to Him without fear and pain. It is how we commune with the Earth. The mortal frame is a bloody abattoir of violence and beating flesh. If you can't handle that you should just kill yourself."
+
+
+
+Erik Hufschmidt - An eccentric man living in the outskirts of Gotten, who is obsessed with breeding insects.
+
+---
+??? - A man driven mad by the death of his mother, who has moved into a house he has always admired by himself, neglecting his wife and child. The house is filled with mold and leaks. The player is led to believe that his wife is the one who died, with pictures of the wife and repeated references to "her" death. The house is located in a side-area of the wetlands, and the player is expected to first reach it while exploring the wetlands for the first time. Later, a shortcut can be opened from Gotten into the house area, leading the player to revisit.
+
+First visit - the house is old, dilapidated and musty, and mold can be seen in some areas. It's a large house, but it's clear that whoever owned it previously was keen to sell it.
+Hello. Welcome to my home.
+What? Haven't you seen a beauty cyst before? It's a mark of grief. It appears on people after losing a loved one.
+Yes, I am grieving. But by moving into this house, I am turning over a new leaf. We always admired this place, and it is the perfect place for me to remember her for years to come.
+You can look around if you like. Just don't go into the master bedroom.
+The timepiece belonged to my wife. It was the only thing of hers I was able to take with me to the new house. Everything else had to stay behind.
+Oh, why couldn't she be here with me? My dear wife.
+
+Second visit - the mold has gotten worse. Some objects are in different places, but the furniture is mostly unmoved. Many old "keepsakes" are displayed. This is the player's first clue as to what's actually happening, as he said previously that the only thing he was able to take from his wife's house was the timepiece.
+Hello again. Do you remember me? You kindly visited a while ago.
+I have been redecorating with some of her old keepsakes. This house is truly my life. It is finally starting to feel lived-in.
+When I close my eyes, I can imagine that we have been living here together for years.
+By the way, do you detect that scent in the air? I'm not sure where in the house it's coming from, but it's nice. It's strange, but somehow... it reminds me of my mother's cooking.
+
+Third visit - the mold is extremely bad, and has taken over much of the house. Parts of it are unnavigable. There is no mould around the timepiece, and it is clearly visible. The mold is worst around the door to the master bedroom, which is slightly ajar. An enormous pile of mold can be seen on the right side of the bed.
+Oh. Welcome back.
+I'm afraid my cyst has gotten worse since you last visited.
+Don't worry, it's nothing deadly. I just have trouble moving around the house now.
+Could I... ask you for a favor? I seem to have lost my timepiece. It's a very precious thing to me. Could you search the house for it?
+(Bringing him the timepiece)
+You have the timepiece? Where is it?
+In your hands...? I can't seem to see it. It must have turned to dust a while ago.
+Oh well. I suppose there's nothing to do.
+---
+??? - The grieving man's wife. Lives in a much smaller dwelling in the streets of Gotten.
+(Without the timepiece)
+Who are you?
+I live here with my child. Do you have business with me?
+Don't cause me trouble.
+(With the timepiece)
+Why the fuck do you have that clock? Are you in cahoots with my husband? Give it to me.
+I'm not living in that dump with him, if that's what you've come to ask. I have enough work on my hands as it is. God knows he won't help with the housekeeping.
+He's been useless ever since his mother died and that tumor started growing on his head.
+He became obsessed with that house, because his mother said it looked nice once.
+I said I wasn't going to move there with him, so he just left one day, leaving me with the child. He must have snuck away with the clock.
+It's quite precious, so I can sell it now. Thank you for bringing it to me.
+Could I ask one thing, if you're ever going to return to that place?
+Burn it down.
+Nothing good can come out of that house. Best case scenario, it'll finally drive him out and force him to deal with the situation like an adult.
+I'm not sure if it even will burn, it's so damp. But it's the only way to get rid of that vortex of grief.
+---
+When the player visits the house after giving the timepiece to the man's wife, it has been entirely consumed by mold and cannot be entered. The player can set fire to it, causing the entire thing to ignite at once.
+
+When the player visits the area after setting fire to the house, there is just an empty field with a small mound where the house used to be.
+---

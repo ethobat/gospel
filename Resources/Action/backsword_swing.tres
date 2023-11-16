@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://bdj586h27ic2l"]
+
+[ext_resource type="Script" path="res://Scripts/attack.gd" id="1_dnm5q"]
+
+[resource]
+script = ExtResource("1_dnm5q")
+name = null
+trauma_category = 1
+base_damage = 3.0
+windup_time = null

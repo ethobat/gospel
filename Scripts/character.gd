@@ -151,7 +151,7 @@ func perform_action_windup(body_part_name: String, action_name: String):
 	windup_source_part = anatomy.find(body_part_name)
 	windup_action = windup_source_part.get_action(action_name)
 	windup_time = windup_action.windup_time
-	var target = get_facing_character()
+	#var target = get_facing_character()
 	
 	print("Attempting " + action_name + " with " + body_part_name)
 	print("Muscle: " + str(windup_source_part.get_stat("muscle")))

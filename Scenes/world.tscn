@@ -513,7 +513,7 @@ expand_mode = 1
 
 [node name="AnatomyWindow" type="Window" parent="CanvasLayer/UI"]
 title = "ANATOMY"
-position = Vector2i(315, 91)
+position = Vector2i(315, 48)
 size = Vector2i(300, 200)
 popup_window = true
 
