@@ -1,0 +1,7 @@
+Old-school first-person dungeon crawler gameplay.
+
+The game has a "semi-turn-based" combat system, where NPCs will not act until the player acts. When the player chooses an attack to perform, time resumes for a duration equal to that attack's "windup time", during which enemies may perform attacks of their own. After the windup period the attack is performed. Enemies have a UI element floating over them that indicates their "intent", i.e. the remaining windup time of their current attack. This allows the player to strategically select attacks that will complete before the enemy's, allowing them to guard or evade the enemy's attack.
+
+When the player is in a neutral position, i.e. not attacking or moving, any attacks from the player's front side will be automatically blocked at the cost of stamina. If an enemy attack lands while the player is attempting to move or attack, the player will sustain an injury.
+
+The game features a realistic injury system, where once an entity is attacked it sustains an injury to a specific body part, which may bleed, cause pain, or lower the effectiveness of the body part. Players may also catch diseases from dangerous environments, or sustain infections due to poorly-treated injuries.

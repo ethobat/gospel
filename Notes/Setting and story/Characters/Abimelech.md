@@ -1,0 +1,5 @@
+Local religious leader in Gotten. Preaches an interpretation of Methuselah's teachings.
+#### Abimelech's sermon
+heard by the player when first entering the Gotten sanctuary - "'Ramiel saw the opportunity, and he formed of God's thunder a great spear, and he impaled the Adamites, and ran them through.' Their bodies were opened to the outside air and their lungs were filled with the noxious breath of Eden.' The angel Ramiel brought us torment! The thunder of God sent divine disease into our lungs so we could understand the deepest aspects of His creation."
+
+1 - "He intended for us to live in primal fear. Fear and pain are expressions of the terrible might of God. It is how we commune with the Earth. The mortal frame is a bloody abattoir of violence and beating flesh. If you can't handle that you should just kill yourself."

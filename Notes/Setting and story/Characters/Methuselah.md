@@ -1,0 +1,1 @@
+Mythological figure, doesn't appear in-game. A descendant of the Adamites who was digusted with modern humanity. His teachings hold great influence in modern society.
