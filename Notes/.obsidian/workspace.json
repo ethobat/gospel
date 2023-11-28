@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Setting and story/Transformations/Costafalcic process.md",
+                "file": "Setting and story/Characters/Abimelech.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Setting and story/Transformations/Costafalcic process.md",
+                "file": "Setting and story/Characters/Abimelech.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Setting and story/Transformations/Costafalcic process.md",
+                "file": "Setting and story/Characters/Abimelech.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Setting and story/Transformations/Costafalcic process.md"
+                "file": "Setting and story/Characters/Abimelech.md"
               }
             }
           }
@@ -148,9 +148,13 @@
   },
   "active": "4c0a5a0becb58c04",
   "lastOpenFiles": [
-    "Setting and story/Transformations/Orbital excavation.md",
+    "Gameplay/Concepts/Combat system.md",
     "Setting and story/Transformations/Costafalcic process.md",
+    "Setting and story/Transformations/Brachial hypertrophization.md",
+    "Setting and story/Transformations/Orbital excavation.md",
+    "Setting and story/Creatures/Blood eagles.md",
     "Setting and story/Creatures/Adamite.md",
+    "Setting and story/Creatures/Cephalophages.md",
     "Setting and story/Transformations",
     "Setting and story/Locations/Visgalburg.md",
     "Setting and story/Creatures",
@@ -160,13 +164,10 @@
     "Setting and story/Characters/Erik Hufschmidt.md",
     "Setting and story/Progression.md",
     "Setting and story/Setting/Overview.md",
-    "Setting and story/Setting/Cephalophages.md",
     "Setting and story/Characters/Grieving man.md",
     "Setting and story/Grieving man.md",
-    "Setting and story/Setting/Blood eagles.md",
     "Setting and story/Setting",
     "Overview.md",
-    "Gameplay/Concepts/Combat system.md",
     "Gameplay/Concepts/Attacks.md",
     "Gameplay/Concepts/Stats.md",
     "Gameplay/Concepts/Gameplay.md",
@@ -182,7 +183,6 @@
     "Setting and story/Locations/Gotten.md",
     "Setting and story/Locations/Streets of Gotten.md",
     "Setting and story/Locations",
-    "Untitled.md",
     "Setting and story/In-game texts",
     "Setting and story"
   ]
