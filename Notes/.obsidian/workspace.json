@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "c574d4ff7f1a249b",
+        "id": "ee4ecf193f1778f2",
         "type": "tabs",
         "children": [
           {
-            "id": "4c0a5a0becb58c04",
+            "id": "3515ec754ecb933c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Setting and story/Characters/Abimelech.md",
+                "file": "Setting and story/Setting/Overview.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Setting and story/Characters/Abimelech.md",
+                "file": "Setting and story/Setting/Overview.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Setting and story/Characters/Abimelech.md",
+                "file": "Setting and story/Setting/Overview.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Setting and story/Characters/Abimelech.md"
+                "file": "Setting and story/Setting/Overview.md"
               }
             }
           }
@@ -146,42 +146,43 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4c0a5a0becb58c04",
+  "active": "3515ec754ecb933c",
   "lastOpenFiles": [
-    "Gameplay/Concepts/Combat system.md",
-    "Setting and story/Transformations/Costafalcic process.md",
-    "Setting and story/Transformations/Brachial hypertrophization.md",
-    "Setting and story/Transformations/Orbital excavation.md",
-    "Setting and story/Creatures/Blood eagles.md",
-    "Setting and story/Creatures/Adamite.md",
-    "Setting and story/Creatures/Cephalophages.md",
-    "Setting and story/Transformations",
-    "Setting and story/Locations/Visgalburg.md",
-    "Setting and story/Creatures",
-    "Gameplay/Items/Aged backsword.md",
-    "Gameplay/Items/Honey.md",
     "Gameplay/Items/Rotifer concentrate.md",
-    "Setting and story/Characters/Erik Hufschmidt.md",
-    "Setting and story/Progression.md",
+    "Gameplay/Items/Honey.md",
+    "Gameplay/Items/Aged backsword.md",
+    "Setting and story/Transformations/Gastrocelestial flowering.md",
+    "Setting and story/Transformations/Orbital excavation.md",
+    "Setting and story/Transformations/Full-spectrum biologic decoupling.md",
+    "Setting and story/Transformations/Brachial hypertrophization.md",
+    "Setting and story/In-game texts/The expression gland.md",
+    "Setting and story/In-game texts/Gospel of Methuselah.md",
+    "Setting and story/Creatures/Blood eagles.md",
+    "Setting and story/Creatures/Cephalophages.md",
+    "Setting and story/Transformations/Tarsal reconfiguration.md",
+    "Setting and story/Transformations/Costafalcic process.md",
+    "Setting and story/Transformations/Tibial lengthening.md",
     "Setting and story/Setting/Overview.md",
+    "Setting and story/Locations/Visgalburg.md",
+    "Setting and story/Locations/Gotten.md",
+    "Setting and story/Locations/Fisklane.md",
+    "Setting and story/Creatures/Adamite.md",
+    "Setting and story/Characters/Abimelech.md",
+    "Setting and story/Progression.md",
+    "Udlinenie2.jpg",
     "Setting and story/Characters/Grieving man.md",
+    "Gameplay/Concepts/Combat system.md",
+    "Setting and story/Transformations",
+    "Setting and story/Creatures",
+    "Setting and story/Characters/Erik Hufschmidt.md",
     "Setting and story/Grieving man.md",
     "Setting and story/Setting",
     "Overview.md",
-    "Gameplay/Concepts/Attacks.md",
-    "Gameplay/Concepts/Stats.md",
-    "Gameplay/Concepts/Gameplay.md",
     "Gameplay/Concepts",
     "Gameplay/Items",
     "Gameplay",
-    "Setting and story/Locations/Fisklane.md",
     "Untitled.canvas",
-    "Setting and story/Characters/Characters.md",
-    "Setting and story/Characters/Methuselah.md",
-    "Setting and story/Characters/Abimelech.md",
     "Setting and story/Characters",
-    "Setting and story/Locations/Gotten.md",
-    "Setting and story/Locations/Streets of Gotten.md",
     "Setting and story/Locations",
     "Setting and story/In-game texts",
     "Setting and story"
