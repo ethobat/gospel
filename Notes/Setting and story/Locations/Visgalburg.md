@@ -1,4 +1,4 @@
-A rotten fishing town with a long history. By all accounts it should have shriveled up and died long ago, but somehow it lives.
+A rotten fishing town with a long history. By all accounts it should have shriveled up and died long ago, but somehow it still lives.
 
 Points of interest:
 - [[Erik Hufschmidt]]'s house
