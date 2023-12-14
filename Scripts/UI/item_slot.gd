@@ -4,18 +4,30 @@ class_name ItemSlot
 @export var clickable: bool = true
 
 @onready var item_sprite = $ItemSprite
+@onready var amount_label = $AmountLabel
 
 var item_stack: ItemStack
 
+#func _ready():
+#	if clickable:
+#		pressed.connect(_on_pressed)
+
 func _ready():
-	if clickable:
-		pressed.connect(_on_pressed)
+	print("Item slot READY")
 
 func _on_pressed():
-	%Cursor.on_item_slot_clicked(self)
+	get_tree().get_first_node_in_group("cursor").on_item_slot_clicked(self)
 	
 func clear():
 	item_stack = null
 
 func update_visuals():
-	item_sprite.texture = item_stack.item.texture
+	var full = not is_empty()
+	item_sprite.visible = full
+	amount_label.visible = full
+	if full:
+		item_sprite.texture = item_stack.item.texture
+		amount_label.text = str(item_stack.count)
+	
+func is_empty():
+	return item_stack == null
