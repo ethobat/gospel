@@ -1,21 +1,16 @@
 extends Button
 class_name ItemSlot
 
-@export var clickable: bool = true
-
 @onready var item_sprite = $ItemSprite
 @onready var amount_label = $AmountLabel
 
 var item_stack: ItemStack
 
-#func _ready():
-#	if clickable:
-#		pressed.connect(_on_pressed)
-
 func _ready():
 	print("Item slot READY")
 
 func _on_pressed():
+	print("Clinked")
 	get_tree().get_first_node_in_group("cursor").on_item_slot_clicked(self)
 	
 func clear():

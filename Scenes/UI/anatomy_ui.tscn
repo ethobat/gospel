@@ -1,11 +1,20 @@
-[gd_scene format=3 uid="uid://csmtmlo238esy"]
+[gd_scene load_steps=2 format=3 uid="uid://beohm4p1b5fg2"]
 
-[node name="AnatomyUI" type="Tree"]
+[ext_resource type="Script" path="res://Scenes/UI/anatomy_ui.gd" id="1_5i75n"]
+
+[node name="AnatomyUI" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5i75n")
+
+[node name="Tree" type="Tree" parent="."]
+layout_mode = 2
+offset_right = 640.0
+offset_bottom = 480.0
 columns = 2
 column_titles_visible = true
 hide_root = true

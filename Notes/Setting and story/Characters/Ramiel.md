@@ -1,0 +1,1 @@
+An angel mentioned in the Gospel of Methuselah. He is credited as impaling the primitive Adamites with a spear made of lightning, forming the digestive tract and respiratory system.

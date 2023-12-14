@@ -1,0 +1,1 @@
+A disembodied voice existing inside the player character's mind, the Prophet occasionally appears to provide guidance and worldbuilding context to the player. The Prophet gives the instructions to find and kill Cassiel.

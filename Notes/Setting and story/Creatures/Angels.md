@@ -1,0 +1,3 @@
+The angels, also called megafauna, are creatures of great and terrible power that are believed to serve God. They do not constitute a species, and each individual is totally unique. Angels are not known to reproduce.
+
+Angels are equally worshipped and feared by humans, and appear often in their myths. Angelic visitations, where an angel approaches human civilisation, are dreaded as times of violent spiritual reckoning.

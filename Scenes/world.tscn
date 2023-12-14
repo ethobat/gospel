@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://dugli6jyw2uir"]
+[gd_scene load_steps=67 format=3 uid="uid://dugli6jyw2uir"]
 
 [ext_resource type="Texture2D" uid="uid://cwp7ivhpwmknn" path="res://Resources/Environment/sky-storm.tres" id="1_b3vjd"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_ig7a4"]
@@ -29,11 +29,11 @@
 [ext_resource type="Texture2D" uid="uid://dsv7y4lbfwa2k" path="res://Resources/Images/debug_pause.png" id="16_qls30"]
 [ext_resource type="PackedScene" uid="uid://b77e0svbcxf7m" path="res://Scenes/npc.tscn" id="17_6jt1s"]
 [ext_resource type="Texture2D" uid="uid://cnsjgdl8cbs7c" path="res://Resources/Images/the-prophet-speaks.png" id="25_ksxgx"]
-[ext_resource type="PackedScene" uid="uid://csmtmlo238esy" path="res://Scenes/UI/anatomy_ui.tscn" id="27_il7cl"]
-[ext_resource type="PackedScene" uid="uid://xdmxvp4evekt" path="res://Scenes/UI/inventory_ui.tscn" id="28_p4iil"]
 [ext_resource type="PackedScene" uid="uid://d331lm654te07" path="res://Scenes/prophet_trigger.tscn" id="29_tiu5v"]
 [ext_resource type="PackedScene" uid="uid://datqf7a1201rr" path="res://Scenes/UI/item_slot.tscn" id="30_o4lnt"]
 [ext_resource type="Script" path="res://Scripts/cursor.gd" id="30_thfe1"]
+[ext_resource type="Script" path="res://Scenes/UI/anatomy_ui.gd" id="31_jd6ao"]
+[ext_resource type="Script" path="res://Scenes/UI/inventory_ui.gd" id="32_478hi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xa8r0"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -70,9 +70,19 @@ script = ExtResource("7_gkqte")
 item = ExtResource("6_i7hk7")
 count = 7
 
+[sub_resource type="Resource" id="Resource_lkvcp"]
+script = ExtResource("7_gkqte")
+item = ExtResource("6_i7hk7")
+count = 15
+
+[sub_resource type="Resource" id="Resource_mxpyk"]
+script = ExtResource("7_gkqte")
+item = ExtResource("6_i7hk7")
+count = 1
+
 [sub_resource type="Resource" id="Resource_1oy76"]
 script = ExtResource("6_3wi02")
-items = Array[ExtResource("7_gkqte")]([SubResource("Resource_g76yr"), SubResource("Resource_6o1uu")])
+items = Array[ExtResource("7_gkqte")]([SubResource("Resource_g76yr"), SubResource("Resource_6o1uu"), SubResource("Resource_lkvcp"), SubResource("Resource_mxpyk")])
 
 [sub_resource type="Resource" id="Resource_cu8qx"]
 resource_name = "left hand"
@@ -275,6 +285,7 @@ environment = SubResource("Environment_kogn3")
 
 [node name="ProphetTrigger" parent="." instance=ExtResource("29_tiu5v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6)
+message = "Hello world!"
 
 [node name="CollisionShape3D" parent="ProphetTrigger" index="0"]
 shape = SubResource("BoxShape3D_342h3")
@@ -351,6 +362,7 @@ script = ExtResource("10_fgak3")
 player = NodePath("../../Player/Character")
 
 [node name="Prophet" type="TextureRect" parent="CanvasLayer/UI"]
+unique_name_in_owner = true
 layout_direction = 3
 layout_mode = 1
 offset_left = 35.0
@@ -541,27 +553,67 @@ grow_vertical = 2
 texture = ExtResource("16_qls30")
 expand_mode = 1
 
-[node name="AnatomyWindow" type="Window" parent="CanvasLayer/UI"]
-title = "ANATOMY"
-position = Vector2i(315, 48)
-size = Vector2i(300, 200)
-popup_window = true
+[node name="AnatomyUI" type="Control" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -134.0
+offset_bottom = -113.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("31_jd6ao")
 
-[node name="AnatomyUI" parent="CanvasLayer/UI/AnatomyWindow" instance=ExtResource("27_il7cl")]
+[node name="Tree" type="Tree" parent="CanvasLayer/UI/AnatomyUI"]
+layout_mode = 2
+offset_right = 640.0
+offset_bottom = 480.0
+columns = 2
+column_titles_visible = true
+hide_root = true
 
-[node name="InventoryWindow" type="Window" parent="CanvasLayer/UI"]
-title = "INVENTORY"
-position = Vector2i(42, 34)
-popup_window = true
-
-[node name="InventoryUI" parent="CanvasLayer/UI/InventoryWindow" instance=ExtResource("28_p4iil")]
+[node name="InventoryUI" type="Control" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 159.0
+offset_bottom = -110.0
+grow_vertical = 2
+script = ExtResource("32_478hi")
 player_inventory = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer/UI/InventoryUI"]
+self_modulate = Color(0, 0, 0, 0.462745)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 22.0
+offset_right = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlotGrid" type="GridContainer" parent="CanvasLayer/UI/InventoryUI/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
 
 [node name="Cursor" type="Control" parent="CanvasLayer/UI" groups=["cursor"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 script = ExtResource("30_thfe1")
 
 [node name="ItemSlot" parent="CanvasLayer/UI/Cursor" instance=ExtResource("30_o4lnt")]
@@ -577,7 +629,11 @@ offset_right = 5.0
 offset_bottom = 8.0
 grow_horizontal = 1
 grow_vertical = 1
-clickable = false
+mouse_filter = 2
+disabled = true
+
+[node name="ItemSprite" parent="CanvasLayer/UI/Cursor/ItemSlot" index="0"]
+mouse_filter = 2
 
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/TurnLeft" to="Player/Character" method="turn_left"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveForward" to="Player/Character" method="move_forward"]
@@ -589,3 +645,4 @@ clickable = false
 [editable path="ProphetTrigger"]
 [editable path="Player/Character"]
 [editable path="NPC"]
+[editable path="CanvasLayer/UI/Cursor/ItemSlot"]

@@ -26,6 +26,7 @@ func _ready():
 func _process(delta):
 	if phase != Phase.INVISIBLE:
 		modulate_timer += delta
+		timer += delta *2
 		self.self_modulate.r = 0.7+0.3*sin(modulate_timer*50)
 		self.self_modulate.g = 0.7+0.3*cos(modulate_timer*16+200)
 		self.self_modulate.b = 0.7+0.3*sin(modulate_timer*9+400)
@@ -62,7 +63,7 @@ func _process(delta):
 				timer = 0.0
 	elif phase == Phase.FADE_OUT:
 		timer += delta * fade_out_mult
-		self.modulate.a = max(1.0-timer, 0.0)
+		self.self_modulate.a = max(1.0-timer, 0.0)
 		if timer >= 1.0:
 			phase = Phase.INVISIBLE
 			timer = 0.0
