@@ -7,13 +7,13 @@
 [ext_resource type="Shader" path="res://Shaders/psx-post-proc.gdshader" id="4_800jq"]
 [ext_resource type="Resource" uid="uid://83dnlswf31bf" path="res://Resources/Anatomy/human_anatomy.tres" id="4_qqk3q"]
 [ext_resource type="Theme" uid="uid://sdhii0frmp72" path="res://Resources/UI/ui-theme.tres" id="6_3qdy5"]
-[ext_resource type="Script" path="res://Scripts/inventory.gd" id="6_3wi02"]
 [ext_resource type="Resource" uid="uid://ubi0r2cqqehd" path="res://Resources/Items/honey.tres" id="6_i7hk7"]
 [ext_resource type="Resource" uid="uid://c0t1f7tcc4mdo" path="res://Resources/Action/punch.tres" id="6_tgyw1"]
 [ext_resource type="PackedScene" uid="uid://dbs2iv0th37u8" path="res://Scenes/UI/stat_readout.tscn" id="7_a0bsf"]
-[ext_resource type="Script" path="res://Scripts/item_stack.gd" id="7_gkqte"]
+[ext_resource type="Script" path="res://Scripts/Item/item_stack.gd" id="7_ghbmv"]
 [ext_resource type="Texture2D" uid="uid://w6k05nt7hwb8" path="res://Resources/Images/turn-left.png" id="7_ojyva"]
 [ext_resource type="Script" path="res://Scripts/anatomy.gd" id="7_ydlfx"]
+[ext_resource type="Script" path="res://Scripts/Item/inventory.gd" id="8_f7xdc"]
 [ext_resource type="Texture2D" uid="uid://d0ssgt8yvakh5" path="res://Resources/Images/move-forward.png" id="8_i7wbc"]
 [ext_resource type="Resource" uid="uid://bebsrwyy4g6kx" path="res://Resources/Action/kick.tres" id="8_qwmcg"]
 [ext_resource type="Texture2D" uid="uid://w3vjw7gsupl8" path="res://Resources/Images/turn-right.png" id="9_jqtdh"]
@@ -61,28 +61,28 @@ fog_sky_affect = 0.176
 resource_local_to_scene = true
 
 [sub_resource type="Resource" id="Resource_g76yr"]
-script = ExtResource("7_gkqte")
+script = ExtResource("7_ghbmv")
 item = ExtResource("6_i7hk7")
 count = 4
 
 [sub_resource type="Resource" id="Resource_6o1uu"]
-script = ExtResource("7_gkqte")
+script = ExtResource("7_ghbmv")
 item = ExtResource("6_i7hk7")
 count = 7
 
 [sub_resource type="Resource" id="Resource_lkvcp"]
-script = ExtResource("7_gkqte")
+script = ExtResource("7_ghbmv")
 item = ExtResource("6_i7hk7")
 count = 15
 
 [sub_resource type="Resource" id="Resource_mxpyk"]
-script = ExtResource("7_gkqte")
+script = ExtResource("7_ghbmv")
 item = ExtResource("6_i7hk7")
 count = 1
 
 [sub_resource type="Resource" id="Resource_1oy76"]
-script = ExtResource("6_3wi02")
-items = Array[ExtResource("7_gkqte")]([SubResource("Resource_g76yr"), SubResource("Resource_6o1uu"), SubResource("Resource_lkvcp"), SubResource("Resource_mxpyk")])
+script = ExtResource("8_f7xdc")
+items = Array[ExtResource("7_ghbmv")]([SubResource("Resource_g76yr"), SubResource("Resource_6o1uu"), SubResource("Resource_lkvcp"), SubResource("Resource_mxpyk")])
 
 [sub_resource type="Resource" id="Resource_cu8qx"]
 resource_name = "left hand"

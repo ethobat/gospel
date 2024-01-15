@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ubi0r2cqqehd"]
 
-[ext_resource type="Script" path="res://Scripts/item.gd" id="1_h5nip"]
+[ext_resource type="Script" path="res://Scripts/Item/item.gd" id="1_h5nip"]
 [ext_resource type="Texture2D" uid="uid://w6k05nt7hwb8" path="res://Resources/Images/turn-left.png" id="2_33ruk"]
 
 [resource]
