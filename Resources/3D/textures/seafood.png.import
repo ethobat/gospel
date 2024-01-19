@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c82hvme7f0bm5"
-path.s3tc="res://.godot/imported/backsword.png-70d1e39fb962d4522c8260d71f26b360.s3tc.ctex"
+uid="uid://dpibblhvshrv8"
+path.s3tc="res://.godot/imported/seafood.png-fe831f26a13187af741b40a0d2d90758.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/3D/textures/backsword.png"
-dest_files=["res://.godot/imported/backsword.png-70d1e39fb962d4522c8260d71f26b360.s3tc.ctex"]
+source_file="res://Resources/3D/textures/seafood.png"
+dest_files=["res://.godot/imported/seafood.png-fe831f26a13187af741b40a0d2d90758.s3tc.ctex"]
 
 [params]
 

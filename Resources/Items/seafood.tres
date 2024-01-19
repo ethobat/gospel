@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b45bqw8snpom"]
+
+[ext_resource type="Script" path="res://Scripts/Item/item.gd" id="1_nwdea"]
+[ext_resource type="ArrayMesh" uid="uid://ipoac1trl2iv" path="res://Resources/3D/meshes/seafood.res" id="1_tw7oc"]
+
+[resource]
+script = ExtResource("1_nwdea")
+name = "seafood"
+mesh = ExtResource("1_tw7oc")

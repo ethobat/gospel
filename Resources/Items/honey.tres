@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ubi0r2cqqehd"]
 
 [ext_resource type="Script" path="res://Scripts/Item/item.gd" id="1_h5nip"]
-[ext_resource type="Texture2D" uid="uid://w6k05nt7hwb8" path="res://Resources/Images/turn-left.png" id="2_33ruk"]
+[ext_resource type="ArrayMesh" uid="uid://cbtvkgtjm8ktd" path="res://Resources/3D/meshes/honeybottle.res" id="1_hngw6"]
 
 [resource]
 script = ExtResource("1_h5nip")
 name = "honey"
-texture = ExtResource("2_33ruk")
+mesh = ExtResource("1_hngw6")

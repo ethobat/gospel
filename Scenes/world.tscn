@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://dugli6jyw2uir"]
+[gd_scene load_steps=69 format=3 uid="uid://dugli6jyw2uir"]
 
 [ext_resource type="Texture2D" uid="uid://cwp7ivhpwmknn" path="res://Resources/Environment/sky-storm.tres" id="1_b3vjd"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_ig7a4"]
@@ -34,6 +34,8 @@
 [ext_resource type="Script" path="res://Scripts/cursor.gd" id="30_thfe1"]
 [ext_resource type="Script" path="res://Scenes/UI/anatomy_ui.gd" id="31_jd6ao"]
 [ext_resource type="Script" path="res://Scenes/UI/inventory_ui.gd" id="32_478hi"]
+[ext_resource type="ArrayMesh" uid="uid://cbtvkgtjm8ktd" path="res://Resources/3D/meshes/honeybottle.res" id="35_4ys3v"]
+[ext_resource type="ArrayMesh" uid="uid://b41thtnttt0a4" path="res://Resources/3D/meshes/backsword.res" id="35_wi2kg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xa8r0"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -634,6 +636,14 @@ disabled = true
 
 [node name="ItemSprite" parent="CanvasLayer/UI/Cursor/ItemSlot" index="0"]
 mouse_filter = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.305985, -0.073572, 0.0811487, 0.0399094, 0.299107, 0.120695, -0.102006, -0.103668, 0.290642, -1.3, 0.5, 4.74055)
+mesh = ExtResource("35_4ys3v")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0146418, 0.10783, 0.130607, 0.0736844, 0.122094, -0.0925407, -0.1525, 0.0486398, -0.0572533, -1.3, 0.5, 5.74055)
+mesh = ExtResource("35_wi2kg")
 
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/TurnLeft" to="Player/Character" method="turn_left"]
 [connection signal="button_down" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveForward" to="Player/Character" method="move_forward"]
