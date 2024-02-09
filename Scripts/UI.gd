@@ -2,16 +2,21 @@ extends Control
 
 @export var player: Character
 
-@onready var anatomy_ui: Control = $AnatomyUI
-@onready var inventory_ui: Control = $InventoryUI
+@onready var character_menu: Control = $CharacterMenu
+
+var character_window_visible: bool = false
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_toggle"):
-		toggle_ui()
+	if Input.is_action_just_pressed("ui_toggle_character_menu"):
+		toggle_character_menu()
 
 func _ready():
-	toggle_ui()
+	toggle_character_menu()
 
-func toggle_ui():
-	anatomy_ui.visible = !anatomy_ui.visible
-	inventory_ui.visible = !inventory_ui.visible
+func toggle_character_menu():
+	#anatomy_ui.visible = !anatomy_ui.visible
+	#character_window_visible = anatomy_ui.visible
+	character_menu.visible = !character_menu.visible
+	if character_menu.visible:
+		character_menu.on_display()
+	

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3w26na63ia5y"]
+
+[ext_resource type="Shader" path="res://Shaders/psx-post-proc.gdshader" id="1_npmpd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_40yr8"]
+render_priority = 0
+shader = ExtResource("1_npmpd")
+shader_parameter/color_depth = 5
+shader_parameter/dithering = true
+shader_parameter/resolution_scale = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_abnyb"]
+material = SubResource("ShaderMaterial_40yr8")
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="PostProcessing" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_abnyb")

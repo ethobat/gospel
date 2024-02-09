@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://o7rxtoidmdax"]
+
+[ext_resource type="ArrayMesh" uid="uid://b242yvduk5rel" path="res://Resources/3D/meshes/hydra.res" id="1_wb045"]
+[ext_resource type="ArrayMesh" uid="uid://vu6cd032nbm7" path="res://Resources/3D/meshes/hb-blood.tres" id="2_h8405"]
+[ext_resource type="ArrayMesh" uid="uid://7dbmdxlulo8s" path="res://Resources/3D/meshes/hb-cork.tres" id="3_jkmii"]
+[ext_resource type="ArrayMesh" uid="uid://d0rmkes5xuvou" path="res://Resources/3D/meshes/hb-bottle.tres" id="4_4tw7e"]
+[ext_resource type="ArrayMesh" uid="uid://cu8qmt1jb3oqm" path="res://Resources/3D/meshes/hb-hydragel.res" id="5_5vj4i"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Hydra" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_wb045")
+
+[node name="Hb-blood" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_h8405")
+
+[node name="Hb-cork" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_jkmii")
+
+[node name="Hb-bottle" type="MeshInstance3D" parent="."]
+mesh = ExtResource("4_4tw7e")
+
+[node name="Hb-hydragel" type="MeshInstance3D" parent="."]
+mesh = ExtResource("5_5vj4i")

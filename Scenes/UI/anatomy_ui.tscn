@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://beohm4p1b5fg2"]
 
-[ext_resource type="Script" path="res://Scenes/UI/anatomy_ui.gd" id="1_5i75n"]
+[ext_resource type="Script" path="res://Scripts/UI/anatomy_ui.gd" id="1_5i75n"]
 
 [node name="AnatomyUI" type="Control"]
 layout_mode = 3

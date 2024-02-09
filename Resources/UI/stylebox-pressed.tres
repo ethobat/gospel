@@ -1,9 +1,17 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bjaem7ligp5ad"]
 
-[ext_resource type="Texture2D" uid="uid://da5ffylu1h3tj" path="res://Resources/Images/button.jpg" id="1_wmyrp"]
+[ext_resource type="Texture2D" uid="uid://k5nqsr011fwd" path="res://Resources/Images/ui-bumpy.png" id="1_1va3c"]
 
 [resource]
-texture = ExtResource("1_wmyrp")
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("1_1va3c")
+texture_margin_left = 64.0
+texture_margin_top = 64.0
+texture_margin_right = 64.0
+texture_margin_bottom = 64.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 modulate_color = Color(0.647059, 0.647059, 0.647059, 1)

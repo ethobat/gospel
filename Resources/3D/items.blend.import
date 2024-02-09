@@ -29,6 +29,40 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
+"materials": {
+"backsword": {
+"use_external/enabled": false,
+"use_external/path": "res://Resources/3D/materials/items/backsword.tres"
+},
+"blood": {
+"use_external/enabled": false,
+"use_external/path": "res://Resources/3D/materials/items/blood.tres"
+},
+"cork": {
+"use_external/enabled": false,
+"use_external/path": "res://Resources/3D/materials/items/cork.tres"
+},
+"honeybottle": {
+"use_external/enabled": false,
+"use_external/path": "res://Resources/3D/materials/items/honeybottle.tres"
+},
+"hydra-inner": {
+"use_external/enabled": false,
+"use_external/path": "res://Resources/3D/materials/items/hydra-inner.tres"
+},
+"hydra-outer": {
+"use_external/enabled": false,
+"use_external/path": "res://Resources/3D/materials/items/hydra-outer.tres"
+},
+"redglass": {
+"use_external/enabled": false,
+"use_external/path": "res://Resources/3D/materials/items/redglass.tres"
+},
+"seafood": {
+"use_external/enabled": false,
+"use_external/path": "res://Resources/3D/materials/items/seafood.tres"
+}
+},
 "meshes": {
 "items-e5e7bfbc7e8dd3973ed3c98a8a35ef89_Cube": {
 "generate/lightmap_uv": 0,
@@ -39,6 +73,36 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://Resources/3D/meshes/honeybottle.res"
+},
+"items-e5e7bfbc7e8dd3973ed3c98a8a35ef89_Cube_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/hydra.res"
+},
+"items-e5e7bfbc7e8dd3973ed3c98a8a35ef89_Cube_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/hb-hydragel.res"
+},
+"items-e5e7bfbc7e8dd3973ed3c98a8a35ef89_Cylinder_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/hb-cork.tres"
 },
 "items-e5e7bfbc7e8dd3973ed3c98a8a35ef89_Icosphere": {
 "generate/lightmap_uv": 0,
@@ -89,6 +153,26 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://Resources/3D/meshes/backsword.res"
+},
+"items-e5e7bfbc7e8dd3973ed3c98a8a35ef89_Sphere_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/hb-bottle.tres"
+},
+"items-e5e7bfbc7e8dd3973ed3c98a8a35ef89_Sphere_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/hb-blood.tres"
 }
 }
 }

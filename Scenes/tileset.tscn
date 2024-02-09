@@ -1,0 +1,88 @@
+[gd_scene load_steps=15 format=3 uid="uid://ospeb35wfsh7"]
+
+[ext_resource type="ArrayMesh" uid="uid://q40agp0qh2g" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_straight.res" id="1_20324"]
+[ext_resource type="PackedScene" uid="uid://2l52wsg8csom" path="res://Scenes/block_collider.tscn" id="2_2ggih"]
+[ext_resource type="ArrayMesh" uid="uid://ccq6l0aty8of0" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_outcorner.res" id="2_hq7fm"]
+[ext_resource type="ArrayMesh" uid="uid://bnud2rl7q0nit" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_incorner.res" id="3_1tbhq"]
+[ext_resource type="ArrayMesh" uid="uid://c3wqfmxhwa581" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_tree_dead.res" id="3_8g0ia"]
+[ext_resource type="ArrayMesh" uid="uid://eij4kmk3q7fs" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_f_cobblearcs.res" id="4_ivvbn"]
+[ext_resource type="ArrayMesh" uid="uid://derlw3qmcl8ek" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_highroof.res" id="5_o5j7x"]
+[ext_resource type="ArrayMesh" uid="uid://bbpv2yskcol04" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_prop_window.res" id="6_x4f4p"]
+[ext_resource type="ArrayMesh" uid="uid://c04p7a6e8f25a" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_hr_floor.res" id="8_n4r2k"]
+[ext_resource type="ArrayMesh" uid="uid://b2naflbj8lurp" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_hr_floor_straight.res" id="9_klauq"]
+[ext_resource type="ArrayMesh" uid="uid://c3glpfo2l07jk" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_hr_floor_incorner.res" id="10_dxirf"]
+[ext_resource type="ArrayMesh" uid="uid://cap66r5ckd4hy" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_hr_floor_outcorner.res" id="11_umsj1"]
+[ext_resource type="ArrayMesh" uid="uid://ck5k75lv1iybj" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_fk_bridge_straight.res" id="12_76c2u"]
+[ext_resource type="ArrayMesh" uid="uid://rm01bvto4ynh" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_fk_bridge_full.res" id="13_k7vgt"]
+
+[node name="tileset" type="Node3D"]
+
+[node name="b1_straight" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_20324")
+skeleton = NodePath("")
+
+[node name="BlockCollider" parent="b1_straight" instance=ExtResource("2_2ggih")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 1, 0, 0)
+
+[node name="b1_outcorner" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 1, 0, 0)
+mesh = ExtResource("2_hq7fm")
+skeleton = NodePath("")
+
+[node name="BlockCollider" parent="b1_outcorner" instance=ExtResource("2_2ggih")]
+
+[node name="b1_incorner" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+mesh = ExtResource("3_1tbhq")
+skeleton = NodePath("")
+
+[node name="f_cobblearcs" type="MeshInstance3D" parent="."]
+mesh = ExtResource("4_ivvbn")
+skeleton = NodePath("")
+
+[node name="BlockCollider" parent="f_cobblearcs" instance=ExtResource("2_2ggih")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, -1, 0)
+
+[node name="b1_highroof" type="MeshInstance3D" parent="."]
+mesh = ExtResource("5_o5j7x")
+skeleton = NodePath("")
+
+[node name="prop_window" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.882923, 0, 0, 0, 0.882923, 0, 0, 0, 0.882923, 0, 0.45, 0.417714)
+mesh = ExtResource("6_x4f4p")
+skeleton = NodePath("")
+
+[node name="tree_dead" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_8g0ia")
+skeleton = NodePath("")
+
+[node name="BlockCollider" parent="tree_dead" instance=ExtResource("2_2ggih")]
+
+[node name="hr_floor" type="MeshInstance3D" parent="."]
+mesh = ExtResource("8_n4r2k")
+skeleton = NodePath("")
+
+[node name="hr_floor_straight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("9_klauq")
+skeleton = NodePath("")
+
+[node name="hr_floor_incorner" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+mesh = ExtResource("10_dxirf")
+skeleton = NodePath("")
+
+[node name="hr_floor_outcorner" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+mesh = ExtResource("11_umsj1")
+skeleton = NodePath("")
+
+[node name="fk_bridge_straight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("12_76c2u")
+skeleton = NodePath("")
+
+[node name="fk_bridge_full" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("13_k7vgt")
+skeleton = NodePath("")

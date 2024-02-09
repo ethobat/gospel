@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bp7ueggjcy74e"]
+
+[ext_resource type="FontFile" uid="uid://svf7icr0bimg" path="res://Resources/Fonts/mingliu.TTF" id="1_aia44"]
+
+[resource]
+font = ExtResource("1_aia44")
+font_size = 12
+font_color = Color(0.721569, 0.611765, 0, 1)
+shadow_size = 4
+shadow_color = Color(0.2, 0.168627, 0, 1)

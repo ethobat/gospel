@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ctuljho826pih"]
+
+[ext_resource type="Script" path="res://Scripts/Item/item.gd" id="1_sy53i"]
+[ext_resource type="ArrayMesh" uid="uid://b41thtnttt0a4" path="res://Resources/3D/meshes/backsword.res" id="1_tvs4r"]
+
+[resource]
+script = ExtResource("1_sy53i")
+name = "backsword"
+display_name = "Backsword"
+description = "Antique single-edged blade, most effective at cutting attacks. Back edge is bladed near the tip to facilitate thrusting.
+
+This weapon can be used to draw blood, or even to sever limbs given a high ART value"
+mesh = ExtResource("1_tvs4r")
+item_slot_height = -1.0
+item_slot_rot = Vector3(0, 30, -80)
+item_slot_scale = 1.0
+provided_actions = Array[Resource("res://Scripts/action.gd")]([null])

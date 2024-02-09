@@ -11,7 +11,8 @@ func _ready():
 func _physics_process(delta):
 	#global_rotation.y += delta * 10
 	#ai_random()
-	ai_fwd()
+	#ai_fwd()
+	pass
 
 func ai_fwd():
 	chr.move_forward()

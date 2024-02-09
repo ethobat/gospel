@@ -1,8 +1,6 @@
-[gd_resource type="Resource" script_class="Anatomy" load_steps=22 format=3 uid="uid://83dnlswf31bf"]
+[gd_resource type="Resource" script_class="Anatomy" load_steps=20 format=3 uid="uid://83dnlswf31bf"]
 
 [ext_resource type="Script" path="res://Scripts/anatomy.gd" id="1_7d42o"]
-[ext_resource type="Resource" uid="uid://c0t1f7tcc4mdo" path="res://Resources/Action/punch.tres" id="2_8f1ry"]
-[ext_resource type="Resource" uid="uid://bebsrwyy4g6kx" path="res://Resources/Action/kick.tres" id="2_vapja"]
 
 [sub_resource type="Resource" id="Resource_cu8qx"]
 resource_name = "left hand"
@@ -10,7 +8,7 @@ script = ExtResource("1_7d42o")
 name = "left hand"
 hp = 2.0
 children = Array[ExtResource("1_7d42o")]([])
-actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("2_8f1ry")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
 stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_qnkvh"]
@@ -28,7 +26,7 @@ script = ExtResource("1_7d42o")
 name = "right hand"
 hp = 2.0
 children = Array[ExtResource("1_7d42o")]([])
-actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("2_8f1ry")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
 stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_oka0u"]
@@ -46,7 +44,7 @@ script = ExtResource("1_7d42o")
 name = "left foot"
 hp = 4.0
 children = Array[ExtResource("1_7d42o")]([])
-actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("2_vapja")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
 stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_xwuvo"]
@@ -64,7 +62,7 @@ script = ExtResource("1_7d42o")
 name = "right foot"
 hp = 4.0
 children = Array[ExtResource("1_7d42o")]([])
-actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("2_vapja")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
 stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
 
 [sub_resource type="Resource" id="Resource_bp7yd"]

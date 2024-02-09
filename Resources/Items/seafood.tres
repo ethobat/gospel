@@ -6,4 +6,9 @@
 [resource]
 script = ExtResource("1_nwdea")
 name = "seafood"
+display_name = "Seafood"
+description = ""
 mesh = ExtResource("1_tw7oc")
+item_slot_height = -0.5
+item_slot_rot = Vector3(0, 0, 0)
+item_slot_scale = 1.4

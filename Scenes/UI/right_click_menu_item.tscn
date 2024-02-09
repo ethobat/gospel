@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhbi3uy3euvdm"]
+
+[ext_resource type="LabelSettings" uid="uid://bp7ueggjcy74e" path="res://Resources/UI/right_click_menu_item_settings.tres" id="1_63r1b"]
+
+[node name="RightClickMenuItem" type="Button"]
+custom_minimum_size = Vector2(120, 12)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -6.0
+offset_right = 60.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0340785
+anchor_right = 0.695202
+anchor_bottom = 1.00974
+grow_vertical = 2
+text = "rmb menu item"
+label_settings = ExtResource("1_63r1b")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

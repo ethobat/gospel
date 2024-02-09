@@ -1,0 +1,408 @@
+[gd_scene load_steps=36 format=3 uid="uid://dugli6jyw2uir"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="2_ipkmv"]
+[ext_resource type="PackedScene" uid="uid://17uiya8ydlis" path="res://Scenes/character.tscn" id="3_nq3cs"]
+[ext_resource type="Resource" uid="uid://83dnlswf31bf" path="res://Resources/Anatomy/human_anatomy.tres" id="4_mng2d"]
+[ext_resource type="Resource" uid="uid://ubi0r2cqqehd" path="res://Resources/Items/honey.tres" id="5_pa7y8"]
+[ext_resource type="Script" path="res://Scripts/Item/item_stack.gd" id="6_i1u61"]
+[ext_resource type="Resource" uid="uid://b45bqw8snpom" path="res://Resources/Items/seafood.tres" id="6_id6q5"]
+[ext_resource type="Script" path="res://Scripts/Item/inventory.gd" id="7_63bj2"]
+[ext_resource type="PackedScene" uid="uid://c3w26na63ia5y" path="res://Scenes/post_processing.tscn" id="8_ansdx"]
+[ext_resource type="Theme" uid="uid://sdhii0frmp72" path="res://Resources/UI/ui-theme.tres" id="9_cs6wb"]
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="10_kp5i5"]
+[ext_resource type="Texture2D" uid="uid://cnsjgdl8cbs7c" path="res://Resources/Images/the-prophet-speaks.png" id="11_xb1q5"]
+[ext_resource type="Script" path="res://Scripts/UI/prophet.gd" id="12_8agba"]
+[ext_resource type="PackedScene" uid="uid://dbs2iv0th37u8" path="res://Scenes/UI/stat_readout.tscn" id="13_au6p4"]
+[ext_resource type="Texture2D" uid="uid://w6k05nt7hwb8" path="res://Resources/Images/turn-left.png" id="14_r62q4"]
+[ext_resource type="Texture2D" uid="uid://d0ssgt8yvakh5" path="res://Resources/Images/move-forward.png" id="15_5ir2n"]
+[ext_resource type="Texture2D" uid="uid://w3vjw7gsupl8" path="res://Resources/Images/turn-right.png" id="16_7ok1r"]
+[ext_resource type="Texture2D" uid="uid://ckwp47pjdqm5x" path="res://Resources/Images/strafe-left.png" id="17_w4qjk"]
+[ext_resource type="Texture2D" uid="uid://bua7dir6yc0cj" path="res://Resources/Images/move-back.png" id="18_rj0o6"]
+[ext_resource type="Texture2D" uid="uid://dn2oo7cpylawb" path="res://Resources/Images/strafe-right.png" id="19_mupvg"]
+[ext_resource type="Script" path="res://Scripts/UI/attack_button_window.gd" id="20_oygsh"]
+[ext_resource type="Script" path="res://Scripts/time_indicator.gd" id="21_qhaty"]
+[ext_resource type="Texture2D" uid="uid://cple7n22c8xr7" path="res://Resources/Images/debug_play.png" id="22_jlnce"]
+[ext_resource type="Texture2D" uid="uid://dsv7y4lbfwa2k" path="res://Resources/Images/debug_pause.png" id="23_8wmhx"]
+[ext_resource type="PackedScene" uid="uid://dasemuvcho2pc" path="res://Scenes/UI/character_menu.tscn" id="24_t1rqa"]
+[ext_resource type="Script" path="res://Scripts/cursor.gd" id="26_4hjt8"]
+[ext_resource type="PackedScene" uid="uid://datqf7a1201rr" path="res://Scenes/UI/item_slot.tscn" id="27_ccdv1"]
+[ext_resource type="PackedScene" uid="uid://bavbdkqqdvgc1" path="res://Scenes/Levels/visgalburg.tscn" id="28_miscd"]
+[ext_resource type="PackedScene" uid="uid://dd1ixusqmh7u7" path="res://Scenes/UI/right_click_menu.tscn" id="28_qit0p"]
+[ext_resource type="PackedScene" uid="uid://d16u6akn8rxa0" path="res://Scenes/LevelObjects/item_object.tscn" id="29_7sok4"]
+
+[sub_resource type="Resource" id="Resource_g76yr"]
+script = ExtResource("6_i1u61")
+item = ExtResource("5_pa7y8")
+count = 4
+
+[sub_resource type="Resource" id="Resource_6o1uu"]
+script = ExtResource("6_i1u61")
+item = ExtResource("6_id6q5")
+count = 7
+
+[sub_resource type="Resource" id="Resource_lkvcp"]
+script = ExtResource("6_i1u61")
+item = ExtResource("5_pa7y8")
+count = 15
+
+[sub_resource type="Resource" id="Resource_mxpyk"]
+script = ExtResource("6_i1u61")
+item = ExtResource("5_pa7y8")
+count = 1
+
+[sub_resource type="Resource" id="Resource_1oy76"]
+script = ExtResource("7_63bj2")
+items = Array[ExtResource("6_i1u61")]([SubResource("Resource_g76yr"), SubResource("Resource_6o1uu"), SubResource("Resource_lkvcp"), SubResource("Resource_mxpyk")])
+
+[sub_resource type="LabelSettings" id="LabelSettings_quo1r"]
+line_spacing = 1.0
+font_size = 12
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="World" type="Node3D"]
+
+[node name="Player" type="Node3D" parent="." groups=["player"]]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+script = ExtResource("2_ipkmv")
+
+[node name="Character" parent="Player" instance=ExtResource("3_nq3cs")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+character_name = "player"
+anatomy = ExtResource("4_mng2d")
+inventory = SubResource("Resource_1oy76")
+
+[node name="BlockCollider" parent="Player/Character" index="0"]
+collision_layer = 6
+
+[node name="Head" type="Node3D" parent="Player/Character"]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0.5, 0.2)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Character/Head"]
+current = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Player/Character"]
+light_color = Color(0.835294, 0.729412, 0.572549, 1)
+light_energy = 2.0
+omni_range = 6.0
+
+[node name="PostProcessing" parent="." instance=ExtResource("8_ansdx")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_cs6wb")
+script = ExtResource("10_kp5i5")
+
+[node name="Prophet" type="TextureRect" parent="CanvasLayer/UI" groups=["prophet"]]
+unique_name_in_owner = true
+layout_direction = 3
+layout_mode = 1
+offset_left = 35.0
+offset_top = 34.0
+offset_right = 186.0
+offset_bottom = 240.0
+texture = ExtResource("11_xb1q5")
+expand_mode = 1
+script = ExtResource("12_8agba")
+fade_in_mult = 0.3
+write_in_mult = 30.0
+period_pause = 10.0
+hold_time = 5.0
+write_out_mult = 100.0
+fade_out_mult = 0.3
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/Prophet"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi tristique senectus et netus et. Pharetra massa massa ultricies mi quis hendrerit dolor. Pharetra diam sit amet nisl suscipit adipiscing bibendum est."
+label_settings = SubResource("LabelSettings_quo1r")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BottomBar" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.875
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="StatDisplay" type="Panel" parent="CanvasLayer/UI/BottomBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 218.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/BottomBar/StatDisplay"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -214.0
+offset_right = -94.0
+offset_bottom = 28.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="StatReadoutMuscle" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" instance=ExtResource("13_au6p4")]
+layout_mode = 2
+stat_name = "muscle"
+tooltip = "Brute strength. Modifies effectiveness of attacks."
+
+[node name="StatReadoutArt" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" instance=ExtResource("13_au6p4")]
+layout_mode = 2
+stat_name = "art"
+tooltip = "Precision of attacks. High Art facilitates complex attacks like severing body parts or attacking between the ribs."
+
+[node name="StatReadoutLocomotion" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" instance=ExtResource("13_au6p4")]
+layout_mode = 2
+stat_name = "locomotion"
+tooltip = "Movement speed and agility. Higher Locomotion values allow faster movement and turning."
+
+[node name="StatReadoutReplenishment" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" instance=ExtResource("13_au6p4")]
+layout_mode = 2
+stat_name = "replenishment"
+tooltip = "Rate at which the body generates blood."
+
+[node name="MovementButtons" type="GridContainer" parent="CanvasLayer/UI/BottomBar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -56.0
+offset_right = 72.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(72, 28)
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="TurnLeft" type="Button" parent="CanvasLayer/UI/BottomBar/MovementButtons"]
+custom_minimum_size = Vector2(48, 28)
+layout_mode = 2
+focus_mode = 0
+text = "
+"
+icon = ExtResource("14_r62q4")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MoveForward" type="Button" parent="CanvasLayer/UI/BottomBar/MovementButtons"]
+custom_minimum_size = Vector2(48, 28)
+layout_mode = 2
+focus_mode = 0
+text = "
+"
+icon = ExtResource("15_5ir2n")
+icon_alignment = 1
+expand_icon = true
+
+[node name="TurnRight" type="Button" parent="CanvasLayer/UI/BottomBar/MovementButtons"]
+custom_minimum_size = Vector2(48, 28)
+layout_mode = 2
+focus_mode = 0
+text = "
+"
+icon = ExtResource("16_7ok1r")
+icon_alignment = 1
+expand_icon = true
+
+[node name="StrafeLeft" type="Button" parent="CanvasLayer/UI/BottomBar/MovementButtons"]
+custom_minimum_size = Vector2(48, 28)
+layout_mode = 2
+focus_mode = 0
+text = "
+"
+icon = ExtResource("17_w4qjk")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MoveBack" type="Button" parent="CanvasLayer/UI/BottomBar/MovementButtons"]
+custom_minimum_size = Vector2(48, 28)
+layout_mode = 2
+focus_mode = 0
+text = "
+"
+icon = ExtResource("18_rj0o6")
+icon_alignment = 1
+expand_icon = true
+
+[node name="StrafeRight" type="Button" parent="CanvasLayer/UI/BottomBar/MovementButtons"]
+custom_minimum_size = Vector2(48, 28)
+layout_mode = 2
+focus_mode = 0
+text = "
+"
+icon = ExtResource("19_mupvg")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AttackButtonWindow" type="GridContainer" parent="CanvasLayer/UI/BottomBar"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -243.0
+offset_top = -56.0
+offset_right = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+script = ExtResource("20_oygsh")
+
+[node name="TimeIndicator" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 21.0
+script = ExtResource("21_qhaty")
+
+[node name="Play" type="TextureRect" parent="CanvasLayer/UI/TimeIndicator"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_jlnce")
+expand_mode = 1
+
+[node name="Pause" type="TextureRect" parent="CanvasLayer/UI/TimeIndicator"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_8wmhx")
+expand_mode = 1
+
+[node name="CharacterMenu" parent="CanvasLayer/UI" instance=ExtResource("24_t1rqa")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -262.0
+offset_top = -213.0
+offset_right = -14.0
+offset_bottom = 85.0
+grow_horizontal = 0
+
+[node name="Cursor" type="Control" parent="CanvasLayer/UI" groups=["cursor"]]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("26_4hjt8")
+
+[node name="ItemSlot" parent="CanvasLayer/UI/Cursor" instance=ExtResource("27_ccdv1")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -33.0
+offset_top = -32.0
+offset_right = 17.0
+offset_bottom = 18.0
+grow_horizontal = 1
+grow_vertical = 1
+mouse_filter = 2
+
+[node name="SubViewport" parent="CanvasLayer/UI/Cursor/ItemSlot/SubViewportContainer" index="0"]
+size = Vector2i(50, 50)
+
+[node name="TooltipPanel" type="Panel" parent="CanvasLayer/UI/Cursor"]
+layout_mode = 1
+offset_left = 8.0
+offset_top = -43.0
+offset_right = 292.0
+offset_bottom = -10.0
+
+[node name="Tooltip" type="Label" parent="CanvasLayer/UI/Cursor/TooltipPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Sample Tooltip"
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="RightClickMenu" parent="CanvasLayer/UI" instance=ExtResource("28_qit0p")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 150.0
+offset_bottom = 86.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Level" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="Visgalburg" parent="Level" instance=ExtResource("28_miscd")]
+
+[node name="EditorSun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.88271, 0)
+editor_only = true
+
+[node name="ItemObject" parent="." instance=ExtResource("29_7sok4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 5)
+
+[connection signal="gui_input" from="CanvasLayer/UI" to="Player" method="try_interact"]
+[connection signal="pressed" from="CanvasLayer/UI/BottomBar/MovementButtons/TurnLeft" to="Player/Character" method="turn_left"]
+[connection signal="pressed" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveForward" to="Player/Character" method="move_forward"]
+[connection signal="pressed" from="CanvasLayer/UI/BottomBar/MovementButtons/TurnRight" to="Player/Character" method="turn_right"]
+[connection signal="pressed" from="CanvasLayer/UI/BottomBar/MovementButtons/StrafeLeft" to="Player/Character" method="strafe_left"]
+[connection signal="pressed" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveBack" to="Player/Character" method="move_back"]
+[connection signal="pressed" from="CanvasLayer/UI/BottomBar/MovementButtons/StrafeRight" to="Player/Character" method="strafe_right"]
+
+[editable path="Player/Character"]
+[editable path="CanvasLayer/UI/Cursor/ItemSlot"]

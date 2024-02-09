@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://dasemuvcho2pc"]
+
+[ext_resource type="Script" path="res://Scripts/UI/character_menu.gd" id="1_edo44"]
+[ext_resource type="Script" path="res://Scripts/UI/inventory_ui.gd" id="2_8x1ef"]
+[ext_resource type="Script" path="res://Scripts/UI/anatomy_ui.gd" id="3_mc5cr"]
+
+[node name="CharacterMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_edo44")
+
+[node name="TabMenus" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabBar" type="TabBar" parent="TabMenus"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 199.0
+offset_right = -199.0
+offset_bottom = -449.0
+grow_horizontal = 2
+tab_alignment = 1
+clip_tabs = false
+scrolling_enabled = false
+scroll_to_selected = false
+tab_count = 3
+tab_0/title = "inventory"
+tab_1/title = "anatomy"
+tab_2/title = "stats"
+
+[node name="Menus" type="Control" parent="TabMenus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryUI" type="Control" parent="TabMenus/Menus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_8x1ef")
+player_inventory = true
+
+[node name="Panel" type="Panel" parent="TabMenus/Menus/InventoryUI"]
+self_modulate = Color(0, 0, 0, 0.462745)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlotGrid" type="GridContainer" parent="TabMenus/Menus/InventoryUI/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="AnatomyUI" type="Control" parent="TabMenus/Menus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_mc5cr")
+
+[node name="Tree" type="Tree" parent="TabMenus/Menus/AnatomyUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+column_titles_visible = true
+hide_root = true
+
+[connection signal="tab_changed" from="TabMenus/TabBar" to="." method="switch_tab"]

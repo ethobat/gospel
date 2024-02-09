@@ -1,7 +1,7 @@
 #### Primary stats
-- Muscle - Modifies effectiveness of attacks.
+- Muscle - Brute strength. Modifies effectiveness of attacks.
 - Art - Precision of attacks. High Art facilitates complex attacks like severing body parts or attacking between the ribs.
-- Locomotion - Movement speed and agility. Higher Locomotion values allow faster movement/turning.
+- Locomotion - Movement speed and agility. Higher Locomotion values allow faster movement and turning.
 - Metabolism - Efficiency of metabolic processes. Higher metabolism provides a greater effect from consumable items like stimulants.
 - Discipline - Ability to withstand pain.
 - Replenishment - Rate at which the body generates blood.

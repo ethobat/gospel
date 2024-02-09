@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://og1jm0lxt402"]
+
+[ext_resource type="ArrayMesh" uid="uid://b41thtnttt0a4" path="res://Resources/3D/meshes/backsword.res" id="1_2dhnq"]
+[ext_resource type="Script" path="res://Scripts/weapon.gd" id="1_q4onj"]
+
+[node name="Weapon" type="Node3D"]
+script = ExtResource("1_q4onj")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2dhnq")
+skeleton = NodePath("../..")
+
+[node name="1" type="Node3D" parent="."]
+visible = false
+
+[node name="Neutral" type="Node3D" parent="1"]
+transform = Transform3D(-0.112322, 0.989285, -0.0932666, 0.890307, 0.0585099, -0.451586, -0.441291, -0.133759, -0.887339, 2.16587, 0.636461, -2.79043)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="1/Neutral"]
+mesh = ExtResource("1_2dhnq")
+skeleton = NodePath("../../..")
+
+[node name="Readied" type="Node3D" parent="1"]
+transform = Transform3D(0.639737, -0.524925, -0.561419, 0.0957093, -0.670356, 0.735841, -0.762612, -0.524478, -0.378611, 4.04856, -1.16828, -3.68183)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="1/Readied"]
+mesh = ExtResource("1_2dhnq")
+skeleton = NodePath("../../..")
+
+[node name="Swing" type="Node3D" parent="1"]
+transform = Transform3D(-0.835596, -0.416346, -0.358378, 0.444448, -0.895794, 0.00441201, -0.32287, -0.155594, 0.933566, -4.54846, -1.51269, -3.66547)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="1/Swing"]
+mesh = ExtResource("1_2dhnq")
+skeleton = NodePath("../../..")
+
+[node name="2" type="Node3D" parent="."]
+
+[node name="Neutral" type="Node3D" parent="2"]
+transform = Transform3D(-0.112322, 0.989285, -0.0932666, 0.890307, 0.0585099, -0.451586, -0.441291, -0.133759, -0.887339, 1.12922, 0.00699961, -2.79043)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="2/Neutral"]
+mesh = ExtResource("1_2dhnq")
+skeleton = NodePath("../../..")
+
+[node name="Readied" type="Node3D" parent="2"]
+transform = Transform3D(-0.0177001, 0.99317, 0.115333, 0.37813, 0.113434, -0.918777, -0.925584, 0.0273484, -0.377555, 1.19927, -1.93564, -3.2141)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="2/Readied"]
+mesh = ExtResource("1_2dhnq")
+skeleton = NodePath("../../..")
+
+[node name="Swing" type="Node3D" parent="2"]
+transform = Transform3D(0.0511349, 0.994092, -0.0957374, 0.510282, -0.108412, -0.853147, -0.858486, -0.00522706, -0.512811, 1.21876, -0.466545, -5.70559)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="2/Swing"]
+mesh = ExtResource("1_2dhnq")
+skeleton = NodePath("../../..")

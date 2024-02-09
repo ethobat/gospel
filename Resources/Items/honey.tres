@@ -6,4 +6,11 @@
 [resource]
 script = ExtResource("1_h5nip")
 name = "honey"
+display_name = "Honey"
+description = "Consumable medicine. Improves the rate at which wounds heal and blood is replenished.
+
+\"Honey\" is a euphemism for an orange gel-like substance sometimes found on rotting corpses. In some places it is a symbol of metabolism, the metaphysical process by which the divine is transformed into the profane."
 mesh = ExtResource("1_hngw6")
+item_slot_height = -1.0
+item_slot_rot = Vector3(0, 0, 0)
+item_slot_scale = 4.0

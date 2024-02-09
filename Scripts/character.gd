@@ -7,6 +7,12 @@ class_name Character
 @export var anatomy: Anatomy
 @export var inventory: Inventory
 
+@export var move_stamina_cost: float = 1.0
+@export var turn_stamina_cost: float = 0.2
+
+# between 0 and 1
+var stamina: float = 1.0
+
 var windup: bool = false
 var windup_action: Action
 var windup_source_part: Anatomy
@@ -96,6 +102,8 @@ func try_grid_move(raycast : RayCast3D):
 		raycast_left: movement = Vector3.LEFT
 		raycast_right: movement = Vector3.RIGHT
 	if moving or turning: return
+	if not use_stamina(move_stamina_cost):
+		return
 	progress = 0.0
 	moving = true
 	move_original_position = position
@@ -109,6 +117,8 @@ func try_grid_move(raycast : RayCast3D):
 # direction: false to turn left, true to turn right
 func try_grid_turn(direction):
 	if moving or turning: return
+	if not use_stamina(turn_stamina_cost):
+		return
 	progress = 0.0
 	turning = true
 	var delta = PI/2 * (-1 if direction else 1)
@@ -117,6 +127,13 @@ func try_grid_turn(direction):
 	block_collider.global_rotation.y = global_rotation.y + delta
 	if is_player: TimeSystem.begin_playing()
 	
+# Try to drain stamina, return true if character has enough
+func use_stamina(cost: float):
+	if stamina >= cost:
+		stamina -= cost
+		return true
+	return false	
+
 func do_midway_raycast():
 	move_passed_midway_point = true
 	if move_raycast.is_colliding():
@@ -145,21 +162,30 @@ func turn_left():
 func turn_right():
 	try_grid_turn(true)
 
-func perform_action_windup(body_part_name: String, action_name: String):
+func get_position_on_gridmap(gridmap: GridMap):
+	var vec: Vector3 = global_position# - Vector3(2,0,1)
+	#vec += gridmap.global_position
+	return vec as Vector3i
+
+func windup_hold(body_part_name: String, action_name: String):
 	if windup:
+		printerr("This shouldn't happen!")
 		return
 	windup = true
 	windup_source_part = anatomy.find(body_part_name)
 	windup_action = windup_source_part.get_action(action_name)
-	windup_time = windup_action.windup_time
+	windup_time = windup_action.get_windup_time()
 	#var target = get_facing_character()
-	
 	print("Attempting " + action_name + " with " + body_part_name)
 	print("Muscle: " + str(windup_source_part.get_stat("muscle")))
 	if is_player:
 		TimeSystem.begin_playing()
 
+func windup_release():
+	windup = false
+
 func perform_action_immediate():
+	print("Doing action now!")
 	var target = get_facing_character()
 	if target is Character:
 		windup_action.perform(self, windup_source_part, target)

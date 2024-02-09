@@ -3,6 +3,7 @@ class_name Anatomy
 
 @export var name: String : set = _set_name
 @export var hp: float
+
 @export var children: Array[Anatomy]
 @export var actions: Array[Action]
 # the get_stat method of Anatomy returns the value of the get_stat method of its parent,

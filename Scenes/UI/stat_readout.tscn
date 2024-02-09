@@ -4,7 +4,7 @@
 [ext_resource type="LabelSettings" uid="uid://cge873cq51eaj" path="res://Resources/UI/ui_label_settings.tres" id="2_gs7iq"]
 
 [node name="StatReadout" type="Panel"]
-custom_minimum_size = Vector2(120, 20)
+custom_minimum_size = Vector2(120, 12)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -43,3 +43,6 @@ label_settings = ExtResource("2_gs7iq")
 horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
