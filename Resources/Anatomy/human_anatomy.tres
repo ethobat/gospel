@@ -1,174 +1,255 @@
-[gd_resource type="Resource" script_class="Anatomy" load_steps=20 format=3 uid="uid://83dnlswf31bf"]
+[gd_resource type="Resource" script_class="Anatomy" load_steps=36 format=3 uid="uid://83dnlswf31bf"]
 
 [ext_resource type="Script" path="res://Scripts/anatomy.gd" id="1_7d42o"]
+[ext_resource type="Script" path="res://Scripts/stat_record.gd" id="2_cnfcc"]
+[ext_resource type="Resource" uid="uid://bdj586h27ic2l" path="res://Resources/Action/backsword_swing.tres" id="3_bygk1"]
+
+[sub_resource type="Resource" id="Resource_jsw8a"]
+script = ExtResource("2_cnfcc")
+stat_name = "art"
+value = 1.0
 
 [sub_resource type="Resource" id="Resource_cu8qx"]
 resource_name = "left hand"
 script = ExtResource("1_7d42o")
 name = "left hand"
-hp = 2.0
+hp = 380.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+stat_mults = Array[ExtResource("2_cnfcc")]([SubResource("Resource_jsw8a")])
+
+[sub_resource type="Resource" id="Resource_6bqc7"]
+script = ExtResource("2_cnfcc")
+stat_name = "muscle"
+value = 0.0
 
 [sub_resource type="Resource" id="Resource_qnkvh"]
 resource_name = "left arm"
 script = ExtResource("1_7d42o")
 name = "left arm"
-hp = 0.0
+hp = 6500.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([SubResource("Resource_cu8qx")])
 actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+stat_mults = Array[ExtResource("2_cnfcc")]([SubResource("Resource_6bqc7")])
+
+[sub_resource type="Resource" id="Resource_vou8q"]
+script = ExtResource("2_cnfcc")
+stat_name = "art"
+value = 1.0
 
 [sub_resource type="Resource" id="Resource_7tah3"]
 resource_name = "right hand"
 script = ExtResource("1_7d42o")
 name = "right hand"
-hp = 2.0
+hp = 380.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+stat_mults = Array[ExtResource("2_cnfcc")]([SubResource("Resource_vou8q")])
+
+[sub_resource type="Resource" id="Resource_1k61k"]
+script = ExtResource("2_cnfcc")
+stat_name = "muscle"
+value = 1.0
 
 [sub_resource type="Resource" id="Resource_oka0u"]
 resource_name = "right arm"
 script = ExtResource("1_7d42o")
 name = "right arm"
-hp = 0.0
+hp = 6500.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([SubResource("Resource_7tah3")])
-actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("3_bygk1")])
+stat_mults = Array[ExtResource("2_cnfcc")]([SubResource("Resource_1k61k")])
 
-[sub_resource type="Resource" id="Resource_b6erd"]
-resource_name = "left foot"
-script = ExtResource("1_7d42o")
-name = "left foot"
-hp = 4.0
-children = Array[ExtResource("1_7d42o")]([])
-actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+[sub_resource type="Resource" id="Resource_qitj7"]
+script = ExtResource("2_cnfcc")
+stat_name = "locomotion"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_4qcne"]
+script = ExtResource("2_cnfcc")
+stat_name = "muscle"
+value = 1.0
 
 [sub_resource type="Resource" id="Resource_xwuvo"]
 resource_name = "left leg"
 script = ExtResource("1_7d42o")
 name = "left leg"
 hp = 7.0
-children = Array[ExtResource("1_7d42o")]([SubResource("Resource_b6erd")])
-actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
-
-[sub_resource type="Resource" id="Resource_v07st"]
-resource_name = "right foot"
-script = ExtResource("1_7d42o")
-name = "right foot"
-hp = 4.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+stat_mults = Array[ExtResource("2_cnfcc")]([SubResource("Resource_qitj7"), SubResource("Resource_4qcne")])
+
+[sub_resource type="Resource" id="Resource_rclr8"]
+script = ExtResource("2_cnfcc")
+stat_name = "locomotion"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_oatiy"]
+script = ExtResource("2_cnfcc")
+stat_name = "muscle"
+value = 1.0
 
 [sub_resource type="Resource" id="Resource_bp7yd"]
 resource_name = "right leg"
 script = ExtResource("1_7d42o")
 name = "right leg"
 hp = 7.0
-children = Array[ExtResource("1_7d42o")]([SubResource("Resource_v07st")])
+blood = 0.0
+children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+stat_mults = Array[ExtResource("2_cnfcc")]([SubResource("Resource_rclr8"), SubResource("Resource_oatiy")])
+
+[sub_resource type="Resource" id="Resource_he0en"]
+script = ExtResource("2_cnfcc")
+stat_name = "consciousness"
+value = 1.0
 
 [sub_resource type="Resource" id="Resource_hpqw8"]
 resource_name = "brain"
 script = ExtResource("1_7d42o")
 name = "brain"
 hp = 4.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+stat_mults = Array[ExtResource("2_cnfcc")]([SubResource("Resource_he0en")])
 
 [sub_resource type="Resource" id="Resource_x8dq4"]
 resource_name = "head"
 script = ExtResource("1_7d42o")
 name = "head"
 hp = 6.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([SubResource("Resource_hpqw8")])
-actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("3_bygk1")])
+stat_mults = Array[ExtResource("2_cnfcc")]([])
+
+[sub_resource type="Resource" id="Resource_8l7t5"]
+script = ExtResource("2_cnfcc")
+stat_name = "respiration"
+value = 1.0
 
 [sub_resource type="Resource" id="Resource_kohos"]
 resource_name = "left lung"
 script = ExtResource("1_7d42o")
 name = "left lung"
 hp = 5.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+stat_mults = Array[ExtResource("2_cnfcc")]([SubResource("Resource_8l7t5")])
+
+[sub_resource type="Resource" id="Resource_ag2os"]
+script = ExtResource("2_cnfcc")
+stat_name = "respiration"
+value = 1.0
 
 [sub_resource type="Resource" id="Resource_18ss2"]
 resource_name = "right lung"
 script = ExtResource("1_7d42o")
 name = "right lung"
 hp = 5.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+stat_mults = Array[ExtResource("2_cnfcc")]([SubResource("Resource_ag2os")])
+
+[sub_resource type="Resource" id="Resource_wa8pe"]
+script = ExtResource("2_cnfcc")
+stat_name = "circulation"
+value = 1.0
 
 [sub_resource type="Resource" id="Resource_0vg4s"]
 resource_name = "heart"
 script = ExtResource("1_7d42o")
 name = "heart"
 hp = 2.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+stat_mults = Array[ExtResource("2_cnfcc")]([SubResource("Resource_wa8pe")])
+
+[sub_resource type="Resource" id="Resource_jsagj"]
+script = ExtResource("2_cnfcc")
+stat_name = "muscle"
+value = 1.0
 
 [sub_resource type="Resource" id="Resource_j22er"]
 resource_name = "thorax"
 script = ExtResource("1_7d42o")
 name = "thorax"
 hp = 0.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([SubResource("Resource_kohos"), SubResource("Resource_18ss2"), SubResource("Resource_0vg4s")])
 actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+stat_mults = Array[ExtResource("2_cnfcc")]([SubResource("Resource_jsagj")])
+
+[sub_resource type="Resource" id="Resource_1csq0"]
+script = ExtResource("2_cnfcc")
+stat_name = "metabolism"
+value = 1.0
 
 [sub_resource type="Resource" id="Resource_t2mvp"]
 resource_name = "stomach"
 script = ExtResource("1_7d42o")
 name = "stomach"
 hp = 5.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+stat_mults = Array[ExtResource("2_cnfcc")]([SubResource("Resource_1csq0")])
+
+[sub_resource type="Resource" id="Resource_lsguy"]
+script = ExtResource("2_cnfcc")
+stat_name = "metabolism"
+value = 1.0
 
 [sub_resource type="Resource" id="Resource_ane1c"]
 resource_name = "small intestine"
 script = ExtResource("1_7d42o")
 name = "small intestine"
 hp = 6.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+stat_mults = Array[ExtResource("2_cnfcc")]([SubResource("Resource_lsguy")])
+
+[sub_resource type="Resource" id="Resource_688qh"]
+script = ExtResource("2_cnfcc")
+stat_name = "metabolism"
+value = 0.5
 
 [sub_resource type="Resource" id="Resource_qb7r8"]
 resource_name = "large intestine"
 script = ExtResource("1_7d42o")
 name = "large intestine"
 hp = 6.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([])
 actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+stat_mults = Array[ExtResource("2_cnfcc")]([SubResource("Resource_688qh")])
 
 [sub_resource type="Resource" id="Resource_1kfde"]
 resource_name = "abdomen"
 script = ExtResource("1_7d42o")
 name = "abdomen"
 hp = 0.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([SubResource("Resource_t2mvp"), SubResource("Resource_ane1c"), SubResource("Resource_qb7r8")])
 actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+stat_mults = Array[ExtResource("2_cnfcc")]([])
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_7d42o")
 name = "body"
 hp = 0.0
+blood = 0.0
 children = Array[ExtResource("1_7d42o")]([SubResource("Resource_qnkvh"), SubResource("Resource_oka0u"), SubResource("Resource_xwuvo"), SubResource("Resource_bp7yd"), SubResource("Resource_x8dq4"), SubResource("Resource_j22er"), SubResource("Resource_1kfde")])
 actions = Array[Resource("res://Scripts/action.gd")]([])
-stat_mults = Array[Resource("res://Scripts/stat_record.gd")]([])
+stat_mults = Array[ExtResource("2_cnfcc")]([])

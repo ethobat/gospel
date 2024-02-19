@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://bdj586h27ic2l"]
+[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://bdj586h27ic2l"]
 
+[ext_resource type="Resource" uid="uid://vfyj0wa8gmw6" path="res://Resources/WeaponAnimations/backsword-swing.tres" id="1_0ybcw"]
 [ext_resource type="Script" path="res://Scripts/attack.gd" id="1_dnm5q"]
 
 [resource]
 script = ExtResource("1_dnm5q")
-name = null
+name = "backsword-swing"
+display_name = "slash"
+fp_weapon_animation = ExtResource("1_0ybcw")
 trauma_category = 1
 base_damage = 3.0
-windup_time = null
+npc_windup_time = 0.3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dugli6jyw2uir"]
+[gd_scene load_steps=42 format=3 uid="uid://dugli6jyw2uir"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_ipkmv"]
 [ext_resource type="PackedScene" uid="uid://17uiya8ydlis" path="res://Scenes/character.tscn" id="3_nq3cs"]
@@ -9,28 +9,27 @@
 [ext_resource type="Script" path="res://Scripts/Item/inventory.gd" id="7_63bj2"]
 [ext_resource type="Resource" uid="uid://ctuljho826pih" path="res://Resources/Items/backsword.tres" id="7_nb6mx"]
 [ext_resource type="PackedScene" uid="uid://c3w26na63ia5y" path="res://Scenes/post_processing.tscn" id="8_ansdx"]
-[ext_resource type="PackedScene" uid="uid://og1jm0lxt402" path="res://Scenes/weapon.tscn" id="9_0baso"]
+[ext_resource type="Resource" uid="uid://cifimfluv7j61" path="res://Resources/Items/jawbone.tres" id="8_is2r8"]
 [ext_resource type="Theme" uid="uid://sdhii0frmp72" path="res://Resources/UI/ui-theme.tres" id="9_cs6wb"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="10_kp5i5"]
-[ext_resource type="Texture2D" uid="uid://cnsjgdl8cbs7c" path="res://Resources/Images/the-prophet-speaks.png" id="11_xb1q5"]
+[ext_resource type="ArrayMesh" uid="uid://b41thtnttt0a4" path="res://Resources/3D/meshes/backsword.res" id="10_ymfsl"]
 [ext_resource type="Script" path="res://Scripts/UI/prophet.gd" id="12_8agba"]
 [ext_resource type="PackedScene" uid="uid://dbs2iv0th37u8" path="res://Scenes/UI/stat_readout.tscn" id="13_au6p4"]
-[ext_resource type="Texture2D" uid="uid://w6k05nt7hwb8" path="res://Resources/Images/turn-left.png" id="14_r62q4"]
-[ext_resource type="Texture2D" uid="uid://d0ssgt8yvakh5" path="res://Resources/Images/move-forward.png" id="15_5ir2n"]
-[ext_resource type="Texture2D" uid="uid://w3vjw7gsupl8" path="res://Resources/Images/turn-right.png" id="16_7ok1r"]
-[ext_resource type="Texture2D" uid="uid://ckwp47pjdqm5x" path="res://Resources/Images/strafe-left.png" id="17_w4qjk"]
-[ext_resource type="Texture2D" uid="uid://bua7dir6yc0cj" path="res://Resources/Images/move-back.png" id="18_rj0o6"]
-[ext_resource type="Texture2D" uid="uid://dn2oo7cpylawb" path="res://Resources/Images/strafe-right.png" id="19_mupvg"]
+[ext_resource type="Texture2D" uid="uid://cnsjgdl8cbs7c" path="res://Resources/Images/UI/the-prophet-speaks.png" id="14_hiln8"]
+[ext_resource type="Texture2D" uid="uid://dbnwcof6tihbs" path="res://Resources/Images/blood.png" id="16_3tm74"]
+[ext_resource type="Texture2D" uid="uid://l4u2uiywyylo" path="res://Resources/Images/UI/stamina.png" id="18_u26lj"]
+[ext_resource type="Texture2D" uid="uid://w6k05nt7hwb8" path="res://Resources/Images/UI/turn-left.png" id="19_50gir"]
+[ext_resource type="Texture2D" uid="uid://d0ssgt8yvakh5" path="res://Resources/Images/UI/move-forward.png" id="20_20wq2"]
 [ext_resource type="Script" path="res://Scripts/UI/attack_button_window.gd" id="20_oygsh"]
-[ext_resource type="Script" path="res://Scripts/time_indicator.gd" id="21_qhaty"]
-[ext_resource type="Texture2D" uid="uid://cple7n22c8xr7" path="res://Resources/Images/debug_play.png" id="22_jlnce"]
-[ext_resource type="Texture2D" uid="uid://dsv7y4lbfwa2k" path="res://Resources/Images/debug_pause.png" id="23_8wmhx"]
+[ext_resource type="Texture2D" uid="uid://w3vjw7gsupl8" path="res://Resources/Images/UI/turn-right.png" id="21_jx0no"]
+[ext_resource type="Texture2D" uid="uid://ckwp47pjdqm5x" path="res://Resources/Images/UI/strafe-left.png" id="22_u2gt6"]
+[ext_resource type="Texture2D" uid="uid://bua7dir6yc0cj" path="res://Resources/Images/UI/move-back.png" id="23_fev3p"]
+[ext_resource type="Texture2D" uid="uid://dn2oo7cpylawb" path="res://Resources/Images/UI/strafe-right.png" id="24_bf6ys"]
 [ext_resource type="PackedScene" uid="uid://dasemuvcho2pc" path="res://Scenes/UI/character_menu.tscn" id="24_t1rqa"]
 [ext_resource type="Script" path="res://Scripts/cursor.gd" id="26_4hjt8"]
 [ext_resource type="PackedScene" uid="uid://datqf7a1201rr" path="res://Scenes/UI/item_slot.tscn" id="27_ccdv1"]
-[ext_resource type="PackedScene" uid="uid://bavbdkqqdvgc1" path="res://Scenes/Levels/visgalburg.tscn" id="28_miscd"]
 [ext_resource type="PackedScene" uid="uid://dd1ixusqmh7u7" path="res://Scenes/UI/right_click_menu.tscn" id="28_qit0p"]
-[ext_resource type="PackedScene" uid="uid://d16u6akn8rxa0" path="res://Scenes/LevelObjects/item_object.tscn" id="29_7sok4"]
+[ext_resource type="PackedScene" uid="uid://cdsv6uoit80pq" path="res://Scenes/Levels/demo_interior.tscn" id="31_7spxv"]
 
 [sub_resource type="Resource" id="Resource_g76yr"]
 script = ExtResource("6_i1u61")
@@ -52,15 +51,38 @@ script = ExtResource("6_i1u61")
 item = ExtResource("7_nb6mx")
 count = 1
 
+[sub_resource type="Resource" id="Resource_jdewa"]
+script = ExtResource("6_i1u61")
+item = ExtResource("8_is2r8")
+count = 1
+
 [sub_resource type="Resource" id="Resource_1oy76"]
 script = ExtResource("7_63bj2")
-items = Array[ExtResource("6_i1u61")]([SubResource("Resource_g76yr"), SubResource("Resource_6o1uu"), SubResource("Resource_lkvcp"), SubResource("Resource_mxpyk")])
+items = Array[ExtResource("6_i1u61")]([SubResource("Resource_g76yr"), SubResource("Resource_6o1uu"), SubResource("Resource_lkvcp"), SubResource("Resource_mxpyk"), SubResource("Resource_jdewa")])
 
 [sub_resource type="LabelSettings" id="LabelSettings_quo1r"]
 line_spacing = 1.0
 font_size = 12
 shadow_size = 8
 shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_5ay1n"]
+offsets = PackedFloat32Array(0, 0.274841, 0.661734, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 1, 1, 0.635294, 0, 0.2, 1, 0.815686, 0.447059, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mxubt"]
+noise_type = 3
+frequency = 0.05
+fractal_type = 3
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x58ot"]
+width = 48
+height = 48
+in_3d_space = true
+generate_mipmaps = false
+color_ramp = SubResource("Gradient_5ay1n")
+noise = SubResource("FastNoiseLite_mxubt")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhkaf"]
 size = Vector3(76.9887, 1, 78.9904)
@@ -69,14 +91,19 @@ size = Vector3(76.9887, 1, 78.9904)
 
 [node name="Player" type="Node3D" parent="." groups=["player"]]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 11)
 script = ExtResource("2_ipkmv")
+cursor_hand_hotspot = Vector2(20, 32)
 
 [node name="Character" parent="Player" instance=ExtResource("3_nq3cs")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 character_name = "player"
 anatomy = ExtResource("4_mng2d")
 inventory = SubResource("Resource_1oy76")
+move_stamina_cost = 0.2
+turn_stamina_cost = 0.08
+base_stamina_regen = 0.006
+do_slide = true
 
 [node name="BlockCollider" parent="Player/Character" index="0"]
 collision_layer = 6
@@ -87,8 +114,9 @@ transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 
 [node name="Camera3D" type="Camera3D" parent="Player/Character/Head"]
 current = true
 
-[node name="Weapon" parent="Player/Character/Head" instance=ExtResource("9_0baso")]
-transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0)
+[node name="FPWeapon" type="MeshInstance3D" parent="Player/Character/Head"]
+transform = Transform3D(0.0518528, -0.0452341, 0.104356, 0.0821719, 0.0941954, 0, -0.0786389, 0.068601, 0.0688101, 0, 0, -0.295)
+mesh = ExtResource("10_ymfsl")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Player/Character"]
 light_color = Color(0.835294, 0.729412, 0.572549, 1)
@@ -99,7 +127,7 @@ omni_range = 6.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" type="Control" parent="CanvasLayer"]
+[node name="UI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("player_chr")]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
@@ -109,6 +137,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("9_cs6wb")
 script = ExtResource("10_kp5i5")
+player_chr = NodePath("../../Player/Character")
 
 [node name="Prophet" type="TextureRect" parent="CanvasLayer/UI" groups=["prophet"]]
 unique_name_in_owner = true
@@ -118,7 +147,7 @@ offset_left = 35.0
 offset_top = 34.0
 offset_right = 186.0
 offset_bottom = 240.0
-texture = ExtResource("11_xb1q5")
+texture = ExtResource("14_hiln8")
 expand_mode = 1
 script = ExtResource("12_8agba")
 fade_in_mult = 0.3
@@ -158,24 +187,20 @@ metadata/_edit_use_anchors_ = true
 [node name="StatDisplay" type="Panel" parent="CanvasLayer/UI/BottomBar"]
 layout_mode = 1
 anchors_preset = -1
+anchor_right = 0.247
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 218.0
+offset_right = -0.0800018
 offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/BottomBar/StatDisplay"]
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = -214.0
-offset_right = -94.0
-offset_bottom = 28.0
-grow_horizontal = 0
+offset_right = 120.0
 grow_vertical = 2
 
 [node name="StatReadoutMuscle" parent="CanvasLayer/UI/BottomBar/StatDisplay/VBoxContainer" instance=ExtResource("13_au6p4")]
@@ -198,18 +223,58 @@ layout_mode = 2
 stat_name = "replenishment"
 tooltip = "Rate at which the body generates blood."
 
+[node name="Meters" type="Control" parent="CanvasLayer/UI/BottomBar/StatDisplay"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="BloodMeter" type="TextureProgressBar" parent="CanvasLayer/UI/BottomBar/StatDisplay/Meters"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.46875
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("16_3tm74")
+metadata/_edit_use_anchors_ = true
+
+[node name="StaminaMeter" type="TextureProgressBar" parent="CanvasLayer/UI/BottomBar/StatDisplay/Meters"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53125
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("18_u26lj")
+metadata/_edit_use_anchors_ = true
+
 [node name="MovementButtons" type="GridContainer" parent="CanvasLayer/UI/BottomBar"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = -1
+anchor_left = 0.387
+anchor_right = 0.612
 anchor_bottom = 1.0
-offset_left = -72.0
-offset_top = -56.0
-offset_right = 72.0
+offset_left = 0.319977
+offset_top = 4.0
+offset_right = 0.319977
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 pivot_offset = Vector2(72, 28)
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
@@ -221,7 +286,7 @@ layout_mode = 2
 focus_mode = 0
 text = "
 "
-icon = ExtResource("14_r62q4")
+icon = ExtResource("19_50gir")
 icon_alignment = 1
 expand_icon = true
 
@@ -231,7 +296,7 @@ layout_mode = 2
 focus_mode = 0
 text = "
 "
-icon = ExtResource("15_5ir2n")
+icon = ExtResource("20_20wq2")
 icon_alignment = 1
 expand_icon = true
 
@@ -241,7 +306,7 @@ layout_mode = 2
 focus_mode = 0
 text = "
 "
-icon = ExtResource("16_7ok1r")
+icon = ExtResource("21_jx0no")
 icon_alignment = 1
 expand_icon = true
 
@@ -251,7 +316,7 @@ layout_mode = 2
 focus_mode = 0
 text = "
 "
-icon = ExtResource("17_w4qjk")
+icon = ExtResource("22_u2gt6")
 icon_alignment = 1
 expand_icon = true
 
@@ -261,7 +326,7 @@ layout_mode = 2
 focus_mode = 0
 text = "
 "
-icon = ExtResource("18_rj0o6")
+icon = ExtResource("23_fev3p")
 icon_alignment = 1
 expand_icon = true
 
@@ -271,20 +336,20 @@ layout_mode = 2
 focus_mode = 0
 text = "
 "
-icon = ExtResource("19_mupvg")
+icon = ExtResource("24_bf6ys")
 icon_alignment = 1
 expand_icon = true
 
 [node name="AttackButtonWindow" type="GridContainer" parent="CanvasLayer/UI/BottomBar"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -243.0
-offset_top = -56.0
-offset_right = -27.0
+anchors_preset = -1
+anchor_left = 0.62
+anchor_right = 0.994
+anchor_bottom = 0.983
+offset_left = 0.200012
+offset_top = 4.0
+offset_right = -0.160034
+offset_bottom = 1.02
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/h_separation = 0
@@ -292,13 +357,30 @@ theme_override_constants/v_separation = 0
 columns = 2
 script = ExtResource("20_oygsh")
 
-[node name="TimeIndicator" type="Panel" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_right = 22.0
-offset_bottom = 21.0
-script = ExtResource("21_qhaty")
+[node name="PainDisplayPanel" type="Panel" parent="CanvasLayer/UI/BottomBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.251563
+anchor_right = 0.383
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_right = -0.12001
+offset_bottom = -4.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Play" type="TextureRect" parent="CanvasLayer/UI/TimeIndicator"]
+[node name="PainDisplay" type="TextureRect" parent="CanvasLayer/UI/BottomBar/PainDisplayPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0119048
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_x58ot")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/BottomBar/PainDisplayPanel/PainDisplay"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -306,20 +388,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("22_jlnce")
-expand_mode = 1
+text = "DEBUG PAIN READOUT"
 
-[node name="Pause" type="TextureRect" parent="CanvasLayer/UI/TimeIndicator"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("23_8wmhx")
-expand_mode = 1
-
-[node name="CharacterMenu" parent="CanvasLayer/UI" instance=ExtResource("24_t1rqa")]
+[node name="CharacterMenu" parent="CanvasLayer/UI" node_paths=PackedStringArray("chr", "attack_button_window") instance=ExtResource("24_t1rqa")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -330,15 +401,16 @@ offset_top = -213.0
 offset_right = -14.0
 offset_bottom = 85.0
 grow_horizontal = 0
+chr = NodePath("../../../Player/Character")
+attack_button_window = NodePath("../BottomBar/AttackButtonWindow")
 
 [node name="Cursor" type="Control" parent="CanvasLayer/UI" groups=["cursor"]]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 mouse_filter = 2
 script = ExtResource("26_4hjt8")
+tooltip_margin = Vector2(8, 8)
 
 [node name="ItemSlot" parent="CanvasLayer/UI/Cursor" instance=ExtResource("27_ccdv1")]
 layout_mode = 1
@@ -359,23 +431,29 @@ mouse_filter = 2
 size = Vector2i(50, 50)
 
 [node name="TooltipPanel" type="Panel" parent="CanvasLayer/UI/Cursor"]
+layout_direction = 1
 layout_mode = 1
-offset_left = 8.0
-offset_top = -43.0
-offset_right = 292.0
-offset_bottom = -10.0
-
-[node name="Tooltip" type="Label" parent="CanvasLayer/UI/Cursor/TooltipPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 12
-text = "Sample Tooltip"
+offset_top = -33.0
+offset_right = 284.0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Tooltip" type="Label" parent="CanvasLayer/UI/Cursor"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -14.0
+offset_right = 240.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "
+"
 vertical_alignment = 2
-autowrap_mode = 2
+autowrap_mode = 3
 
 [node name="RightClickMenu" parent="CanvasLayer/UI" instance=ExtResource("28_qit0p")]
 visible = false
@@ -395,14 +473,11 @@ grow_vertical = 1
 [node name="Level" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
 
-[node name="Visgalburg" parent="Level" instance=ExtResource("28_miscd")]
+[node name="DemoInterior" parent="Level" instance=ExtResource("31_7spxv")]
 
 [node name="EditorSun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.88271, 0)
 editor_only = true
-
-[node name="ItemObject" parent="." instance=ExtResource("29_7sok4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 5)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -412,13 +487,19 @@ collision_mask = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8214, 0, -8.86081)
 shape = SubResource("BoxShape3D_bhkaf")
 
-[connection signal="gui_input" from="CanvasLayer/UI" to="Player" method="try_interact"]
+[connection signal="mouse_entered" from="CanvasLayer/UI/BottomBar/StatDisplay/Meters/BloodMeter" to="CanvasLayer/UI" method="_on_blood_meter_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/UI/BottomBar/StatDisplay/Meters/BloodMeter" to="CanvasLayer/UI" method="_on_blood_meter_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/UI/BottomBar/StatDisplay/Meters/StaminaMeter" to="CanvasLayer/UI" method="_on_stamina_meter_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/UI/BottomBar/StatDisplay/Meters/StaminaMeter" to="CanvasLayer/UI" method="_on_stamina_meter_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/UI/BottomBar/MovementButtons/TurnLeft" to="Player/Character" method="turn_left"]
 [connection signal="pressed" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveForward" to="Player/Character" method="move_forward"]
 [connection signal="pressed" from="CanvasLayer/UI/BottomBar/MovementButtons/TurnRight" to="Player/Character" method="turn_right"]
 [connection signal="pressed" from="CanvasLayer/UI/BottomBar/MovementButtons/StrafeLeft" to="Player/Character" method="strafe_left"]
 [connection signal="pressed" from="CanvasLayer/UI/BottomBar/MovementButtons/MoveBack" to="Player/Character" method="move_back"]
 [connection signal="pressed" from="CanvasLayer/UI/BottomBar/MovementButtons/StrafeRight" to="Player/Character" method="strafe_right"]
+[connection signal="mouse_entered" from="CanvasLayer/UI/BottomBar/PainDisplayPanel/PainDisplay" to="CanvasLayer/UI" method="_on_pain_display_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/UI/BottomBar/PainDisplayPanel/PainDisplay" to="CanvasLayer/UI" method="_on_pain_display_mouse_exited"]
+[connection signal="resized" from="CanvasLayer/UI/Cursor/Tooltip" to="CanvasLayer/UI/Cursor" method="resize_tooltip_panel"]
 
 [editable path="Player/Character"]
 [editable path="CanvasLayer/UI/Cursor/ItemSlot"]

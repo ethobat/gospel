@@ -7,6 +7,7 @@ var playing = false
 # Registers a user of the time system,
 # which will have its _time_process, _on_time_play, and _on_time_pause methods called.
 func register_user(user):
+	print("User added: " + user.name)
 	users.append(user)
 
 func _physics_process(delta):

@@ -1,0 +1,32 @@
+[gd_resource type="AnimationLibrary" load_steps=14 format=3 uid="uid://ba8fkthweadkf"]
+
+[ext_resource type="Animation" uid="uid://ca3who5rdbfw1" path="res://Resources/3D/animations/crescentkick.res" id="1_207ns"]
+[ext_resource type="Animation" uid="uid://c7eyi7rjffm7r" path="res://Resources/3D/animations/hurt.res" id="2_sssq1"]
+[ext_resource type="Animation" uid="uid://ww6btosw12rm" path="res://Resources/3D/animations/longkickfast.res" id="3_ppac2"]
+[ext_resource type="Animation" uid="uid://cp3v6tvaletid" path="res://Resources/3D/animations/run.res" id="4_qctbw"]
+[ext_resource type="Animation" uid="uid://by8nlcqenlehi" path="res://Resources/3D/animations/swingin.res" id="5_lfhw6"]
+[ext_resource type="Animation" uid="uid://cm7fg5bnbywtt" path="res://Resources/3D/animations/turnleft.res" id="6_qpuod"]
+[ext_resource type="Animation" uid="uid://durjk7l4trlns" path="res://Resources/3D/animations/turnright.res" id="7_jwqkq"]
+[ext_resource type="Animation" uid="uid://c4oxfqqxioggn" path="res://Resources/3D/animations/longkick.res" id="8_u6eco"]
+[ext_resource type="Animation" uid="uid://bik5u85tgyg7p" path="res://Resources/3D/animations/idle.res" id="9_w2rsc"]
+[ext_resource type="Animation" uid="uid://iepe7yrdimov" path="res://Resources/3D/animations/forwardkick.res" id="10_e6654"]
+[ext_resource type="Animation" uid="uid://eeecur45arfi" path="res://Resources/3D/animations/die.res" id="11_3x2s5"]
+[ext_resource type="Animation" uid="uid://cnqktn3u08qmw" path="res://Resources/3D/animations/crouchscream.res" id="12_jqqrm"]
+[ext_resource type="Animation" uid="uid://dwkw32o3banv8" path="res://Resources/3D/animations/armada.res" id="13_n418y"]
+
+[resource]
+_data = {
+"armada": ExtResource("13_n418y"),
+"crescentkick": ExtResource("1_207ns"),
+"crouchscream": ExtResource("12_jqqrm"),
+"die": ExtResource("11_3x2s5"),
+"forwardkick": ExtResource("10_e6654"),
+"hurt": ExtResource("2_sssq1"),
+"idle": ExtResource("9_w2rsc"),
+"longkick": ExtResource("8_u6eco"),
+"longkickfast": ExtResource("3_ppac2"),
+"run": ExtResource("4_qctbw"),
+"swingin": ExtResource("5_lfhw6"),
+"turnleft": ExtResource("6_qpuod"),
+"turnright": ExtResource("7_jwqkq")
+}

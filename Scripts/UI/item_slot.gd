@@ -1,6 +1,12 @@
 extends Panel
 class_name ItemSlot
 
+signal item_stack_changed(item_stack: ItemStack)
+
+@export var name_text: String = ""
+
+@onready var name_label = $NameLabel
+
 @onready var amount_label = $AmountLabel
 @onready var svc = $SubViewportContainer
 @onready var mesh_instance = $SubViewportContainer/SubViewport/MeshInstance3D
@@ -9,6 +15,13 @@ var item_stack: ItemStack
 
 var mouseover: bool = false
 var scale_tween: Tween
+
+func _ready():
+	if name_text == "":
+		name_label.visible = false
+	else:
+		name_label.text = name_text
+	update_visuals()
 
 func _on_mouse_entered():
 	mouseover = true
@@ -21,7 +34,7 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	mouseover = false
 	if item_stack == null or item_stack.is_empty(): return
-	scale_tween.kill()
+	if scale_tween != null: scale_tween.kill()
 	var iss = item_stack.item.item_slot_scale
 	mesh_instance.scale = Vector3(iss,iss,iss)
 
@@ -32,14 +45,17 @@ func _physics_process(delta):
 func _on_gui_input(event):
 	if event is InputEventMouse:
 		if Input.is_action_just_pressed("lmb"):
-			print("LMB")
+			#print("LMB")
 			var cursor: Cursor = get_tree().get_first_node_in_group("cursor")
 			if Input.is_key_pressed(KEY_SHIFT):
 				cursor.on_item_slot_shift_clicked(self)
+				item_stack_changed.emit(item_stack)
 			else:
 				cursor.on_item_slot_clicked(self)
+				item_stack_changed.emit(item_stack)
 		elif Input.is_action_just_pressed("rmb") and Input.is_key_pressed(KEY_SHIFT):
 			get_tree().get_first_node_in_group("cursor").on_item_slot_shift_right_clicked(self)
+			item_stack_changed.emit(item_stack)
 
 func clear():
 	item_stack = null

@@ -50,6 +50,36 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_incorner.res"
 },
+"tileset-c85d9cfdd407b99abc18dddde64539ad_b1_narrowroof": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_narrowroof.res"
+},
+"tileset-c85d9cfdd407b99abc18dddde64539ad_b1_narrowroofend": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_narrowroofend.res"
+},
+"tileset-c85d9cfdd407b99abc18dddde64539ad_b1_narrowroofsingle": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_narrowroofsingle.res"
+},
 "tileset-c85d9cfdd407b99abc18dddde64539ad_b1_outcorner": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -69,6 +99,76 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_straight.res"
+},
+"tileset-c85d9cfdd407b99abc18dddde64539ad_cs_doorarch": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_cs_doorarch.res"
+},
+"tileset-c85d9cfdd407b99abc18dddde64539ad_cs_floor": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_cs_floor.res"
+},
+"tileset-c85d9cfdd407b99abc18dddde64539ad_cs_floor_incorner": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_cs_floor_incorner.res"
+},
+"tileset-c85d9cfdd407b99abc18dddde64539ad_cs_floor_outcorner": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_cs_floor_outcorner.res"
+},
+"tileset-c85d9cfdd407b99abc18dddde64539ad_cs_floor_straight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_cs_floor_straight.res"
+},
+"tileset-c85d9cfdd407b99abc18dddde64539ad_cs_longarch": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_cs_longarch.res"
+},
+"tileset-c85d9cfdd407b99abc18dddde64539ad_cs_wall": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_cs_wall.res"
 },
 "tileset-c85d9cfdd407b99abc18dddde64539ad_f_cobblearcs": {
 "generate/lightmap_uv": 0,

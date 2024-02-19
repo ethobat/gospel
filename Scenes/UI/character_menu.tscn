@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dasemuvcho2pc"]
+[gd_scene load_steps=5 format=3 uid="uid://dasemuvcho2pc"]
 
 [ext_resource type="Script" path="res://Scripts/UI/character_menu.gd" id="1_edo44"]
 [ext_resource type="Script" path="res://Scripts/UI/inventory_ui.gd" id="2_8x1ef"]
+[ext_resource type="PackedScene" uid="uid://datqf7a1201rr" path="res://Scenes/UI/item_slot.tscn" id="3_c43jx"]
 [ext_resource type="Script" path="res://Scripts/UI/anatomy_ui.gd" id="3_mc5cr"]
 
 [node name="CharacterMenu" type="Control"]
@@ -53,6 +54,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -233.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_8x1ef")
@@ -64,6 +66,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 233.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -75,6 +78,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 4
+
+[node name="WeaponItemSlot" parent="TabMenus/Menus/InventoryUI/Panel" instance=ExtResource("3_c43jx")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -85.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+name_text = "Weapon"
 
 [node name="AnatomyUI" type="Control" parent="TabMenus/Menus"]
 layout_mode = 1
@@ -97,3 +115,4 @@ column_titles_visible = true
 hide_root = true
 
 [connection signal="tab_changed" from="TabMenus/TabBar" to="." method="switch_tab"]
+[connection signal="item_stack_changed" from="TabMenus/Menus/InventoryUI/Panel/WeaponItemSlot" to="." method="weapon_item_stack_changed"]

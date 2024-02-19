@@ -9,3 +9,4 @@ class_name Item
 @export var item_slot_rot: Vector3 = Vector3.ZERO
 @export var item_slot_scale: float = 1.0
 @export var provided_actions: Array[Action]
+@export var item_weapon_data: ItemWeaponData

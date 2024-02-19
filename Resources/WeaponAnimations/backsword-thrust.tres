@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="WeaponAnimation" load_steps=6 format=3 uid="uid://cyul3wj2m6i6s"]
+
+[ext_resource type="Script" path="res://Scripts/weapon_pose.gd" id="1_l5nva"]
+[ext_resource type="Script" path="res://weapon_animation.gd" id="2_68fer"]
+
+[sub_resource type="Resource" id="Resource_htb22"]
+script = ExtResource("1_l5nva")
+pos = Vector3(1.76814, 0.106477, -8.07361)
+quat = Quaternion(0.674951, 0.548758, -0.409249, 0.275356)
+time = 0.25
+pos_ease = 2
+pos_trans_type = 10
+rot_ease = 0
+rot_trans_type = 0
+
+[sub_resource type="Resource" id="Resource_t38ii"]
+script = ExtResource("1_l5nva")
+pos = Vector3(2.16587, 0.636461, -2.79043)
+quat = Quaternion(0.655078, 0.717316, -0.204005, 0.121294)
+time = 1.2
+pos_ease = 2
+pos_trans_type = 5
+rot_ease = 1
+rot_trans_type = 5
+
+[sub_resource type="Resource" id="Resource_agru4"]
+script = ExtResource("1_l5nva")
+pos = Vector3(2.13636, -1.99034, -4.38)
+quat = Quaternion(0.527618, 0.605172, -0.416296, 0.426713)
+time = 1.4
+pos_ease = 1
+pos_trans_type = 3
+rot_ease = 1
+rot_trans_type = 10
+
+[resource]
+script = ExtResource("2_68fer")
+neutral = SubResource("Resource_t38ii")
+windup = SubResource("Resource_agru4")
+attack = SubResource("Resource_htb22")

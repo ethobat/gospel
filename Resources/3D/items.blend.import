@@ -144,6 +144,16 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://Resources/3D/meshes/seafood-pile-2.res"
 },
+"items-e5e7bfbc7e8dd3973ed3c98a8a35ef89_Plane_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Resources/3D/meshes/jawbone.res"
+},
 "items-e5e7bfbc7e8dd3973ed3c98a8a35ef89_Plane_009": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,

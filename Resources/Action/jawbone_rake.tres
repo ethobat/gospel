@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://dxf0qrtlg62j1"]
+
+[ext_resource type="Resource" uid="uid://cm8vr5glcqweg" path="res://Resources/WeaponAnimations/jawbone-stab.tres" id="1_okdhi"]
+[ext_resource type="Script" path="res://Scripts/attack.gd" id="2_67qwl"]
+
+[resource]
+script = ExtResource("2_67qwl")
+name = "jawbone_stab"
+display_name = "rake"
+fp_weapon_animation = ExtResource("1_okdhi")
+trauma_category = 2
+base_damage = 1.0
+npc_windup_time = 0.3

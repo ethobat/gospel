@@ -1,8 +1,8 @@
 extends Resource
 class_name WeaponPose
 
-var pos: Vector3
-var quat: Quaternion
+@export var pos: Vector3
+@export var quat: Quaternion
 @export var time: float = 1.0
 @export var pos_ease: Tween.EaseType
 @export var pos_trans_type: Tween.TransitionType

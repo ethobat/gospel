@@ -3,6 +3,7 @@ class_name Anatomy
 
 @export var name: String : set = _set_name
 @export var hp: float
+@export var blood: float # 0 to 1
 
 @export var children: Array[Anatomy]
 @export var actions: Array[Action]
@@ -15,6 +16,18 @@ var parent: Anatomy = null
 func _set_name(new):
 	name = new
 	resource_name = new
+
+func get_blood_volume():
+	var ret = hp * blood * 90
+	for child in children:
+		ret += child.get_blood_volume()
+	return ret
+	
+func get_maximum_blood_volume():
+	var ret = hp
+	for child in children:
+		ret += child.get_maximum_blood_volume()
+	return ret
 
 func find(part_name: String) -> Anatomy:
 	if part_name == name:

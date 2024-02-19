@@ -13,31 +13,34 @@ var waiting = false
 @onready var camera: Camera3D = $Character/Head/Camera3D
 @onready var cursor: Cursor = %Cursor
 
+@onready var cursor_pointer = preload("res://Resources/Images/UI/cursor-pointer.png")
+@onready var cursor_hand = preload("res://Resources/Images/UI/cursor-hand.png")
+@export var cursor_hand_hotspot: Vector2
+
 var head_rotation_x: float
 
 var left_hand_equipment: ItemStack
 var right_hand_equipment: ItemStack
 
+var moused_over_object: Interactable
+
 func _ready():
 	chr.is_player = true
+	chr.fp_weapon = chr.get_node("Head").get_node("FPWeapon")
+	chr.fp_weapon_update(null)
 	head_rotation_x = head.rotation.x
 
-func _input(event):
-	if freelook and event is InputEventMouseMotion:
-		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-89.9), deg_to_rad(89.9))
-
 func _physics_process(delta):
-	#if Input.is_action_just_pressed("lmb"):
-	#	try_interact()
-		
+	if Input.is_action_just_pressed("lmb"):
+		#if cursor.slot.is_empty():
+		#	drop_item_on_ground()
+		if moused_over_object != null:
+			moused_over_object.on_interact(self)
 	if Input.is_action_just_pressed("dbg_test"):
 		#chr.anatomy.find("heart").hp = 17
 		#print(chr.anatomy.find("heart").hp)
 		var gm: GridMap = get_tree().get_first_node_in_group("gm_floor")
 		var v = chr.get_position_on_gridmap(gm)
-		print(v)
 		gm.set_cell_item(v, -1)
 	if waiting:
 		if Input.is_action_just_released("wait") and TimeSystem.playing:
@@ -54,23 +57,29 @@ func _physics_process(delta):
 				begin_freelook()
 			elif freelook and not Input.is_action_pressed("rmb"):
 				end_freelook()
-		if not TimeSystem.playing:
-			if Input.is_action_pressed("move_forward"):
-				chr.move_forward()
-			elif Input.is_action_pressed("move_back"):
-				chr.move_back()
-			elif Input.is_action_pressed("strafe_left"):
-				chr.strafe_left()
-			elif Input.is_action_pressed("strafe_right"):
-				chr.strafe_right()
-			elif Input.is_action_pressed("turn_left"):
-				chr.turn_left()
-			elif Input.is_action_pressed("turn_right"):
-				chr.turn_right()
+		if Input.is_action_pressed("move_forward"):
+			chr.move_forward()
+		elif Input.is_action_pressed("move_back"):
+			chr.move_back()
+		elif Input.is_action_pressed("strafe_left"):
+			chr.strafe_left()
+		elif Input.is_action_pressed("strafe_right"):
+			chr.strafe_right()
+		elif Input.is_action_pressed("turn_left"):
+			chr.turn_left()
+		elif Input.is_action_pressed("turn_right"):
+			chr.turn_right()
 
-func try_interact(ev: InputEvent):
-	if !(ev is InputEventMouse and ev.button_mask == 1):
-		return
+func _input(event):
+	if event is InputEventMouseMotion:
+		if freelook:
+			head.rotate_y(-event.relative.x * SENSITIVITY)
+			camera.rotate_x(-event.relative.y * SENSITIVITY)
+			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-89.9), deg_to_rad(89.9))
+		else:
+			raycast_for_interactable_object(event)
+
+func raycast_from_mouse_position(ev: InputEvent, layer_mask: int):
 	var mpos = get_viewport().get_mouse_position()
 	var ray_start = camera.project_ray_origin(mpos)
 	var ray_end = ray_start + camera.project_ray_normal(mpos) * interact_distance
@@ -78,24 +87,29 @@ func try_interact(ev: InputEvent):
 	var space_state = world3d.direct_space_state
 	if space_state == null:
 		return
-	if cursor.slot.is_empty():
-		# Raycast with collision mask 32 (only 6) to pick up ground items
-		var query = PhysicsRayQueryParameters3D.create(ray_start, ray_end, 32)
-		query.collide_with_areas = true
-		var dict = space_state.intersect_ray(query)
-		if dict.has("collider"):
-			dict["collider"].get_parent().get_parent().on_interact(self)
+	var query = PhysicsRayQueryParameters3D.create(ray_start, ray_end, layer_mask)
+	query.collide_with_areas = true
+	return space_state.intersect_ray(query)
+
+func raycast_for_interactable_object(ev: InputEventMouse):
+	# Raycast with collision mask 32 (only 6) to pick up ground items
+	var dict = raycast_from_mouse_position(ev, 32)
+	if dict != null and dict.has("collider"):
+		Input.set_custom_mouse_cursor(cursor_hand, Input.CURSOR_ARROW, cursor_hand_hotspot)
+		moused_over_object = dict["collider"].get_parent().get_parent()
 	else:
-		# Raycast with collision mask 1, try to throw/drop items
-		if mpos.y > get_viewport().get_visible_rect().size[1]/2:
-			# Bottom half, put item on ground
-			print("Drop")
-			var query = PhysicsRayQueryParameters3D.create(ray_start, ray_end, 1)
-			var dict = space_state.intersect_ray(query)
-			print(dict)
-		else:
-			# Top half, throw item
-			print("Throw")
+		Input.set_custom_mouse_cursor(cursor_pointer, Input.CURSOR_ARROW, Vector2.ZERO)
+		moused_over_object = null
+	# Raycast with collision mask 1, try to throw/drop items
+#	if mpos.y > get_viewport().get_visible_rect 	().size[1]/2:
+#		# Bottom half, put item on ground
+#		print("Drop")
+#		var query = PhysicsRayQueryParameters3D.create(ray_start, ray_end, 1)
+#		var dict = space_state.intersect_ray(query)
+#		print(dict)
+#	else:
+#		# Top half, throw item
+#		print("Throw")
 
 func begin_freelook():
 	freelook = true

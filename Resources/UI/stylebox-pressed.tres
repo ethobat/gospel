@@ -1,6 +1,6 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bjaem7ligp5ad"]
 
-[ext_resource type="Texture2D" uid="uid://k5nqsr011fwd" path="res://Resources/Images/ui-bumpy.png" id="1_1va3c"]
+[ext_resource type="Texture2D" uid="uid://k5nqsr011fwd" path="res://Resources/Images/UI/ui-bumpy.png" id="1_1va3c"]
 
 [resource]
 content_margin_left = 0.0

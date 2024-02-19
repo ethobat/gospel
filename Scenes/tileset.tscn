@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ospeb35wfsh7"]
+[gd_scene load_steps=25 format=3 uid="uid://ospeb35wfsh7"]
 
 [ext_resource type="ArrayMesh" uid="uid://q40agp0qh2g" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_straight.res" id="1_20324"]
 [ext_resource type="PackedScene" uid="uid://2l52wsg8csom" path="res://Scenes/block_collider.tscn" id="2_2ggih"]
@@ -14,6 +14,16 @@
 [ext_resource type="ArrayMesh" uid="uid://cap66r5ckd4hy" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_hr_floor_outcorner.res" id="11_umsj1"]
 [ext_resource type="ArrayMesh" uid="uid://ck5k75lv1iybj" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_fk_bridge_straight.res" id="12_76c2u"]
 [ext_resource type="ArrayMesh" uid="uid://rm01bvto4ynh" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_fk_bridge_full.res" id="13_k7vgt"]
+[ext_resource type="ArrayMesh" uid="uid://dq86dnytjrgt7" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_cs_floor.res" id="15_edevd"]
+[ext_resource type="ArrayMesh" uid="uid://djhwnn602hkdg" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_cs_floor_outcorner.res" id="16_0qrt0"]
+[ext_resource type="ArrayMesh" uid="uid://nho1u42feu7r" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_cs_floor_incorner.res" id="17_n6wu2"]
+[ext_resource type="ArrayMesh" uid="uid://b0g4a3qtbq6tf" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_cs_floor_straight.res" id="18_in2p0"]
+[ext_resource type="ArrayMesh" uid="uid://dcx8s0bbx0ol6" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_cs_wall.res" id="19_73pgs"]
+[ext_resource type="ArrayMesh" uid="uid://bndw4373ckbdb" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_cs_longarch.res" id="20_oyjlq"]
+[ext_resource type="ArrayMesh" uid="uid://bn21qypui3ct2" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_cs_doorarch.res" id="21_kbjb5"]
+[ext_resource type="ArrayMesh" uid="uid://dt3rp732be1v1" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_narrowroof.res" id="22_w1u0q"]
+[ext_resource type="ArrayMesh" uid="uid://doutjws108chh" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_narrowroofend.res" id="23_be17d"]
+[ext_resource type="ArrayMesh" uid="uid://lcnb627ewkbn" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_narrowroofsingle.res" id="24_uwbw8"]
 
 [node name="tileset" type="Node3D"]
 
@@ -85,4 +95,60 @@ skeleton = NodePath("")
 [node name="fk_bridge_full" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 mesh = ExtResource("13_k7vgt")
+skeleton = NodePath("")
+
+[node name="cs_floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("15_edevd")
+skeleton = NodePath("")
+
+[node name="cs_floor_outcorner" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("16_0qrt0")
+skeleton = NodePath("")
+
+[node name="cs_floor_incorner" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("17_n6wu2")
+skeleton = NodePath("")
+
+[node name="cs_floor_straight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("18_in2p0")
+skeleton = NodePath("")
+
+[node name="cs_wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("19_73pgs")
+skeleton = NodePath("")
+
+[node name="BlockCollider" parent="cs_wall" instance=ExtResource("2_2ggih")]
+
+[node name="cs_longarch" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("20_oyjlq")
+skeleton = NodePath("")
+
+[node name="BlockCollider" parent="cs_longarch" instance=ExtResource("2_2ggih")]
+
+[node name="cs_doorarch" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("21_kbjb5")
+skeleton = NodePath("")
+
+[node name="BlockCollider" parent="cs_doorarch" instance=ExtResource("2_2ggih")]
+
+[node name="b1_narrowroof" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("22_w1u0q")
+skeleton = NodePath("")
+
+[node name="b1_narrowroofend" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("23_be17d")
+skeleton = NodePath("")
+
+[node name="b1_narrowroofsingle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("24_uwbw8")
 skeleton = NodePath("")

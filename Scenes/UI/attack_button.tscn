@@ -23,8 +23,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 focus_mode = 0
 script = ExtResource("1_vy2ll")
-body_part_name = null
-action_name = null
 metadata/_edit_use_anchors_ = true
 
 [node name="BodyPartLabel" type="Label" parent="."]

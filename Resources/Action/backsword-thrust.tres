@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://dj0glv2qhey7b"]
+
+[ext_resource type="Script" path="res://Scripts/attack.gd" id="1_ljatc"]
+[ext_resource type="Resource" uid="uid://cyul3wj2m6i6s" path="res://Resources/WeaponAnimations/backsword-thrust.tres" id="1_qqhd2"]
+
+[resource]
+script = ExtResource("1_ljatc")
+name = "backsword-thrust"
+display_name = "thrust"
+fp_weapon_animation = ExtResource("1_qqhd2")
+trauma_category = 2
+base_damage = 2.0
+npc_windup_time = 0.3

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Item" load_steps=7 format=3 uid="uid://cifimfluv7j61"]
+
+[ext_resource type="Script" path="res://Scripts/Item/item_weapon_data.gd" id="1_8gyc0"]
+[ext_resource type="Resource" uid="uid://dlvsm8p77aven" path="res://Resources/Action/jawbone_smash.tres" id="1_dk035"]
+[ext_resource type="ArrayMesh" uid="uid://dchywn6xa6sq1" path="res://Resources/3D/meshes/jawbone.res" id="1_f7en4"]
+[ext_resource type="Script" path="res://Scripts/Item/item.gd" id="2_8hfyd"]
+[ext_resource type="Resource" uid="uid://dxf0qrtlg62j1" path="res://Resources/Action/jawbone_rake.tres" id="2_ixo2m"]
+
+[sub_resource type="Resource" id="Resource_4ocsa"]
+script = ExtResource("1_8gyc0")
+actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("1_dk035"), ExtResource("2_ixo2m")])
+
+[resource]
+script = ExtResource("2_8hfyd")
+name = "jawbone"
+display_name = "Donkey's jawbone"
+description = "Heavy blunt weapon that allows more powerful strikes.
+Blunt-force attacks are often the most effective against enemies that employ armor or protective shells"
+mesh = ExtResource("1_f7en4")
+item_slot_height = 0.5
+item_slot_rot = Vector3(-30, 45, -90)
+item_slot_scale = 0.7
+provided_actions = Array[Resource("res://Scripts/action.gd")]([])
+item_weapon_data = SubResource("Resource_4ocsa")

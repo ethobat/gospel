@@ -1,61 +1,289 @@
-[gd_scene load_steps=3 format=3 uid="uid://og1jm0lxt402"]
+[gd_scene load_steps=23 format=3 uid="uid://og1jm0lxt402"]
 
 [ext_resource type="ArrayMesh" uid="uid://b41thtnttt0a4" path="res://Resources/3D/meshes/backsword.res" id="1_2dhnq"]
 [ext_resource type="Script" path="res://Scripts/weapon.gd" id="1_q4onj"]
+[ext_resource type="Script" path="res://weapon_animation.gd" id="2_3cv72"]
+[ext_resource type="Script" path="res://Scripts/weapon_pose.gd" id="2_gt8kj"]
+[ext_resource type="ArrayMesh" uid="uid://dchywn6xa6sq1" path="res://Resources/3D/meshes/jawbone.res" id="5_sxq6e"]
+[ext_resource type="Script" path="res://Scripts/attack_animation_template.gd" id="6_cv7ln"]
+
+[sub_resource type="Resource" id="Resource_0t5u7"]
+script = ExtResource("2_gt8kj")
+pos = Vector3(-4.54846, -1.51269, -3.66547)
+quat = Quaternion(-0.177927, -0.0394854, 0.957204, 0.22482)
+time = 0.25
+pos_ease = 1
+pos_trans_type = 10
+rot_ease = 1
+rot_trans_type = 10
+
+[sub_resource type="Resource" id="Resource_0126c"]
+script = ExtResource("2_gt8kj")
+pos = Vector3(2.16587, 0.636461, -2.79043)
+quat = Quaternion(0.655078, 0.717316, -0.204005, 0.121294)
+time = 1.2
+pos_ease = 2
+pos_trans_type = 4
+rot_ease = 2
+rot_trans_type = 4
+
+[sub_resource type="Resource" id="Resource_y5fy6"]
+script = ExtResource("2_gt8kj")
+pos = Vector3(4.04856, -1.16828, -3.68183)
+quat = Quaternion(0.819863, -0.13088, -0.403735, -0.384308)
+time = 1.4
+pos_ease = 1
+pos_trans_type = 3
+rot_ease = 1
+rot_trans_type = 3
+
+[sub_resource type="Resource" id="Resource_4fx1g"]
+script = ExtResource("2_3cv72")
+neutral = SubResource("Resource_0126c")
+windup = SubResource("Resource_y5fy6")
+attack = SubResource("Resource_0t5u7")
+
+[sub_resource type="Resource" id="Resource_e04b7"]
+script = ExtResource("2_gt8kj")
+pos = Vector3(1.76814, 0.106477, -8.07361)
+quat = Quaternion(0.674951, 0.548758, -0.409249, 0.275356)
+time = 0.25
+pos_ease = 2
+pos_trans_type = 10
+rot_ease = 0
+rot_trans_type = 0
+
+[sub_resource type="Resource" id="Resource_cia30"]
+script = ExtResource("2_gt8kj")
+pos = Vector3(2.16587, 0.636461, -2.79043)
+quat = Quaternion(0.655078, 0.717316, -0.204005, 0.121294)
+time = 1.2
+pos_ease = 2
+pos_trans_type = 5
+rot_ease = 1
+rot_trans_type = 5
+
+[sub_resource type="Resource" id="Resource_8hie6"]
+script = ExtResource("2_gt8kj")
+pos = Vector3(2.13636, -1.99034, -4.38)
+quat = Quaternion(0.527618, 0.605172, -0.416296, 0.426713)
+time = 1.4
+pos_ease = 1
+pos_trans_type = 3
+rot_ease = 1
+rot_trans_type = 10
+
+[sub_resource type="Resource" id="Resource_imrb2"]
+script = ExtResource("2_3cv72")
+neutral = SubResource("Resource_cia30")
+windup = SubResource("Resource_8hie6")
+attack = SubResource("Resource_e04b7")
+
+[sub_resource type="Resource" id="Resource_313ph"]
+script = ExtResource("2_gt8kj")
+pos = Vector3(0.299642, -2.90621, -4.76534)
+quat = Quaternion(0.470918, -0.494666, 0.519019, 0.513965)
+time = 0.4
+pos_ease = 2
+pos_trans_type = 10
+rot_ease = 2
+rot_trans_type = 10
+
+[sub_resource type="Resource" id="Resource_r44fm"]
+script = ExtResource("2_gt8kj")
+pos = Vector3(2.31583, -0.486459, -3.26066)
+quat = Quaternion(-0.675177, 0.707419, -0.127434, -0.165695)
+time = 1.5
+pos_ease = 2
+pos_trans_type = 1
+rot_ease = 2
+rot_trans_type = 1
+
+[sub_resource type="Resource" id="Resource_ms62j"]
+script = ExtResource("2_gt8kj")
+pos = Vector3(0.944737, 3.3958, -3.57919)
+quat = Quaternion(0.705787, -0.692498, 0.142146, 0.0458865)
+time = 1.4
+pos_ease = 1
+pos_trans_type = 4
+rot_ease = 1
+rot_trans_type = 2
+
+[sub_resource type="Resource" id="Resource_s4fss"]
+script = ExtResource("2_3cv72")
+neutral = SubResource("Resource_r44fm")
+windup = SubResource("Resource_ms62j")
+attack = SubResource("Resource_313ph")
+
+[sub_resource type="Resource" id="Resource_bng5b"]
+script = ExtResource("2_gt8kj")
+pos = Vector3(-4.71648, -0.0526855, -5.20976)
+quat = Quaternion(0.93431, -0.15515, 0.201027, 0.250163)
+time = 0.4
+pos_ease = 2
+pos_trans_type = 10
+rot_ease = 2
+rot_trans_type = 10
+
+[sub_resource type="Resource" id="Resource_hx50j"]
+script = ExtResource("2_gt8kj")
+pos = Vector3(2.31583, -0.486459, -3.26066)
+quat = Quaternion(-0.675177, 0.707419, -0.127434, -0.165695)
+time = 1.2
+pos_ease = 2
+pos_trans_type = 1
+rot_ease = 2
+rot_trans_type = 1
+
+[sub_resource type="Resource" id="Resource_hwyti"]
+script = ExtResource("2_gt8kj")
+pos = Vector3(3.63258, -1.89194, -1.32385)
+quat = Quaternion(0.218227, -0.0760013, 0.970072, 0.0745749)
+time = 2.0
+pos_ease = 2
+pos_trans_type = 4
+rot_ease = 2
+rot_trans_type = 4
+
+[sub_resource type="Resource" id="Resource_q2abp"]
+script = ExtResource("2_3cv72")
+neutral = SubResource("Resource_hx50j")
+windup = SubResource("Resource_hwyti")
+attack = SubResource("Resource_bng5b")
 
 [node name="Weapon" type="Node3D"]
 script = ExtResource("1_q4onj")
+debug = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_2dhnq")
+visible = false
+mesh = ExtResource("5_sxq6e")
 skeleton = NodePath("../..")
 
-[node name="1" type="Node3D" parent="."]
-visible = false
+[node name="Templates" type="Node3D" parent="."]
 
-[node name="Neutral" type="Node3D" parent="1"]
+[node name="backsword-swing" type="Node3D" parent="Templates"]
+script = ExtResource("6_cv7ln")
+mesh = ExtResource("1_2dhnq")
+weapon_animation = SubResource("Resource_4fx1g")
+
+[node name="Neutral" type="Node3D" parent="Templates/backsword-swing"]
 transform = Transform3D(-0.112322, 0.989285, -0.0932666, 0.890307, 0.0585099, -0.451586, -0.441291, -0.133759, -0.887339, 2.16587, 0.636461, -2.79043)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="1/Neutral"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Templates/backsword-swing/Neutral"]
 mesh = ExtResource("1_2dhnq")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="Readied" type="Node3D" parent="1"]
-transform = Transform3D(0.639737, -0.524925, -0.561419, 0.0957093, -0.670356, 0.735841, -0.762612, -0.524478, -0.378611, 4.04856, -1.16828, -3.68183)
+[node name="Windup" type="Node3D" parent="Templates/backsword-swing"]
+transform = Transform3D(0.547025, -0.0530055, -0.835437, 0.118215, -0.983101, 0.139778, -0.828728, -0.175224, -0.531514, 4.04856, -1.16828, -3.68183)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="1/Readied"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Templates/backsword-swing/Windup"]
 mesh = ExtResource("1_2dhnq")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="Swing" type="Node3D" parent="1"]
+[node name="Attack" type="Node3D" parent="Templates/backsword-swing"]
 transform = Transform3D(-0.835596, -0.416346, -0.358378, 0.444448, -0.895794, 0.00441201, -0.32287, -0.155594, 0.933566, -4.54846, -1.51269, -3.66547)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="1/Swing"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Templates/backsword-swing/Attack"]
 mesh = ExtResource("1_2dhnq")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="2" type="Node3D" parent="."]
-
-[node name="Neutral" type="Node3D" parent="2"]
-transform = Transform3D(-0.112322, 0.989285, -0.0932666, 0.890307, 0.0585099, -0.451586, -0.441291, -0.133759, -0.887339, 1.12922, 0.00699961, -2.79043)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="2/Neutral"]
+[node name="backsword-thrust" type="Node3D" parent="Templates"]
+visible = false
+script = ExtResource("6_cv7ln")
 mesh = ExtResource("1_2dhnq")
-skeleton = NodePath("../../..")
+weapon_animation = SubResource("Resource_imrb2")
 
-[node name="Readied" type="Node3D" parent="2"]
-transform = Transform3D(-0.0177001, 0.99317, 0.115333, 0.37813, 0.113434, -0.918777, -0.925584, 0.0273484, -0.377555, 1.19927, -1.93564, -3.2141)
+[node name="Neutral" type="Node3D" parent="Templates/backsword-thrust"]
+transform = Transform3D(-0.112322, 0.989285, -0.0932666, 0.890307, 0.0585099, -0.451586, -0.441291, -0.133759, -0.887339, 2.16587, 0.636461, -2.79043)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="2/Readied"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Templates/backsword-thrust/Neutral"]
 mesh = ExtResource("1_2dhnq")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="Swing" type="Node3D" parent="2"]
-transform = Transform3D(0.0511349, 0.994092, -0.0957374, 0.510282, -0.108412, -0.853147, -0.858486, -0.00522706, -0.512811, 1.21876, -0.466545, -5.70559)
+[node name="Windup" type="Node3D" parent="Templates/backsword-thrust"]
+transform = Transform3D(-0.0790707, 0.993877, 0.07718, 0.283322, 0.0966344, -0.954144, -0.95576, -0.0535782, -0.289227, 2.13636, -1.99034, -4.38)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="2/Swing"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Templates/backsword-thrust/Windup"]
 mesh = ExtResource("1_2dhnq")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
+
+[node name="Attack" type="Node3D" parent="Templates/backsword-thrust"]
+transform = Transform3D(0.0627597, 0.966148, -0.25024, 0.515391, -0.246088, -0.820861, -0.854654, -0.0774543, -0.513388, 1.76814, 0.106477, -8.07361)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Templates/backsword-thrust/Attack"]
+mesh = ExtResource("1_2dhnq")
+skeleton = NodePath("../../../..")
+
+[node name="jawbone-smash" type="Node3D" parent="Templates"]
+visible = false
+script = ExtResource("6_cv7ln")
+mesh = ExtResource("5_sxq6e")
+weapon_animation = SubResource("Resource_s4fss")
+
+[node name="Neutral" type="Node3D" parent="Templates/jawbone-smash"]
+transform = Transform3D(-0.0333625, -0.997496, -0.0623512, -0.913036, 0.0557936, -0.404045, 0.406512, 0.043449, -0.912611, 2.31583, -0.486459, -3.26066)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Templates/jawbone-smash/Neutral"]
+mesh = ExtResource("5_sxq6e")
+skeleton = NodePath("../../../..")
+
+[node name="Windup" type="Node3D" parent="Templates/jawbone-smash"]
+transform = Transform3D(0.000482809, -0.990558, 0.137097, -0.964467, -0.0366829, -0.261643, 0.264203, -0.1321, -0.955378, 0.944737, 3.3958, -3.57919)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Templates/jawbone-smash/Windup"]
+mesh = ExtResource("5_sxq6e")
+skeleton = NodePath("../../../..")
+
+[node name="Attack" type="Node3D" parent="Templates/jawbone-smash"]
+transform = Transform3D(-0.0281516, -0.999411, -0.0196505, 0.0676213, 0.0177095, -0.997554, 0.997314, -0.0294114, 0.0670825, 0.299642, -2.90621, -4.76534)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Templates/jawbone-smash/Attack"]
+mesh = ExtResource("5_sxq6e")
+skeleton = NodePath("../../../..")
+
+[node name="jawbone-stab" type="Node3D" parent="Templates"]
+visible = false
+script = ExtResource("6_cv7ln")
+mesh = ExtResource("5_sxq6e")
+weapon_animation = SubResource("Resource_q2abp")
+
+[node name="Neutral" type="Node3D" parent="Templates/jawbone-stab"]
+transform = Transform3D(-0.0333625, -0.997496, -0.0623512, -0.913036, 0.0557936, -0.404045, 0.406512, 0.043449, -0.912611, 2.31583, -0.486459, -3.26066)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Templates/jawbone-stab/Neutral"]
+transform = Transform3D(1, 1.86265e-09, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+mesh = ExtResource("5_sxq6e")
+skeleton = NodePath("../../../..")
+
+[node name="Windup" type="Node3D" parent="Templates/jawbone-stab"]
+transform = Transform3D(-0.893632, -0.177857, 0.412056, 0.111515, -0.977325, -0.180003, 0.434728, -0.114905, 0.893201, 3.63258, -1.89194, -1.32385)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Templates/jawbone-stab/Windup"]
+transform = Transform3D(0.999291, 0.00988536, 0.0363738, -0.0120762, 0.998093, 0.0605524, -0.0357064, -0.0609472, 0.997504, -0.622594, 0.407625, -0.648317)
+mesh = ExtResource("5_sxq6e")
+skeleton = NodePath("../../../..")
+
+[node name="Attack" type="Node3D" parent="Templates/jawbone-stab"]
+transform = Transform3D(0.871033, -0.390495, 0.298016, -0.189337, -0.826694, -0.529838, 0.453268, 0.405082, -0.794014, -4.71648, -0.0526855, -5.20976)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Templates/jawbone-stab/Attack"]
+mesh = ExtResource("5_sxq6e")
+skeleton = NodePath("../../../..")
+
+[node name="TemplateIndexLabel" type="Label" parent="."]
+offset_right = 201.0
+offset_bottom = 88.0
+text = "0"
+
+[node name="BottomBar" type="Panel" parent="."]
+anchors_preset = -1
+anchor_top = 0.875
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true

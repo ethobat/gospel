@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://dlvsm8p77aven"]
+
+[ext_resource type="Resource" uid="uid://doqhjt4lvitua" path="res://Resources/WeaponAnimations/jawbone-smash.tres" id="1_1bjkv"]
+[ext_resource type="Script" path="res://Scripts/attack.gd" id="2_lxh0l"]
+
+[resource]
+script = ExtResource("2_lxh0l")
+name = "jawbone_smash"
+display_name = "smash"
+fp_weapon_animation = ExtResource("1_1bjkv")
+trauma_category = 0
+base_damage = 1.0
+npc_windup_time = 0.3

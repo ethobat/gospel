@@ -17,6 +17,7 @@ Button/styles/pressed = ExtResource("2_t485t")
 Label/fonts/font = ExtResource("5_f7g4k")
 LineEdit/fonts/font = ExtResource("1_8xnb4")
 Panel/styles/panel = ExtResource("1_0sedj")
+ProgressBar/font_sizes/font_size = 8
 ProgressBar/fonts/font = ExtResource("1_8xnb4")
 TabBar/fonts/font = ExtResource("1_8xnb4")
 TextEdit/font_sizes/font_size = 8

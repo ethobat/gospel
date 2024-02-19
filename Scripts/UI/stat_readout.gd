@@ -2,7 +2,7 @@ extends Panel
 
 @export var chr: Character
 @export var stat_name: String
-@export var tooltip: String
+@export_multiline var tooltip: String
 
 @onready var stat_name_label: Label = $StatNameLabel
 @onready var value_label: Label = $ValueLabel
@@ -13,8 +13,6 @@ func _ready():
 
 func update_value_label():
 	value_label.text = chr.get_stat(stat_name)
-
-
 
 func _on_mouse_entered():
 	%Cursor.show_tooltip(tooltip)
