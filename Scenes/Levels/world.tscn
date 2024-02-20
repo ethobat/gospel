@@ -66,11 +66,11 @@ font_size = 12
 shadow_size = 8
 shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Gradient" id="Gradient_5ay1n"]
+[sub_resource type="Gradient" id="Gradient_vc1en"]
 offsets = PackedFloat32Array(0, 0.274841, 0.661734, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 1, 1, 0.635294, 0, 0.2, 1, 0.815686, 0.447059, 0, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_mxubt"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_asn5a"]
 noise_type = 3
 frequency = 0.05
 fractal_type = 3
@@ -81,8 +81,8 @@ width = 48
 height = 48
 in_3d_space = true
 generate_mipmaps = false
-color_ramp = SubResource("Gradient_5ay1n")
-noise = SubResource("FastNoiseLite_mxubt")
+color_ramp = SubResource("Gradient_vc1en")
+noise = SubResource("FastNoiseLite_asn5a")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhkaf"]
 size = Vector3(76.9887, 1, 78.9904)
