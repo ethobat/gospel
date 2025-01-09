@@ -253,7 +253,7 @@ script = ExtResource("4_62uee")
 stat_name = "locomotion"
 value = 0.2
 
-[sub_resource type="Resource" id="Resource_ffl7k"]
+[sub_resource type="Resource" id="Resource_ql8wc"]
 resource_local_to_scene = true
 script = ExtResource("3_8u6yh")
 name = "body"
@@ -468,7 +468,7 @@ bind/64/pose = Transform3D(-95.2284, -30.45, -2.07854, 5.64993, -24.2799, 96.843
 script = ExtResource("3_v8so0")
 
 [node name="Character" parent="." instance=ExtResource("2_3gvof")]
-anatomy = SubResource("Resource_ffl7k")
+anatomy = SubResource("Resource_ql8wc")
 
 [node name="bloodeagle" type="Node3D" parent="Character"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)

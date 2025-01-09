@@ -1,3 +1,0 @@
-The blood eagles are a religiously-sanctioned monastic order that also serve as a mercenary caste, providing violence-as-a-service to the moneyed devout. They form a unique religious sect that is largely isolated from the rest of society.
-
-Inductees into the order receive a specific set of surgical transfigurations, including [[tarsal reconfiguration]], full [[costafalcic process]], [[orbital excavation]] and dual [[brachial hypertrophization]]. These modifications are performed by members of the sect as a ritual lasting three weeks, and transform inductees into natural predators capable of using their entire body as a weapon.

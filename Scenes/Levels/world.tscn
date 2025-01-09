@@ -1,9 +1,11 @@
-[gd_scene load_steps=42 format=3 uid="uid://dugli6jyw2uir"]
+[gd_scene load_steps=78 format=3 uid="uid://dugli6jyw2uir"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_ipkmv"]
+[ext_resource type="Script" path="res://Scripts/anatomy.gd" id="3_ccmer"]
 [ext_resource type="PackedScene" uid="uid://17uiya8ydlis" path="res://Scenes/character.tscn" id="3_nq3cs"]
-[ext_resource type="Resource" uid="uid://83dnlswf31bf" path="res://Resources/Anatomy/human_anatomy.tres" id="4_mng2d"]
+[ext_resource type="Script" path="res://Scripts/stat_record.gd" id="4_ni6rk"]
 [ext_resource type="Resource" uid="uid://ubi0r2cqqehd" path="res://Resources/Items/honey.tres" id="5_pa7y8"]
+[ext_resource type="Resource" uid="uid://bdj586h27ic2l" path="res://Resources/Action/backsword_swing.tres" id="5_xenpa"]
 [ext_resource type="Script" path="res://Scripts/Item/item_stack.gd" id="6_i1u61"]
 [ext_resource type="Resource" uid="uid://b45bqw8snpom" path="res://Resources/Items/seafood.tres" id="6_id6q5"]
 [ext_resource type="Script" path="res://Scripts/Item/inventory.gd" id="7_63bj2"]
@@ -29,7 +31,258 @@
 [ext_resource type="Script" path="res://Scripts/cursor.gd" id="26_4hjt8"]
 [ext_resource type="PackedScene" uid="uid://datqf7a1201rr" path="res://Scenes/UI/item_slot.tscn" id="27_ccdv1"]
 [ext_resource type="PackedScene" uid="uid://dd1ixusqmh7u7" path="res://Scenes/UI/right_click_menu.tscn" id="28_qit0p"]
-[ext_resource type="PackedScene" uid="uid://cdsv6uoit80pq" path="res://Scenes/Levels/demo_interior.tscn" id="31_7spxv"]
+[ext_resource type="PackedScene" uid="uid://bavbdkqqdvgc1" path="res://Scenes/Levels/visgalburg.tscn" id="30_gvg3s"]
+[ext_resource type="PackedScene" uid="uid://d331lm654te07" path="res://Scenes/prophet_trigger.tscn" id="31_xrphj"]
+
+[sub_resource type="Resource" id="Resource_jsw8a"]
+script = ExtResource("4_ni6rk")
+stat_name = "art"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_cu8qx"]
+resource_name = "left hand"
+script = ExtResource("3_ccmer")
+name = "left hand"
+hp = 380.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("4_ni6rk")]([SubResource("Resource_jsw8a")])
+
+[sub_resource type="Resource" id="Resource_6bqc7"]
+script = ExtResource("4_ni6rk")
+stat_name = "muscle"
+value = 0.0
+
+[sub_resource type="Resource" id="Resource_qnkvh"]
+resource_name = "left arm"
+script = ExtResource("3_ccmer")
+name = "left arm"
+hp = 6500.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([SubResource("Resource_cu8qx")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("4_ni6rk")]([SubResource("Resource_6bqc7")])
+
+[sub_resource type="Resource" id="Resource_vou8q"]
+script = ExtResource("4_ni6rk")
+stat_name = "art"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_7tah3"]
+resource_name = "right hand"
+script = ExtResource("3_ccmer")
+name = "right hand"
+hp = 380.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("4_ni6rk")]([SubResource("Resource_vou8q")])
+
+[sub_resource type="Resource" id="Resource_1k61k"]
+script = ExtResource("4_ni6rk")
+stat_name = "muscle"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_oka0u"]
+resource_name = "right arm"
+script = ExtResource("3_ccmer")
+name = "right arm"
+hp = 6500.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([SubResource("Resource_7tah3")])
+actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("5_xenpa")])
+stat_mults = Array[ExtResource("4_ni6rk")]([SubResource("Resource_1k61k")])
+
+[sub_resource type="Resource" id="Resource_qitj7"]
+script = ExtResource("4_ni6rk")
+stat_name = "locomotion"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_4qcne"]
+script = ExtResource("4_ni6rk")
+stat_name = "muscle"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_xwuvo"]
+resource_name = "left leg"
+script = ExtResource("3_ccmer")
+name = "left leg"
+hp = 7.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("4_ni6rk")]([SubResource("Resource_qitj7"), SubResource("Resource_4qcne")])
+
+[sub_resource type="Resource" id="Resource_rclr8"]
+script = ExtResource("4_ni6rk")
+stat_name = "locomotion"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_oatiy"]
+script = ExtResource("4_ni6rk")
+stat_name = "muscle"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_bp7yd"]
+resource_name = "right leg"
+script = ExtResource("3_ccmer")
+name = "right leg"
+hp = 7.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("4_ni6rk")]([SubResource("Resource_rclr8"), SubResource("Resource_oatiy")])
+
+[sub_resource type="Resource" id="Resource_he0en"]
+script = ExtResource("4_ni6rk")
+stat_name = "consciousness"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_hpqw8"]
+resource_name = "brain"
+script = ExtResource("3_ccmer")
+name = "brain"
+hp = 4.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("4_ni6rk")]([SubResource("Resource_he0en")])
+
+[sub_resource type="Resource" id="Resource_x8dq4"]
+resource_name = "head"
+script = ExtResource("3_ccmer")
+name = "head"
+hp = 6.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([SubResource("Resource_hpqw8")])
+actions = Array[Resource("res://Scripts/action.gd")]([ExtResource("5_xenpa")])
+stat_mults = Array[ExtResource("4_ni6rk")]([])
+
+[sub_resource type="Resource" id="Resource_8l7t5"]
+script = ExtResource("4_ni6rk")
+stat_name = "respiration"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_kohos"]
+resource_name = "left lung"
+script = ExtResource("3_ccmer")
+name = "left lung"
+hp = 5.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("4_ni6rk")]([SubResource("Resource_8l7t5")])
+
+[sub_resource type="Resource" id="Resource_ag2os"]
+script = ExtResource("4_ni6rk")
+stat_name = "respiration"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_18ss2"]
+resource_name = "right lung"
+script = ExtResource("3_ccmer")
+name = "right lung"
+hp = 5.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("4_ni6rk")]([SubResource("Resource_ag2os")])
+
+[sub_resource type="Resource" id="Resource_wa8pe"]
+script = ExtResource("4_ni6rk")
+stat_name = "circulation"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_0vg4s"]
+resource_name = "heart"
+script = ExtResource("3_ccmer")
+name = "heart"
+hp = 2.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("4_ni6rk")]([SubResource("Resource_wa8pe")])
+
+[sub_resource type="Resource" id="Resource_jsagj"]
+script = ExtResource("4_ni6rk")
+stat_name = "muscle"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_j22er"]
+resource_name = "thorax"
+script = ExtResource("3_ccmer")
+name = "thorax"
+hp = 0.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([SubResource("Resource_kohos"), SubResource("Resource_18ss2"), SubResource("Resource_0vg4s")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("4_ni6rk")]([SubResource("Resource_jsagj")])
+
+[sub_resource type="Resource" id="Resource_1csq0"]
+script = ExtResource("4_ni6rk")
+stat_name = "metabolism"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_t2mvp"]
+resource_name = "stomach"
+script = ExtResource("3_ccmer")
+name = "stomach"
+hp = 5.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("4_ni6rk")]([SubResource("Resource_1csq0")])
+
+[sub_resource type="Resource" id="Resource_lsguy"]
+script = ExtResource("4_ni6rk")
+stat_name = "metabolism"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_ane1c"]
+resource_name = "small intestine"
+script = ExtResource("3_ccmer")
+name = "small intestine"
+hp = 6.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("4_ni6rk")]([SubResource("Resource_lsguy")])
+
+[sub_resource type="Resource" id="Resource_688qh"]
+script = ExtResource("4_ni6rk")
+stat_name = "metabolism"
+value = 0.5
+
+[sub_resource type="Resource" id="Resource_qb7r8"]
+resource_name = "large intestine"
+script = ExtResource("3_ccmer")
+name = "large intestine"
+hp = 6.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("4_ni6rk")]([SubResource("Resource_688qh")])
+
+[sub_resource type="Resource" id="Resource_1kfde"]
+resource_name = "abdomen"
+script = ExtResource("3_ccmer")
+name = "abdomen"
+hp = 0.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([SubResource("Resource_t2mvp"), SubResource("Resource_ane1c"), SubResource("Resource_qb7r8")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("4_ni6rk")]([])
+
+[sub_resource type="Resource" id="Resource_lcg7a"]
+resource_local_to_scene = true
+script = ExtResource("3_ccmer")
+name = "body"
+hp = 0.0
+blood = 0.0
+children = Array[ExtResource("3_ccmer")]([SubResource("Resource_qnkvh"), SubResource("Resource_oka0u"), SubResource("Resource_xwuvo"), SubResource("Resource_bp7yd"), SubResource("Resource_x8dq4"), SubResource("Resource_j22er"), SubResource("Resource_1kfde")])
+actions = Array[Resource("res://Scripts/action.gd")]([])
+stat_mults = Array[ExtResource("4_ni6rk")]([])
 
 [sub_resource type="Resource" id="Resource_g76yr"]
 script = ExtResource("6_i1u61")
@@ -91,14 +344,14 @@ size = Vector3(76.9887, 1, 78.9904)
 
 [node name="Player" type="Node3D" parent="." groups=["player"]]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
 script = ExtResource("2_ipkmv")
 cursor_hand_hotspot = Vector2(20, 32)
 
 [node name="Character" parent="Player" instance=ExtResource("3_nq3cs")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 character_name = "player"
-anatomy = ExtResource("4_mng2d")
+anatomy = SubResource("Resource_lcg7a")
 inventory = SubResource("Resource_1oy76")
 move_stamina_cost = 0.2
 turn_stamina_cost = 0.08
@@ -153,7 +406,7 @@ script = ExtResource("12_8agba")
 fade_in_mult = 0.3
 write_in_mult = 30.0
 period_pause = 10.0
-hold_time = 5.0
+hold_time = 2.0
 write_out_mult = 100.0
 fade_out_mult = 0.3
 
@@ -473,7 +726,7 @@ grow_vertical = 1
 [node name="Level" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
 
-[node name="DemoInterior" parent="Level" instance=ExtResource("31_7spxv")]
+[node name="Visgalburg" parent="Level" instance=ExtResource("30_gvg3s")]
 
 [node name="EditorSun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.88271, 0)
@@ -486,6 +739,10 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8214, 0, -8.86081)
 shape = SubResource("BoxShape3D_bhkaf")
+
+[node name="ProphetTrigger" parent="." instance=ExtResource("31_xrphj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3)
+message = "WAKE, thou unkempt, moribund beast. Burn the rot off thy joints and return to life. God is not done with thee."
 
 [connection signal="mouse_entered" from="CanvasLayer/UI/BottomBar/StatDisplay/Meters/BloodMeter" to="CanvasLayer/UI" method="_on_blood_meter_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/UI/BottomBar/StatDisplay/Meters/BloodMeter" to="CanvasLayer/UI" method="_on_blood_meter_mouse_exited"]

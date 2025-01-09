@@ -1,6 +1,6 @@
 extends Area3D
 
-@export var message: String
+@export_multiline var message: String
 
 var triggered: bool = false
 

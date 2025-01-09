@@ -1,1 +1,0 @@
-An airborne angel that rests in the sky, watching the world from above. Sahaquiel can often be seen at night when the clouds part.

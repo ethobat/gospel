@@ -65,7 +65,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_roohj")
 volume_db = -10.0
-pitch_scale = 0.82
+pitch_scale = 0.9
 autoplay = true
 
 [node name="CameraPivot" type="Node3D" parent="."]
