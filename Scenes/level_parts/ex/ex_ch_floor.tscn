@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://mmf5ov0j1d2y"]
+
+[ext_resource type="ArrayMesh" uid="uid://b2y0usqjdya0l" path="res://Resources/3D/meshes/level_parts/level_parts_ncl_ex_ch_floor.res" id="1_xting"]
+
+[node name="ex_ch_floor" type="MeshInstance3D"]
+mesh = ExtResource("1_xting")

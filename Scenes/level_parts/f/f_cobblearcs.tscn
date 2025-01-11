@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf5ytkld3qwqv"]
+
+[ext_resource type="ArrayMesh" uid="uid://dpba8gd2wisso" path="res://Resources/3D/meshes/level_parts/level_parts_ncl_f_cobblearcs.res" id="1_q6itc"]
+
+[node name="f_cobblearcs" type="MeshInstance3D"]
+mesh = ExtResource("1_q6itc")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ospeb35wfsh7"]
+[gd_scene load_steps=26 format=3 uid="uid://ospeb35wfsh7"]
 
 [ext_resource type="ArrayMesh" uid="uid://q40agp0qh2g" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_straight.res" id="1_20324"]
 [ext_resource type="PackedScene" uid="uid://2l52wsg8csom" path="res://Scenes/block_collider.tscn" id="2_2ggih"]
@@ -24,6 +24,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dt3rp732be1v1" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_narrowroof.res" id="22_w1u0q"]
 [ext_resource type="ArrayMesh" uid="uid://doutjws108chh" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_narrowroofend.res" id="23_be17d"]
 [ext_resource type="ArrayMesh" uid="uid://lcnb627ewkbn" path="res://Resources/3D/meshes/tileset/tileset-c85d9cfdd407b99abc18dddde64539ad_b1_narrowroofsingle.res" id="24_uwbw8"]
+[ext_resource type="ArrayMesh" uid="uid://bhsl4up15bptx" path="res://Resources/3D/meshes/tileset/tileset_b1_highroof_outcorner.res" id="25_3w030"]
 
 [node name="tileset" type="Node3D"]
 
@@ -151,4 +152,9 @@ skeleton = NodePath("")
 [node name="b1_narrowroofsingle" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 mesh = ExtResource("24_uwbw8")
+skeleton = NodePath("")
+
+[node name="b1_highroof_outcorner" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("25_3w030")
 skeleton = NodePath("")

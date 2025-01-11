@@ -1,31 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://car83ybiwjo46"]
+[gd_scene load_steps=4 format=3 uid="uid://car83ybiwjo46"]
 
 [ext_resource type="MeshLibrary" uid="uid://uyufxbitkds" path="res://Resources/3D/tileset.tres" id="1_iq2wd"]
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_tvrf7"]
-[ext_resource type="Texture2D" uid="uid://cwp7ivhpwmknn" path="res://Resources/Environment/sky-storm.tres" id="2_v0mu0"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1nxwj"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0.54902, 0.317647, 0.117647, 1)
-sky_curve = 0.075
-sky_cover = ExtResource("2_v0mu0")
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0, 0, 0, 1)
-sun_angle_max = 0.0
-use_debanding = false
-
-[sub_resource type="Sky" id="Sky_bvirw"]
-sky_material = SubResource("ProceduralSkyMaterial_1nxwj")
-
-[sub_resource type="Environment" id="Environment_axxpx"]
-background_mode = 2
-sky = SubResource("Sky_bvirw")
-ambient_light_source = 2
-ambient_light_color = Color(1, 0.913725, 0.780392, 1)
-ambient_light_energy = 0.25
-fog_light_color = Color(0.160784, 0.219608, 0.337255, 1)
-fog_sky_affect = 0.176
-adjustment_enabled = true
+[ext_resource type="Environment" uid="uid://bkqm41klfcmp8" path="res://Resources/Environment/visgalburg.tres" id="3_fq4da"]
 
 [node name="Hachrecht" type="Node3D"]
 script = ExtResource("1_tvrf7")
@@ -49,4 +26,4 @@ data = {
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_axxpx")
+environment = ExtResource("3_fq4da")

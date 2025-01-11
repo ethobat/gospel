@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://baurq1dv3lchv"]
+
+[ext_resource type="ArrayMesh" uid="uid://dodufwqfsdc73" path="res://Resources/3D/meshes/level_parts/level_parts_ncl_p_window.res" id="1_l5fep"]
+
+[node name="p_window" type="MeshInstance3D"]
+mesh = ExtResource("1_l5fep")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1v6ypyrm6sk7"]
+
+[ext_resource type="ArrayMesh" uid="uid://cgfdwskpbyg21" path="res://Resources/3D/meshes/level_parts/level_parts_wal_ex_hr_floor_straight.res" id="1_arya0"]
+[ext_resource type="PackedScene" uid="uid://cwijnv7dsfs01" path="res://Scenes/level_parts/collision_shapes/wal.tscn" id="2_ao1b6"]
+
+[node name="ex_hr_floor_straight" type="MeshInstance3D"]
+mesh = ExtResource("1_arya0")
+
+[node name="wal" type="StaticBody3D" parent="." instance=ExtResource("2_ao1b6")]

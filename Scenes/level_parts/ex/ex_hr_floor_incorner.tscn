@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3yd2cpe3qk71"]
+
+[ext_resource type="ArrayMesh" uid="uid://bqex23e5f3ww0" path="res://Resources/3D/meshes/level_parts/level_parts_ncl_ex_hr_floor_incorner.res" id="1_bfhfs"]
+
+[node name="ex_hr_floor_incorner" type="MeshInstance3D"]
+mesh = ExtResource("1_bfhfs")

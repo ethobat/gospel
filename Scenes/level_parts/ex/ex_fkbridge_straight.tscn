@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bce4uitnt1tgp"]
+
+[ext_resource type="ArrayMesh" uid="uid://dfvog3ae10ttl" path="res://Resources/3D/meshes/level_parts/level_parts_str_ex_fkbridge_straight.res" id="1_o0rbe"]
+[ext_resource type="PackedScene" uid="uid://ddwbfg3voxxxh" path="res://Scenes/level_parts/collision_shapes/str.tscn" id="2_twg2t"]
+
+[node name="ex_fkbridge_straight" type="MeshInstance3D"]
+mesh = ExtResource("1_o0rbe")
+
+[node name="str" type="StaticBody3D" parent="." instance=ExtResource("2_twg2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

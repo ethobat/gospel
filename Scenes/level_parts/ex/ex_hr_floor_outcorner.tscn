@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmf2yxdlplmv8"]
+
+[ext_resource type="ArrayMesh" uid="uid://c2k20fuvda704" path="res://Resources/3D/meshes/level_parts/level_parts_crn_ex_hr_floor_outcorner.res" id="1_vde0l"]
+[ext_resource type="PackedScene" uid="uid://c6gh570g0iv5n" path="res://Scenes/level_parts/collision_shapes/crn.tscn" id="2_fvsqj"]
+
+[node name="ex_hr_floor_outcorner" type="MeshInstance3D"]
+mesh = ExtResource("1_vde0l")
+
+[node name="crn" type="StaticBody3D" parent="." instance=ExtResource("2_fvsqj")]

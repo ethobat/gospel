@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4clyyw16cfq3"]
+
+[ext_resource type="ArrayMesh" uid="uid://biqyjkmls68le" path="res://Resources/3D/meshes/level_parts/level_parts_str_in_ch_str.res" id="1_y6vim"]
+[ext_resource type="PackedScene" uid="uid://ddwbfg3voxxxh" path="res://Scenes/level_parts/collision_shapes/str.tscn" id="2_5h1cl"]
+
+[node name="in_ch_str" type="MeshInstance3D"]
+mesh = ExtResource("1_y6vim")
+
+[node name="str" type="StaticBody3D" parent="." instance=ExtResource("2_5h1cl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3cmr102p61qi"]
+
+[ext_resource type="ArrayMesh" uid="uid://cdk0vnibhadbt" path="res://Resources/3D/meshes/level_parts/level_parts_box_ex_b1_outcorner.res" id="1_nx3p6"]
+[ext_resource type="PackedScene" uid="uid://0hy05ie5r47" path="res://Scenes/level_parts/collision_shapes/box.tscn" id="2_xy75c"]
+
+[node name="ex_b1_outcorner" type="MeshInstance3D"]
+mesh = ExtResource("1_nx3p6")
+
+[node name="box" type="StaticBody3D" parent="." instance=ExtResource("2_xy75c")]

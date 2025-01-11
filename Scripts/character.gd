@@ -106,7 +106,7 @@ func get_move_speed():
 	return get_stat("locomotion") * 2.0
 
 func get_turn_speed():
-	return get_stat("locomotion") * 3.0
+	return get_stat("locomotion") * 4.0
 	
 func try_grid_move(raycast : RayCast3D):
 	if raycast.is_colliding():

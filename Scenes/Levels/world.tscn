@@ -31,8 +31,8 @@
 [ext_resource type="Script" path="res://Scripts/cursor.gd" id="26_4hjt8"]
 [ext_resource type="PackedScene" uid="uid://datqf7a1201rr" path="res://Scenes/UI/item_slot.tscn" id="27_ccdv1"]
 [ext_resource type="PackedScene" uid="uid://dd1ixusqmh7u7" path="res://Scenes/UI/right_click_menu.tscn" id="28_qit0p"]
-[ext_resource type="PackedScene" uid="uid://bavbdkqqdvgc1" path="res://Scenes/Levels/visgalburg.tscn" id="30_gvg3s"]
 [ext_resource type="PackedScene" uid="uid://d331lm654te07" path="res://Scenes/prophet_trigger.tscn" id="31_xrphj"]
+[ext_resource type="PackedScene" uid="uid://u35kwqwd8pas" path="res://Scenes/Levels/new_demo_exterior.tscn" id="32_f2luy"]
 
 [sub_resource type="Resource" id="Resource_jsw8a"]
 script = ExtResource("4_ni6rk")
@@ -274,7 +274,7 @@ children = Array[ExtResource("3_ccmer")]([SubResource("Resource_t2mvp"), SubReso
 actions = Array[Resource("res://Scripts/action.gd")]([])
 stat_mults = Array[ExtResource("4_ni6rk")]([])
 
-[sub_resource type="Resource" id="Resource_lcg7a"]
+[sub_resource type="Resource" id="Resource_weyyi"]
 resource_local_to_scene = true
 script = ExtResource("3_ccmer")
 name = "body"
@@ -344,14 +344,14 @@ size = Vector3(76.9887, 1, 78.9904)
 
 [node name="Player" type="Node3D" parent="." groups=["player"]]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
 script = ExtResource("2_ipkmv")
 cursor_hand_hotspot = Vector2(20, 32)
 
 [node name="Character" parent="Player" instance=ExtResource("3_nq3cs")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 character_name = "player"
-anatomy = SubResource("Resource_lcg7a")
+anatomy = SubResource("Resource_weyyi")
 inventory = SubResource("Resource_1oy76")
 move_stamina_cost = 0.2
 turn_stamina_cost = 0.08
@@ -726,7 +726,7 @@ grow_vertical = 1
 [node name="Level" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
 
-[node name="Visgalburg" parent="Level" instance=ExtResource("30_gvg3s")]
+[node name="NewDemoExterior" parent="Level" instance=ExtResource("32_f2luy")]
 
 [node name="EditorSun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.88271, 0)
